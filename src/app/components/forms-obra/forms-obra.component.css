@@ -1,0 +1,60 @@
+#HeaderContainer {
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+}
+
+#LogoFau {
+    width: 30%;
+}
+
+#MenuContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.MenuLine{
+    height: 2px;
+    width: 100%;
+    background-color: black;
+}
+
+#MenuBar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#three_bar_icon {
+    width: 20px;
+}
+
+#MiddleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#FormsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#FieldsContainer {
+    display: flex;
+    flex-wrap:wrap;
+    gap: 30px;
+}
+
+.FillingField {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+input {
+    height: 20px;
+}
