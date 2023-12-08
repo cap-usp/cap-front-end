@@ -16,102 +16,199 @@
                 <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE OBRA</h2>
                 <div id="TitleFormsLine"></div>
             </div>
-            <div id="FieldsContainer">
-                <div id="AutoriaField" class="FillingField">
-                    Autoria <input>
+            <form [formGroup]="obraForm">
+                <div class="form-group">
+                    <label for="Autoria">Autoria</label>
+                    <input type="text" 
+                           placeholder="Digite o autor" 
+                           formControlName="autoria"
+                           required />
                 </div>
-                <div id="EscritorioField" class="FillingField">
-                    Escritorio <input>
+                <div class="form-group">
+                    <label for="Escritorio">Escritório</label>
+                    <input type="text" 
+                           placeholder="Digite o escritorio"
+                           formControlName="escritorio"
+                           required />
                 </div>
-                <div id="NomeOficialField" class="FillingField">
-                    Nome Oficial <input>
+                <div class="form-group">
+                    <label for="NomeOficial">Nome Oficial</label>
+                    <input type="text" 
+                           placeholder="Digite o nome oficial" 
+                           formControlName="nomeOficial"
+                           required />
                 </div>
-                <div id="NomeAlternativoField" class="FillingField">
-                    Nome Alternativo <input>
+                <div class="form-group">
+                    <label for="NomeAlternativo">Nome Alternativo</label>
+                    <input type="text" 
+                           placeholder="Digite o nome alternativo" 
+                           formControlName="nomeAlternativo"/>
                 </div>
-                <div id="EnderecoTipoEnderecoTitulo">
-                    <div id="EnderecoTipoField" class="FillingField">
-                        Endereço Tipo <input>
-                    </div>
-                    <div id="EnderecoTituloField" class="FillingField">
-                        Endereço Titulo <input>
-                    </div>
-                </div> 
-                <div id="LogradouroField" class="FillingField">
-                    Logradouro <input>
+                <div class="form-group">
+                    <label for="TipoEndereco">Endereço Tipo</label>
+                    <input type="text" 
+                           placeholder="Selecione o endereço tipo" 
+                           formControlName="tipoEndereco"
+                           required />
                 </div>
-                <div id="NumeroField" class="FillingField">
-                    Número <input>
+                <div class="form-group">
+                    <label for="EnderecoTitulo">Endereço Títuto</label>
+                    <input type="text" 
+                           placeholder="Digite o endereço título" 
+                           formControlName="enderecoTitulo"
+                           required />
                 </div>
-                <div id="ComplementoField" class="FillingField">
-                    Complemento <input>
+                <div class="form-group">
+                    <label for="Logradouro">Logradouro</label>
+                    <input type="text" 
+                           placeholder="Digite o logradouro" 
+                           formControlName="logradouro"
+                           required />
                 </div>
-                <div id="CEPField" class="FillingField">
-                    CEP <input>
+                <div class="form-group">
+                    <label for="Número">Número</label>
+                    <input type="text" 
+                           placeholder="Digite o número" 
+                           formControlName="numero"
+                           required />
                 </div>
-                <div id="MunicipioField" class="FillingField">
-                    Munícipio <input>
+                <div class="form-group">
+                    <label for="Complemento">Complemento</label>
+                    <input type="text" 
+                           placeholder="Digite o complemento" 
+                           formControlName="complemento"/>
                 </div>
-                <div id="AnoDoProjetoField" class="FillingField">
-                    Ano do Projeto <input>
+                <div class="form-group">
+                    <label for="CEP">CEP</label>
+                    <input type="text" 
+                           placeholder="Digite o CEP" 
+                           formControlName="cep"
+                           required />
                 </div>
-                <div id="AnoConstrucaoField" class="FillingField">
-                    Ano Construção <input>
+                <div class="form-group">
+                    <label for="Municipio">Município</label>
+                    <input type="text" 
+                           placeholder="Digite o município" 
+                           formControlName="municipio"
+                           required />
                 </div>
-                <div id="ConstrutoraField" class="FillingField">
-                    Construtora <input>
+                <div class="form-group">
+                    <label for="AnoProjeto">Ano do Projeto</label>
+                    <input type="text" 
+                           placeholder="Digite o ano do projeto" 
+                           formControlName="anoProjeto"/>
                 </div>
-                <div id="CONDEPHAATField" class="FillingField">
-                    CONDEPHAAT <input>
+                <div class="form-group">
+                    <label for="AnoConstrução">Ano Construção</label>
+                    <input type="text" 
+                           placeholder="Digite o ano construção" 
+                           formControlName="anoConstrucao"/>
                 </div>
-                <div id="CONPRESPField" class="FillingField">
-                    CONPRESP <input>
+                <div class="form-group">
+                    <label for="Construtora">Construtora</label>
+                    <input type="text" 
+                           placeholder="Digite a Construtora" 
+                           formControlName="construtora"/>
                 </div>
-                <div id="IPHANField" class="FillingField">
-                    IPHAN <input>
+                <div class="form-group">
+                    <label for="CONDEPHAAT">CONDEPHAAT</label>
+                    <input type="text" 
+                           placeholder="Digite o CONDEPHAAT" 
+                           formControlName="condephaat"/>
                 </div>
-                <div id="UsoOriginalField" class="FillingField">
-                    Uso Original <input>
+                <div class="form-group">
+                    <label for="CONPRESP">CONPRESP</label>
+                    <input type="text" 
+                           placeholder="Digite o CONPRESP" 
+                           formControlName="conpresp"/>
                 </div>
-                <div id="CodigoOriginalField" class="FillingField">
-                    Código Original <input>
+                <div class="form-group">
+                    <label for="IPHAN">IPHAN</label>
+                    <input type="text" 
+                           placeholder="Digite o IPHAN" 
+                           formControlName="iphan"/>
                 </div>
-                <div id="UsoAtualField" class="FillingField">
-                    Endereço Titulo <input>
+                <div class="form-group">
+                    <label for="UsoOriginal">Uso Original</label>
+                    <input type="text" 
+                           placeholder="Digite o uso original" 
+                           formControlName="usoOriginal"/>
                 </div>
-                <div id="CodigoAtualField" class="FillingField">
-                    Código Atual <input>
+                <div class="form-group">
+                    <label for="CodigoOriginal">Código Original</label>
+                    <input type="text" 
+                           placeholder="Digite o Código Original" 
+                           formControlName="codigoOriginal"/>
                 </div>
-                <div id="DataUsoAtualField" class="FillingField">
-                    Data Uso Atual <input>
+                <div class="form-group">
+                    <label for="UsoAtual">Uso Atual</label>
+                    <input type="text" 
+                           placeholder="Digite o uso atual" 
+                           formControlName="usoAtual"/>
                 </div>
-                <div id="StatusField" class="FillingField">
-                    Status <input>
+                <div class="form-group">
+                    <label for="CodigoAtual">Código Atual</label>
+                    <input type="text" 
+                           placeholder="Digite o código atual" 
+                           formControlName="codigoAtual"/>
                 </div>
-                <div id="AnosDemolicaoRestauroReforma">
-                    <div id="AnoDemoliçãoField" class="FillingField">
-                        Ano Demolição <input>
-                    </div>
-                    <div id="AnoRestauroField" class="FillingField">
-                        Ano Restauro <input>
-                    </div>
-                    <div id="AnoReformaField" class="FillingField">
-                        Ano Reforma <input>
-                    </div>
+                <div class="form-group">
+                    <label for="DataUsoAtual">Data Uso Atual</label>
+                    <input type="text" 
+                           placeholder="Digite a data do uso atual" 
+                           formControlName="dataUsoAtual"/>
                 </div>
-                <div id="ArquitetoReformaField" class="FillingField">
-                    Arquiteto Reforma <input>
+                <div class="form-group">
+                    <label for="Status">Status</label>
+                    <input type="text" 
+                           placeholder="Digite o status" 
+                           formControlName="status"/>
                 </div>
-                <div id="LatitudeField" class="FillingField">
-                    Latitude <input>
+                <div class="form-group">
+                    <label for="AnoDemolicao">Ano Demolição</label>
+                    <input type="text" 
+                           placeholder="Digite o ano da demolição" 
+                           formControlName="anoDemolicao"/>
                 </div>
-                <div id="LongitudeField" class="FillingField">
-                    Longitude <input>
+                <div class="form-group">
+                    <label for="AnoRestauro">Ano Restauro</label>
+                    <input type="text" 
+                           placeholder="Digite o ano do restauro" 
+                           formControlName="anoRestauro"/>
                 </div>
-                <div id="ReferenciasField" class="FillingField">
-                    Referências <input>
+                <div class="form-group">
+                    <label for="AnoReforma">Ano Reforma</label>
+                    <input type="text" 
+                           placeholder="Digite o ano da reforma" 
+                           formControlName="anoReforma"/>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="ArquitetoReforma">Arquiteto Reforma</label>
+                    <input type="text" 
+                           placeholder="Digite o arquiteto da reforma" 
+                           formControlName="arquitetoReforma"/>
+                </div>
+                <div class="form-group">
+                    <label for="Latitude">Latitude</label>
+                    <input type="text" 
+                           placeholder="Digite a latitude" 
+                           formControlName="latidude"
+                           required />
+                </div>
+                <div class="form-group">
+                    <label for="Longitude">Longitude</label>
+                    <input type="text" 
+                           placeholder="Digite a longitude" 
+                           formControlName="longitude"
+                           required />
+                </div>
+                <div class="form-group">
+                    <label for="Referencias">Referências</label>
+                    <input type="text" 
+                           placeholder="Digite as referências" 
+                           formControlName="referencias"/>
+                </div>
+            </form>
         </div>
     </div>
 </div>
