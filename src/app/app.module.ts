@@ -6,6 +6,7 @@ import { FormsObraComponent } from './components/forms-obra/forms-obra.component
 import { HeaderComponent } from './components/header/header.component';
 import { FormsObraNovoComponent } from './components/forms-obra-novo/forms-obra-novo.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
