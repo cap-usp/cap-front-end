@@ -10,7 +10,30 @@ export class FormsObraComponent implements OnInit {
   
   obraForm: FormGroup = new FormGroup({ });
   
- 
+  //The ideia is to append the array in a function that
+  //is able to fetch the authors from the API
+  autoriaOptions = [
+    {value: "Arquiteto1", label:"Kaique"},
+    {value: "Arquiteto2", label:"Arrais"},
+  ]
+  escritorioOptions = [
+    {value: "escritorio1", label:"KaiqueInc."},
+    {value: "escritorio2", label:"ArraisInc."},
+  ]
+  construtoraOptions = [
+    {value: "construtora1", label:"KaiqueBuild."},
+    {value: "construtora2", label:"ArraisBuild."},
+  ]
+  statusOptions = [
+    {value: "construido", label:"Construído"},
+    {value: "demolido", label:"Demolido"},
+    {value: "reformado", label:"Reformado"},
+    {value: "restaurado", label:"Restaurado"},
+  ]
+  validadoOptions = [
+    {value: true, label: "Sim"},
+    {value: false, label: "Não"},
+  ]
   constructor(){ }
 
   ngOnInit() {

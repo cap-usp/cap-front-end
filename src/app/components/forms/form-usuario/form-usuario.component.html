@@ -16,7 +16,7 @@
                 <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE ARQUITETO</h2>
                 <div id="TitleFormsLine"></div>
             </div>
-            <form [formGroup]="usuarioForm">
+            <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="Login">Login</label>
                     <input type="text" 
@@ -38,6 +38,7 @@
                            formControlName="numeroUSP"
                            required />
                 </div>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>

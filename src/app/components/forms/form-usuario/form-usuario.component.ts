@@ -22,4 +22,9 @@ export class FormUsuarioComponent implements OnInit {
       email: new FormControl(""),
     });
   }
+
+  onSubmit() {
+    console.log(this.usuarioForm.value)
+  }
+
 }

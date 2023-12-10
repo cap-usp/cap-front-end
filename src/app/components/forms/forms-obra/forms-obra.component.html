@@ -19,17 +19,19 @@
             <form [formGroup]="obraForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="Autoria">Autoria</label>
-                    <input type="text" 
-                           placeholder="Digite o autor" 
-                           formControlName="autoria"
-                           required />
+                    <select 
+                        formControlName="autoria"
+                        required>
+                        <option *ngFor="let option of autoriaOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="Escritorio">Escritório</label>
-                    <input type="text" 
-                           placeholder="Digite o escritorio"
-                           formControlName="escritorio"
-                           required />
+                    <select 
+                        formControlName="escritorio"
+                        required>
+                        <option *ngFor="let option of escritorioOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="NomeOficial">Nome Oficial</label>
@@ -106,9 +108,11 @@
                 </div>
                 <div class="form-group">
                     <label for="Construtora">Construtora</label>
-                    <input type="text" 
-                           placeholder="Digite a Construtora" 
-                           formControlName="construtora"/>
+                    <select 
+                        formControlName="construtora"
+                        required>
+                        <option *ngFor="let option of construtoraOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="CONDEPHAAT">CONDEPHAAT</label>
@@ -165,6 +169,13 @@
                            formControlName="status"/>
                 </div>
                 <div class="form-group">
+                    <label for="Status">Status</label>
+                    <select 
+                        formControlName="status">
+                        <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="AnoDemolicao">Ano Demolição</label>
                     <input type="text" 
                            placeholder="Digite o ano da demolição" 
@@ -192,7 +203,7 @@
                     <label for="Latitude">Latitude</label>
                     <input type="text" 
                            placeholder="Digite a latitude" 
-                           formControlName="latidude"
+                           formControlName="latitude"
                            required />
                 </div>
                 <div class="form-group">
@@ -210,15 +221,19 @@
                 </div>
                 <div class="form-group">
                     <label for="ValidadoProfessora">Validado Pela Professora</label>
-                    <input type="text" 
-                           placeholder="" 
-                           formControlName="validadoProfessora"/>
+                    <select 
+                        formControlName="validadoProfessora"
+                        required>
+                        <option *ngFor="let option of validadoOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="ValidadoDPH">Validado Pelo DPH</label>
-                    <input type="text" 
-                           placeholder="" 
-                           formControlName="validadoDPH"/>
+                    <select 
+                        formControlName="validadoDPH"
+                        required>
+                        <option *ngFor="let option of validadoOptions" [value]="option.value">{{ option.label }}</option>
+                    </select>
                 </div>
                 <button type="submit">Submit</button>
             </form>

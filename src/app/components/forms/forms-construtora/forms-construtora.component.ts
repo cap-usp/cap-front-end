@@ -18,4 +18,8 @@ export class FormsConstrutoraComponent implements OnInit {
       nome: new FormControl(""),
     });
   }
+
+  onSubmit() {
+    console.log(this.construtoraForm.value)
+  }
 }

@@ -16,14 +16,7 @@
                 <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE CONSTRUTORA</h2>
                 <div id="TitleFormsLine"></div>
             </div>
-            <form [formGroup]="construtoraForm">
-                <div class="form-group">
-                    <label for="Nome">Nome</label>
-                    <input type="text" 
-                           placeholder="Digite o nome" 
-                           formControlName="nome"
-                           required />
-                </div>
+            <form [formGroup]="construtoraForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="Nome">Nome</label>
                     <input type="text" 
@@ -31,6 +24,7 @@
                            formControlName="nome"
                            required />
                 </div>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>

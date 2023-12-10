@@ -19,5 +19,10 @@ export class FormsArquitetoComponent implements OnInit {
       sobrenome: new FormControl(""),
     });
   }
+
+  onSubmit() {
+    console.log(this.arquitetoForm.value)
+  }
+
 }
 
