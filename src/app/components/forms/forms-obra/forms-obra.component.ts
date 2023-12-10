@@ -4,7 +4,7 @@ import { FormGroup, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-forms-obra',
   templateUrl: './forms-obra.component.html',
-  styleUrls: ['./forms-obra.component.css']
+  styleUrls: ['./forms-obra.component.css','./../forms-components.css']
 })
 export class FormsObraComponent implements OnInit {
   
@@ -40,10 +40,17 @@ export class FormsObraComponent implements OnInit {
       status: new FormControl(""),
       anoDemolicao: new FormControl(""),
       anoRestauro: new FormControl(""),
+      anoReforma: new FormControl(""),
       arquitetoReforma: new FormControl(""),
       latitude: new FormControl(""),
       longitude: new FormControl(""),
-      referencias: new FormControl(""),   
+      referencias: new FormControl(""),
+      validadoProfessora: new FormControl(""),
+      validadoDPH: new FormControl(""),     
     });
+  }
+
+  onSubmit() {
+    console.log(this.obraForm.value)
   }
 }

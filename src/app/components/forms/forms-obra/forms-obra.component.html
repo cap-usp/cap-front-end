@@ -16,7 +16,7 @@
                 <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE OBRA</h2>
                 <div id="TitleFormsLine"></div>
             </div>
-            <form [formGroup]="obraForm">
+            <form [formGroup]="obraForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <label for="Autoria">Autoria</label>
                     <input type="text" 
@@ -208,6 +208,19 @@
                            placeholder="Digite as referências" 
                            formControlName="referencias"/>
                 </div>
+                <div class="form-group">
+                    <label for="ValidadoProfessora">Validado Pela Professora</label>
+                    <input type="text" 
+                           placeholder="" 
+                           formControlName="validadoProfessora"/>
+                </div>
+                <div class="form-group">
+                    <label for="ValidadoDPH">Validado Pelo DPH</label>
+                    <input type="text" 
+                           placeholder="" 
+                           formControlName="validadoDPH"/>
+                </div>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
