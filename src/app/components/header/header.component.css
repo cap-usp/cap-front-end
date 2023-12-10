@@ -36,15 +36,17 @@ header {
 }
 
 .nav-container ul li  {
-    padding: 2% 0;
+    padding: 2% 2%;
     color: #000;
+    transition: 2s;
 }
 
 .nav-container ul li:hover {
     padding: 2% 0;
     color: #000;
-    background-color: #a3a3a320;
-    transition: .8;
+    background-color: #a3a3a370;
+    border-right: 2px solid #50505080;
+    border-left: 2px solid #50505080;
 }
 
 .nav-container ul li a {
