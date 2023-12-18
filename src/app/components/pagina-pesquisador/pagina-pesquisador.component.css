@@ -15,7 +15,7 @@ header {
 
 #links-forms {
     width: 100%;
-    height: 50px;
+    height: 30px;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
 }
@@ -25,11 +25,26 @@ header {
     display: flex;
     justify-content: space-evenly;
     padding:0px;
+    margin: 0px;
+    height: 100%;
 }
 
 #links-forms ul li {
-    display: inline;
+    color: black;
+    padding: 0px;
+    height: 100%;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center; /* Center the text vertically */
+    justify-content: center; /* Center the text horizontally */
+    transition-duration: 0.4s;
+    cursor: pointer; 
+}
 
+#links-forms ul li:hover{
+    background-color: #bebcbc; /* Green */
+    
 }
 
 #middle {
@@ -44,4 +59,5 @@ header {
 
 #form {
     width: 33%;
+    
 }
