@@ -1,0 +1,47 @@
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#logo-projeto {
+    width: 30%;
+    height: 100px;
+}
+#logo-fau {
+    width: 100%;
+    height: 100%;
+}
+
+#links-forms {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+#links-forms ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding:0px;
+}
+
+#links-forms ul li {
+    display: inline;
+
+}
+
+#middle {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+#form {
+    width: 33%;
+}
