@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class InfoObraComponent implements OnInit {
-  obraInfo: any; // Variável para armazenar as informações da obra
+  obraInfo: any; 
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class InfoObraComponent implements OnInit {
 
   private carregarInfoObra() {
     this.http.get('../assets/data/InfoObra.json').subscribe((data: any) => {
-      this.obraInfo = data.obra; // Supondo que o objeto JSON tenha uma chave chamada "obra"
+      this.obraInfo = data.obra; 
       
     });
   }
