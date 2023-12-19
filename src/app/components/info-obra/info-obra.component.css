@@ -1,0 +1,40 @@
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+section.section-container {
+    display: flex;
+    width: 80%;
+    height: auto;
+    margin: 2% 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 1% 1%;
+    gap: 3%;
+}
+
+.left-side {
+    width: 50%;
+    height: auto;
+}
+
+.left-side img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+div.rigth-side {
+    width: 50%;
+    height: auto;
+}
+.info-obra-rigth {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.span-rigth {
+    font-weight: 100;
+}

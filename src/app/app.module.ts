@@ -6,6 +6,9 @@ import { FormsObraComponent } from './components/forms-obra/forms-obra.component
 import { HeaderComponent } from './components/header/header.component';
 import { FormsObraNovoComponent } from './components/forms-obra-novo/forms-obra-novo.component';
 import { InfoObraComponent } from './components/info-obra/info-obra.component';
+import { HttpClientModule } from '@angular/common/http'; // Importe o módulo HttpClientModule
+import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { InfoObraComponent } from './components/info-obra/info-obra.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
