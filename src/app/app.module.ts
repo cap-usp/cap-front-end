@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsArquitetoComponent } from './components/forms/forms-arquiteto/forms-arquiteto.component';
 import { FormsConstrutoraComponent } from './components/forms/forms-construtora/forms-construtora.component';
 import { FormUsuarioComponent } from './components/forms/form-usuario/form-usuario.component';
+import { PaginaPesquisadorComponent } from './components/pagina-pesquisador/pagina-pesquisador.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FormUsuarioComponent } from './components/forms/form-usuario/form-usuar
     FormsObraComponent,
     FormsArquitetoComponent,
     FormsConstrutoraComponent,
-    FormUsuarioComponent
+    FormUsuarioComponent,
+    PaginaPesquisadorComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

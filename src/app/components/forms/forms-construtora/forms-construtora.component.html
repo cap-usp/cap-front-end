@@ -1,31 +1,17 @@
-<div id="FormsObraContainer">
-    <div id="HeaderContainer">
-        <img id="LogoFau" src="assets/images/logo-fau-horizontal-full.svg" alt="FAUUSP | Faculdade de Arquitetura e Urbanismo da USP">
-        <div id="MenuContainer">
-            <div class="MenuLine"></div>
-            <div id="MenuBar">
-                <img id="three_bar_icon" src="assets/images/icon-menu.svg">
-                <span>MENU</span>
-            </div>
-            <div class="MenuLine"></div>
-        </div>
+
+<div id="FormsContainer">
+    <div id="HeaderForms">
+        <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE CONSTRUTORA</h2>
+        <div id="TitleFormsLine"></div>
     </div>
-    <div id="MiddleContainer">
-        <div id="FormsContainer">
-            <div id="HeaderForms">
-                <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE CONSTRUTORA</h2>
-                <div id="TitleFormsLine"></div>
-            </div>
-            <form [formGroup]="construtoraForm" (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="Nome">Nome</label>
-                    <input type="text" 
-                           placeholder="Digite o nome da construtora" 
-                           formControlName="nome"
-                           required />
-                </div>
-                <button type="submit">Submit</button>
-            </form>
+    <form [formGroup]="construtoraForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" 
+                    placeholder="Digite o nome da construtora" 
+                    formControlName="nome"
+                    required />
         </div>
-    </div>
+        <button type="submit">Submit</button>
+    </form>
 </div>
