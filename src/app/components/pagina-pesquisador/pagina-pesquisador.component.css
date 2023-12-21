@@ -36,14 +36,14 @@ header {
     width: 200px;
     text-align: center;
     display: flex;
-    align-items: center; /* Center the text vertically */
-    justify-content: center; /* Center the text horizontally */
+    align-items: center;
+    justify-content: center; 
     transition-duration: 0.4s;
     cursor: pointer; 
 }
 
 #links-forms ul li:hover{
-    background-color: #bebcbc; /* Green */
+    background-color: #bebcbc;
     
 }
 
