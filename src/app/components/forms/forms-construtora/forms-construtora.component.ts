@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { ConstrutoraService } from 'src/app/services/construtora-service/construtora.service';
 
 @Component({
   selector: 'app-forms-construtora',
@@ -10,16 +11,31 @@ import { FormGroup, FormControl} from '@angular/forms';
 export class FormsConstrutoraComponent implements OnInit {
   
   construtoraForm: FormGroup = new FormGroup({ });
- 
-  constructor(){ }
+  
+  constructor(private construtoraService: ConstrutoraService) { }
 
   ngOnInit() {
-      this.construtoraForm = new FormGroup({
-      nome: new FormControl(""),
+    this.construtoraForm = new FormGroup({
+      nome: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
     });
   }
 
+  notNullValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    return value !== null ? null : { 'isNull': true };
+  }
+
+  registerConstrutora() {
+    // Check if the form is valid and if the 'nome' control is not null or undefined
+    const nomeControl = this.construtoraForm.get("nome");
+    if (this.construtoraForm.valid && nomeControl) {
+      const nomeValue = nomeControl.value;
+      this.construtoraService.registerConstrutora({ nome: nomeValue });
+    }
+  }
+  
+
   onSubmit() {
-    console.log(this.construtoraForm.value)
+    console.log(this.construtoraForm.value);
   }
 }

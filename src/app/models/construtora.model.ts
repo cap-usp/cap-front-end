@@ -1,4 +1,4 @@
 export interface Construtora {
-    id: number,
-    nome: string
+    id?: number,
+    nome: string 
 }

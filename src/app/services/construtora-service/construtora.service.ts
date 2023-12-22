@@ -15,4 +15,8 @@ export class ConstrutoraService {
   getConstrutoras() {
     return this.httpClient.get<Construtora[]>(this.url + '/construtora');
   }
+
+  registerConstrutora (construtora : Construtora) {
+    return this.httpClient.post<Construtora>(this.url + '/construtora', construtora);
+  }
 }

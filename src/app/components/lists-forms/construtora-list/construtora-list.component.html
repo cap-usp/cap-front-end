@@ -1,7 +1,7 @@
 <p>construtora-list works!</p>
 
 <tbody>
-    <tr *ngFor="let construtora of construtoras">
+    <tr *ngFor="let construtora of construtoras$ | async">
         <td> {{construtora.id}} </td>
         <td> {{construtora.nome}} </td>
     </tr>
