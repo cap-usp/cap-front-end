@@ -30,14 +30,7 @@ export class FormsConstrutoraComponent implements OnInit {
     const nomeControl = this.construtoraForm.get("nome");
     if (this.construtoraForm.valid && nomeControl) {
       const nomeValue = nomeControl.value;
-      this.construtoraService.registerConstrutora({ nome: nomeValue })
-        .subscribe((response) => {
-                                    if(response){
-                                      console.log("New construtora added")
-                                    } else {
-                                      console.log("Failed adding new construtora")
-                                    }
-                                  });
+      this.construtoraService.registerConstrutora({ nome: nomeValue });
     } else {
       console.log("Cannot add Construtora with empty name")
     }

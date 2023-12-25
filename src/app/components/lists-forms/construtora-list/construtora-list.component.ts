@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { Construtora } from 'src/app/models/construtora.model';
 import { ConstrutoraService } from 'src/app/services/construtora-service/construtora.service';
 
@@ -8,15 +8,25 @@ import { ConstrutoraService } from 'src/app/services/construtora-service/constru
   templateUrl: './construtora-list.component.html',
   styleUrls: ['./construtora-list.component.css']
 })
-export class ConstrutoraListComponent {
-  construtoras$ = new Observable<Construtora[]>();
+export class ConstrutoraListComponent implements OnInit, OnDestroy {
+  construtoras$!: Observable<Construtora[]>;
+  private construtorasSubscription!: Subscription;
 
-  constructor (private construtoraService: ConstrutoraService) {
-    this.getConstrutoras();
+  constructor(private construtoraService: ConstrutoraService) { }
+
+  ngOnInit() {
+    this.construtoraService.updateConstrutoras();
+
+    this.construtoras$ = this.construtoraService.construtoras$;
+
+    // Subscribe to updates
+    this.construtorasSubscription = this.construtoras$.subscribe();
   }
 
-  getConstrutoras() {
-    //this.construtoraService.getConstrutoras().subscribe(construtoras => this.construtoras = construtoras);
-    this.construtoras$ = this.construtoraService.getConstrutoras();
+  ngOnDestroy() {
+    // Unsubscribe to avoid memory leaks
+    this.construtorasSubscription.unsubscribe();
   }
+
+  // Other methods if needed
 }
