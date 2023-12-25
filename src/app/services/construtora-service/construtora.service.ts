@@ -17,8 +17,11 @@ export class ConstrutoraService {
   }
 
   registerConstrutora(construtora: Construtora) {
-    console.log("Entrou aqui 2");
     return this.httpClient.post<Construtora>(this.url + '/construtora', construtora);
+  }
+
+  editConstrutora(construtora: Construtora) {
+    return this.httpClient.put<Construtora>(this.url + '/construtora', construtora);
   }
   
 }
