@@ -32,7 +32,14 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
 
   editConstrutora(construtora: Construtora) {
     this.construtoraService.selectConstrutoraForEdition(construtora);
-    console.log("A construtora was selected for edition");
+    console.log(`The construtora with id: ${construtora.id} was selected for edition`);
   }
+
+  deleteConstrutora(id: number){
+    this.construtoraService.deleteConstrutora(id);
+    console.log(`The construtora with id: ${id} was selected for deletion`);
+  }
+
+  
 
 }

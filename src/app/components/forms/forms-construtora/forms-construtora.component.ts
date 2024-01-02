@@ -43,7 +43,8 @@ export class FormsConstrutoraComponent implements OnInit {
     if (this.construtoraForm.valid && nomeControl) {
       const nomeValue = nomeControl.value;
       const idControl = this.construtoraForm.get("id");
-
+      
+      //TODO: add console messages that report possible errors 
       if(idControl){
         const idValue = idControl.value;
         this.construtoraService.editConstrutora(

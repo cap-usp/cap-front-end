@@ -38,8 +38,15 @@ export class ConstrutoraService {
       });
   }
 
+  deleteConstrutora(id : number) {
+    return this.httpClient.delete<void>(`${this.url}/construtora/${id}`)
+      .subscribe(() => {
+        this.updateConstrutoras();
+      });
+  }
+
   editConstrutora(construtora: Construtora) {
-    return this.httpClient.put<Construtora>(this.url + '/construtora', construtora)
+    return this.httpClient.put<Construtora>(`${this.url}/construtora/${construtora.id}`, construtora)
       .subscribe(() => {
         // Update the BehaviorSubject with the latest list of construtoras
         this.updateConstrutoras();
