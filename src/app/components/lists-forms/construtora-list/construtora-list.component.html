@@ -4,6 +4,10 @@
     <tr *ngFor="let construtora of construtoras$ | async">
         <td> {{construtora.id}} </td>
         <td> {{construtora.nome}} </td>
-        <td> <button> Editar </button> </td>
+        <td> <button (click)="editConstrutora(
+            {id: construtora.id,
+             nome: construtora.nome}
+        )"> Editar </button> </td>
+        <td> <button> Deletar </button> </td>
     </tr>
 </tbody>

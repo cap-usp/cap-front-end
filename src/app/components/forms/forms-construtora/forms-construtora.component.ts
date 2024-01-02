@@ -16,8 +16,20 @@ export class FormsConstrutoraComponent implements OnInit {
 
   ngOnInit() {
     this.construtoraForm = new FormGroup({
+      id: new FormControl(null),
       nome: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
     });
+
+    this.construtoraService.selectedForEditionConstrutora$.subscribe(construtora => {
+        if(construtora){
+          this.construtoraForm.setValue({
+            id: construtora.id,
+            nome: construtora.nome
+          });
+        }
+      }
+    );
+
   }
 
   notNullValidator(control: AbstractControl): ValidationErrors | null {
@@ -30,11 +42,25 @@ export class FormsConstrutoraComponent implements OnInit {
     const nomeControl = this.construtoraForm.get("nome");
     if (this.construtoraForm.valid && nomeControl) {
       const nomeValue = nomeControl.value;
-      this.construtoraService.registerConstrutora({ nome: nomeValue });
+      const idControl = this.construtoraForm.get("id");
+
+      if(idControl){
+        const idValue = idControl.value;
+        this.construtoraService.editConstrutora(
+          {
+            id: idValue,
+            nome: nomeValue
+          }
+        );
+      } else {
+        this.construtoraService.registerConstrutora({ nome: nomeValue });
+      }
     } else {
       console.log("Cannot add Construtora with empty name")
     }
   }
+
+
   
 
   onSubmit() {

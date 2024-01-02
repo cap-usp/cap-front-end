@@ -16,6 +16,10 @@ export class ConstrutoraService {
   // Observable to which components can subscribe for real-time updates
   construtoras$ = this.construtorasSubject.asObservable();
 
+  private selectedForEditionConstrutoraSubject = new BehaviorSubject<Construtora | null>(null);
+
+  selectedForEditionConstrutora$ = this.selectedForEditionConstrutoraSubject.asObservable();
+
   constructor(private httpClient: HttpClient) { }
 
   updateConstrutoras() {
@@ -41,4 +45,13 @@ export class ConstrutoraService {
         this.updateConstrutoras();
       });
   }
+
+  selectConstrutoraForEdition(construtora: Construtora){
+    this.selectedForEditionConstrutoraSubject.next(construtora);
+  }
+
+  clearSelectedConstrutoraForEdition() {
+    this.selectedForEditionConstrutoraSubject.next(null);
+  }
+
 }
