@@ -52,9 +52,13 @@ export class FormsConstrutoraComponent implements OnInit {
             nome: nomeValue
           }
         );
+        this.construtoraService.clearSelectedConstrutoraForEdition();
       } else {
         this.construtoraService.registerConstrutora({ nome: nomeValue });
       }
+
+      this.construtoraForm.reset();
+
     } else {
       console.log("Cannot add Construtora with empty name")
     }
