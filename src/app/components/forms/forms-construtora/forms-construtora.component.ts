@@ -38,32 +38,51 @@ export class FormsConstrutoraComponent implements OnInit {
   }
 
   registerConstrutora() {
-    // Check if the form is valid and if the 'nome' control is not null or undefined
-    const nomeControl = this.construtoraForm.get("nome");
-    if (this.construtoraForm.valid && nomeControl) {
-      const nomeValue = nomeControl.value;
-      const idControl = this.construtoraForm.get("id");
-      
-      //TODO: add console messages that report possible errors 
-      if(idControl){
-        const idValue = idControl.value;
-        this.construtoraService.editConstrutora(
-          {
+    // Check if the form is valid
+    if (this.construtoraForm.valid) {
+      const nomeControl = this.construtoraForm.get("nome");
+      console.log("Entrou aqui 1");
+  
+      // Check if the 'nome' control exists and its value is not null or undefined
+      if (nomeControl && nomeControl.value !== null && nomeControl.value !== undefined) {
+        const nomeValue = nomeControl.value;
+  
+        const idControl = this.construtoraForm.get("id");
+  
+        // Check if 'id' control exists
+        if (idControl && idControl.value !== null && idControl.value !== undefined) {
+          const idValue = idControl.value;
+  
+          // If 'id' control exists, it's an edit operation
+          this.construtoraService.editConstrutora({
             id: idValue,
             nome: nomeValue
-          }
-        );
-        this.construtoraService.clearSelectedConstrutoraForEdition();
+          }).subscribe(
+            () => {
+              this.construtoraService.setTrueConstrutorasListWasUpdated();
+              this.construtoraService.clearSelectedConstrutoraForEdition();
+              this.construtoraForm.reset();
+            }
+          );
+        } else {
+          // If 'id' control does not exist, it's a new registration
+          this.construtoraService.registerConstrutora({ nome: nomeValue })
+            .subscribe(
+              () => {
+                this.construtoraService.setTrueConstrutorasListWasUpdated();
+                this.construtoraForm.reset();
+              }
+            );
+        }
+  
       } else {
-        this.construtoraService.registerConstrutora({ nome: nomeValue });
+        console.log("Cannot add Construtora with empty name");
       }
-
-      this.construtoraForm.reset();
-
     } else {
-      console.log("Cannot add Construtora with empty name")
+      console.log("Form is not valid");
     }
   }
+  
 
 
   

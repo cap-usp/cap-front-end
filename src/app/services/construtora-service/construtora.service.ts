@@ -10,47 +10,37 @@ import { environment } from 'src/environments/environment';
 export class ConstrutoraService {
   private url = environment.api;
 
-  // BehaviorSubject to store and emit the latest list of construtoras
-  private construtorasSubject = new BehaviorSubject<Construtora[]>([]);
-  
-  // Observable to which components can subscribe for real-time updates
-  construtoras$ = this.construtorasSubject.asObservable();
+  // Observable responsible to report changes in the content of the api
+  private construtorasListWasUpdatedSubject = new BehaviorSubject<Boolean>(false);
+  construtorasListWasUpdated$  = this.construtorasListWasUpdatedSubject.asObservable();
 
+  // Observable responsible to report the edition of a construtora
   private selectedForEditionConstrutoraSubject = new BehaviorSubject<Construtora | null>(null);
-
   selectedForEditionConstrutora$ = this.selectedForEditionConstrutoraSubject.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
-  updateConstrutoras() {
-    this.httpClient.get<Construtora[]>(this.url + '/construtora')
-      .subscribe(construtoras => {
-        // Update the BehaviorSubject with the latest list of construtoras
-        this.construtorasSubject.next(construtoras);
-      });
+  setTrueConstrutorasListWasUpdated() {
+    this.construtorasListWasUpdatedSubject.next(true);
+  }
+  resetConstrutorasListWasUpdated() {
+    this.construtorasListWasUpdatedSubject.next(false);
+  }
+
+  getAllConstrutoras() {
+    return this.httpClient.get<Construtora[]>(`${this.url}/construtora`);
   }
 
   registerConstrutora(construtora: Construtora) {
-    return this.httpClient.post<Construtora>(this.url + '/construtora', construtora)
-      .subscribe(() => {
-        // Update the BehaviorSubject with the latest list of construtoras
-        this.updateConstrutoras();
-      });
+    return this.httpClient.post<Construtora>(this.url + '/construtora', construtora);
   }
 
   deleteConstrutora(id: number) {
-    return this.httpClient.delete<void>(`${this.url}/construtora/${id}`)
-      .subscribe(() => {
-        this.updateConstrutoras();
-      });
+    return this.httpClient.delete<void>(`${this.url}/construtora/${id}`);
   }
 
   editConstrutora(construtora: Construtora) {
-    return this.httpClient.put<Construtora>(`${this.url}/construtora/${construtora.id}`, construtora)
-      .subscribe(() => {
-        // Update the BehaviorSubject with the latest list of construtoras
-        this.updateConstrutoras();
-      });
+    return this.httpClient.put<Construtora>(`${this.url}/construtora/${construtora.id}`, construtora);
   }
 
   selectConstrutoraForEdition(construtora: Construtora){

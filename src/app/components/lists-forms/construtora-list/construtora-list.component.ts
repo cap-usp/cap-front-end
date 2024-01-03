@@ -9,26 +9,45 @@ import { ConstrutoraService } from 'src/app/services/construtora-service/constru
   styleUrls: ['./construtora-list.component.css']
 })
 export class ConstrutoraListComponent implements OnInit, OnDestroy {
-  construtoras$!: Observable<Construtora[]>;
-  private construtorasSubscription!: Subscription;
 
-  constructor(private construtoraService: ConstrutoraService) { }
+  construtorasListWasUpdated$!: Observable<Boolean>;
+  private construtorasListWasUpdatedSubscription!: Subscription;
+
+  construtoras : Construtora[] = [];
+
+  constructor(private construtoraService: ConstrutoraService) { 
+    this.getAllConstrutoras();
+  }
 
   ngOnInit() {
-    this.construtoraService.updateConstrutoras();
 
-    this.construtoras$ = this.construtoraService.construtoras$;
+    this.construtoraService.construtorasListWasUpdated$.subscribe(
+      response => {
+        if (response) {
+          this.getAllConstrutoras();
+          this.construtoraService.resetConstrutorasListWasUpdated();
+        }
+      }
+    );
 
-    // Subscribe to updates
-    this.construtorasSubscription = this.construtoras$.subscribe();
   }
 
   ngOnDestroy() {
     // Unsubscribe to avoid memory leaks
-    this.construtorasSubscription.unsubscribe();
+
   }
 
   // Other methods if needed
+
+  getAllConstrutoras() {
+    this.construtoraService.getAllConstrutoras().subscribe(
+      response => {
+        if(response){
+          this.construtoras = response;
+        }
+      }
+    )
+  }
 
   editConstrutora(construtora: Construtora) {
     this.construtoraService.selectConstrutoraForEdition(construtora);
@@ -36,7 +55,11 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
   }
 
   deleteConstrutora(id: number){
-    this.construtoraService.deleteConstrutora(id);
+    this.construtoraService.deleteConstrutora(id).subscribe(
+      () => {
+        this.construtoraService.setTrueConstrutorasListWasUpdated();
+      }
+    );
     console.log(`The construtora with id: ${id} was selected for deletion`);
   }
 

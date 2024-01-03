@@ -5,7 +5,7 @@
             <th> nome </th>
         </thead>
         <tbody>
-            <tr *ngFor="let construtora of construtoras$ | async">
+            <tr *ngFor="let construtora of this.construtoras">
                 <td> {{construtora.id}} </td>
                 <td> {{construtora.nome}} </td>
                 <td> <button (click)="editConstrutora(
