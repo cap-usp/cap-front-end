@@ -38,7 +38,7 @@ export class ConstrutoraService {
       });
   }
 
-  deleteConstrutora(id : number) {
+  deleteConstrutora(id: number) {
     return this.httpClient.delete<void>(`${this.url}/construtora/${id}`)
       .subscribe(() => {
         this.updateConstrutoras();
