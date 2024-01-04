@@ -41,7 +41,6 @@ export class FormsConstrutoraComponent implements OnInit {
     // Check if the form is valid
     if (this.construtoraForm.valid) {
       const nomeControl = this.construtoraForm.get("nome");
-      console.log("Entrou aqui 1");
   
       // Check if the 'nome' control exists and its value is not null or undefined
       if (nomeControl && nomeControl.value !== null && nomeControl.value !== undefined) {
@@ -58,21 +57,32 @@ export class FormsConstrutoraComponent implements OnInit {
             id: idValue,
             nome: nomeValue
           }).subscribe(
-            () => {
-              this.construtoraService.setTrueConstrutorasListWasUpdated();
-              this.construtoraService.clearSelectedConstrutoraForEdition();
-              this.construtoraForm.reset();
+            {
+              next: (response) => {
+                this.construtoraService.setTrueConstrutorasListWasUpdated();
+                this.construtoraService.clearSelectedConstrutoraForEdition();
+                this.construtoraForm.reset();
+              },
+              error: (error) => {
+                console.log("An error occured:", error);
+              }
             }
           );
         } else {
           // If 'id' control does not exist, it's a new registration
           this.construtoraService.registerConstrutora({ nome: nomeValue })
-            .subscribe(
-              () => {
+          .subscribe(
+            {
+              next: (response) => {
                 this.construtoraService.setTrueConstrutorasListWasUpdated();
                 this.construtoraForm.reset();
+                console.log("The register was successful");
+              },
+              error: (error) => {
+                console.log("An error was found", error);
               }
-            );
+            }
+          );
         }
   
       } else {
@@ -83,10 +93,6 @@ export class FormsConstrutoraComponent implements OnInit {
     }
   }
   
-
-
-  
-
   onSubmit() {
     this.registerConstrutora();
 

@@ -41,9 +41,12 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
 
   getAllConstrutoras() {
     this.construtoraService.getAllConstrutoras().subscribe(
-      response => {
-        if(response){
+      {
+        next: (response) => {
           this.construtoras = response;
+        },
+        error: (error) => {
+          console.log("An error was found:", error);
         }
       }
     )
@@ -55,12 +58,17 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
   }
 
   deleteConstrutora(id: number){
+    console.log(`The construtora with id: ${id} was selected for deletion`);
     this.construtoraService.deleteConstrutora(id).subscribe(
-      () => {
-        this.construtoraService.setTrueConstrutorasListWasUpdated();
+      {
+        next: (response) => {
+          this.construtoraService.setTrueConstrutorasListWasUpdated();
+        },
+        error: (error) => {
+          console.log("An error was found:", error);
+        }
       }
     );
-    console.log(`The construtora with id: ${id} was selected for deletion`);
   }
 
   
