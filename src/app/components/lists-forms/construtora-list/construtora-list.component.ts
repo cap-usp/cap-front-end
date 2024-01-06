@@ -49,12 +49,21 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
           console.log("An error was found:", error);
         }
       }
-    )
+    );
   }
 
-  editConstrutora(construtora: Construtora) {
-    this.construtoraService.selectConstrutoraForEdition(construtora);
-    console.log(`The construtora with id: ${construtora.id} was selected for edition`);
+  editConstrutora(id: number) {
+    this.construtoraService.getConstrutoraById(id).subscribe(
+      {
+        next : (response) => {
+          this.construtoraService.selectConstrutoraForEdition(response);
+          console.log(`The construtora with id: ${id} was selected for edition`);
+        },
+        error: (error) => {
+          console.log("An error was found:", error);
+        } 
+      }
+    );
   }
 
   deleteConstrutora(id: number){
@@ -70,7 +79,4 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
       }
     );
   }
-
-  
-
 }

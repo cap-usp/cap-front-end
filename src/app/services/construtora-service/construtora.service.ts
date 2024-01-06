@@ -31,6 +31,10 @@ export class ConstrutoraService {
     return this.httpClient.get<Construtora[]>(`${this.url}/construtora`);
   }
 
+  getConstrutoraById(id: number) {
+    return this.httpClient.get<Construtora>(`${this.url}/construtora/${id}`);
+  }
+
   registerConstrutora(construtora: Construtora) {
     return this.httpClient.post<Construtora>(this.url + '/construtora', construtora);
   }
