@@ -11,6 +11,8 @@ import { FormsConstrutoraComponent } from './components/forms/forms-construtora/
 import { FormUsuarioComponent } from './components/forms/form-usuario/form-usuario.component';
 import { PaginaPesquisadorComponent } from './components/pagina-pesquisador/pagina-pesquisador.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ConstrutoraListComponent } from './components/lists-forms/construtora-list/construtora-list.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsConstrutoraComponent,
     FormUsuarioComponent,
     PaginaPesquisadorComponent,
-    FooterComponent
+    FooterComponent,
+    ConstrutoraListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
