@@ -4,7 +4,7 @@ import { FormGroup, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-forms-arquiteto',
   templateUrl: './forms-arquiteto.component.html',
-  styleUrls: ['./forms-arquiteto.component.css','./../forms-components.css']
+  styleUrls: ['./forms-arquiteto.component.css']
 })
 export class FormsArquitetoComponent implements OnInit {
   

@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+#FormsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+}
+
+#FormsContainer #HeaderForms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#FormsContainer #TitleForms {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#FormsContainer #TitleFormsLine {
+    width: 200px;
+    height: 1px;
+    background-color: black;
+}
+
+#FormsContainer form {
+    width: 100%;
+    text-align: center;
+}
+
+#FormsContainer .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    width: 100%;
+
+}
+
+#FormsContainer input {
+    height: 25px;
+    border-radius: 10px;
+}
+
+#FormsContainer button {
+    background-color: white; /* Green */
+    border: 2px solid #555555;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    cursor: pointer; 
+}
+
+#FormsContainer button:hover {
+    background-color: #555555; /* Green */
+    color: white;
+  }

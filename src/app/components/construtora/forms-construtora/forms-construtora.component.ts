@@ -5,7 +5,7 @@ import { ConstrutoraService } from 'src/app/services/construtora-service/constru
 @Component({
   selector: 'app-forms-construtora',
   templateUrl: './forms-construtora.component.html',
-  styleUrls: ['./forms-construtora.component.css','./../forms-components.css']
+  styleUrls: ['./forms-construtora.component.css']
 })
 
 export class FormsConstrutoraComponent implements OnInit {

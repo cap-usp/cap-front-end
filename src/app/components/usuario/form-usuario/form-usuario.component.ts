@@ -5,7 +5,7 @@ import { FormGroup, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-form-usuario',
   templateUrl: './form-usuario.component.html',
-  styleUrls: ['./form-usuario.component.css','./../forms-components.css']
+  styleUrls: ['./form-usuario.component.css']
 })
 
 export class FormUsuarioComponent implements OnInit {

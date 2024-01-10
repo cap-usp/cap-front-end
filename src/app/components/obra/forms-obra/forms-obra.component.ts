@@ -4,7 +4,7 @@ import { FormGroup, FormControl} from '@angular/forms';
 @Component({
   selector: 'app-forms-obra',
   templateUrl: './forms-obra.component.html',
-  styleUrls: ['./forms-obra.component.css','./../forms-components.css']
+  styleUrls: ['./forms-obra.component.css']
 })
 export class FormsObraComponent implements OnInit {
   
