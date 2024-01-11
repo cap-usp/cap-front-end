@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class usuarioService {
+export class UsuarioService {
   private url = environment.api;
 
   // Observable responsible to report changes in the content of the api
