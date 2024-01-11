@@ -1,1 +1,20 @@
-<p>list-arquiteto works!</p>
+<div id="list-container">
+    <table>
+        <thead>
+            <th> id </th>
+            <th> nome </th>
+            <th> nomeMeio </th>
+            <th> sobrenome </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let arquiteto of this.arquitetos">
+                <td> {{arquiteto.id}} </td>
+                <td> {{arquiteto.nome}} </td>
+                <td> {{arquiteto.nomeMeio}} </td>
+                <td> {{arquiteto.sobrenome}} </td>
+                <td> <button (click)="editArquiteto(arquiteto.id!)"> Editar </button> </td>
+                <td> <button (click)="deleteArquiteto(arquiteto.id!)"> Deletar </button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

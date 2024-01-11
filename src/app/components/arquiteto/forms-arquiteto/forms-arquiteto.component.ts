@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
-import { ArquitetpService } from 'src/app/services/arquiteto-service/arquiteto.service';
+import { ArquitetoService } from 'src/app/services/arquiteto-service/arquiteto.service';
 
 @Component({
   selector: 'app-forms-arquiteto',
@@ -11,7 +11,7 @@ export class FormsArquitetoComponent implements OnInit {
   
   arquitetoForm: FormGroup = new FormGroup({ });
  
-  constructor(private arquitetoService: ArquitetpService){ }
+  constructor(private arquitetoService: ArquitetoService){ }
 
   ngOnInit() {
     this.arquitetoForm = new FormGroup({
