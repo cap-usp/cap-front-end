@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
+import { ArquitetpService } from 'src/app/services/arquiteto-service/arquiteto.service';
 
 @Component({
   selector: 'app-forms-arquiteto',
@@ -10,7 +11,7 @@ export class FormsArquitetoComponent implements OnInit {
   
   arquitetoForm: FormGroup = new FormGroup({ });
  
-  constructor(){ }
+  constructor(private arquitetoService: ArquitetpService){ }
 
   ngOnInit() {
     this.arquitetoForm = new FormGroup({
@@ -20,7 +21,18 @@ export class FormsArquitetoComponent implements OnInit {
       sobrenome: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
     });
 
-
+    this.arquitetoService.selectedForEditionArquiteto$.subscribe(
+      arquiteto => {
+        if(arquiteto){
+          this.arquitetoForm.setValue({
+            id: arquiteto.id,
+            nome: arquiteto.nome,
+            nomeMeio: arquiteto.nomeMeio,
+            sobrenome: arquiteto.sobrenome
+          });
+        }
+      }
+    );
 
   }
 
@@ -31,13 +43,40 @@ export class FormsArquitetoComponent implements OnInit {
 
   registerArquiteto(){
     if (this.arquitetoForm.valid) {
-      const a = this.arquitetoForm.value;
-      
+      if(this.arquitetoForm.value['id'] !== null){
+        this.arquitetoService.editArquiteto(this.arquitetoForm.value).subscribe(
+          {
+            next: (response) => {
+              this.arquitetoService.setTrueArquitetosListWasUpdated();
+              this.arquitetoService.clearSelectedArquitetoForEdition();
+              this.arquitetoForm.reset();
+            },
+            error: (error) => {
+              console.log("An error occured:", error);
+            }
+          }
+        );
+      } else {
+        this.arquitetoService.registerArquiteto(this.arquitetoForm.value).subscribe(
+          {
+            next: (response) => {
+              this.arquitetoService.setTrueArquitetosListWasUpdated();
+              this.arquitetoForm.reset();
+              console.log("The register was successful");
+            },
+            error: (error) => {
+              console.log("An error was found:", error);
+            }
+          }
+        );
+      }
+    } else {
+      console.log("Form is invalid");
     }
   }
 
   onSubmit() {
-    console.log(this.arquitetoForm.value)
+    this.registerArquiteto();
   }
 
 }
