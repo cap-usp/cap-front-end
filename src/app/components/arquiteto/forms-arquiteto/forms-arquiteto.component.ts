@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'app-forms-arquiteto',
@@ -13,11 +13,27 @@ export class FormsArquitetoComponent implements OnInit {
   constructor(){ }
 
   ngOnInit() {
-      this.arquitetoForm = new FormGroup({
-      nome: new FormControl(""),
-      nomeMeio: new FormControl(""),
-      sobrenome: new FormControl(""),
+    this.arquitetoForm = new FormGroup({
+      id: new FormControl(null),
+      nome: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      nomeMeio: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      sobrenome: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
     });
+
+
+
+  }
+
+  notNullValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    return value !== null ? null : { 'isNull': true };
+  }
+
+  registerArquiteto(){
+    if (this.arquitetoForm.valid) {
+      const a = this.arquitetoForm.value;
+      
+    }
   }
 
   onSubmit() {
