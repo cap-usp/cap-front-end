@@ -1,4 +1,4 @@
-export interface Construtora {
+export interface Obra {
     id?: number,
     autoria: number,
     escritorio: string,
