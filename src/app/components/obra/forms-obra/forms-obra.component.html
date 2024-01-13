@@ -10,16 +10,15 @@
             <select 
                 formControlName="autoria"
                 required>
-                <option *ngFor="let option of autoriaOptions" [value]="option.value">{{ option.label }}</option>
+                <option *ngFor="let autoria of autoriaOptions" [value]="autoria.id">{{autoria.nome}} {{autoria.nomeMeio}} {{autoria.sobrenome}} </option>
             </select>
         </div>
         <div class="form-group">
             <label for="Escritorio">Escritório</label>
-            <select 
-                formControlName="escritorio"
-                required>
-                <option *ngFor="let option of escritorioOptions" [value]="option.value">{{ option.label }}</option>
-            </select>
+            <input type="text" 
+                    placeholder="Digite o escritório" 
+                    formControlName="nomeOficial"
+                     />
         </div>
         <div class="form-group">
             <label for="NomeOficial">Nome Oficial</label>
@@ -98,8 +97,9 @@
             <label for="Construtora">Construtora</label>
             <select 
                 formControlName="construtora"
-                required>
-                <option *ngFor="let option of construtoraOptions" [value]="option.value">{{ option.label }}</option>
+                >
+                <option [value]="null"> Deixar vazio </option>
+                <option *ngFor="let construtora of construtoraOptions" [value]="construtora.id">{{ construtora.nome }}</option>
             </select>
         </div>
         <div class="form-group">
