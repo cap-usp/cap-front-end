@@ -1,9 +1,7 @@
 #form-list {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: center; /* Center items horizontally */
     padding-bottom: 30px;
     padding-top: 30px;
     gap: 20px;
@@ -11,5 +9,9 @@
 
 #form {
     width: 33%;
-    
+    margin: auto; /* Center the form horizontally */
+}
+
+#list {
+    width: 100%; /* Make the list take up the full width */
 }
