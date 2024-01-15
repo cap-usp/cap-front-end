@@ -25,6 +25,7 @@ import { ListArquitetoComponent } from './components/arquiteto/list-arquiteto/li
 import { FormUsuarioComponent } from './components/usuario/form-usuario/form-usuario.component';
 import { ListUsuarioComponent } from './components/usuario/list-usuario/list-usuario.component';
 import { FormListUsuarioComponent } from './components/usuario/form-list-usuario/form-list-usuario.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FormListUsuarioComponent } from './components/usuario/form-list-usuario
     ListArquitetoComponent,
     ListUsuarioComponent,
     FormListUsuarioComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
