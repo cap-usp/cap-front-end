@@ -26,13 +26,7 @@ export class FormUsuarioComponent implements OnInit {
     this.usuarioService.selectedForEditionUsuario$.subscribe(
       usuario => {
         if(usuario){
-          this.usuarioForm.setValue({
-            id: usuario.id,
-            nome: usuario.nome,
-            senha: usuario.senha,
-            nusp: usuario.nusp,
-            email: usuario.email
-          });
+          this.usuarioForm.setValue(usuario);
         }
       }
     );

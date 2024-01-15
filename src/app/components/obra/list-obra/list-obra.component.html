@@ -1,1 +1,78 @@
-<p>list-obra works!</p>
+<div id="list-container">
+    <table>
+        <thead>
+            <th> id </th>
+            <th> autoria </th>
+            <th> escritorio </th>
+            <th> nomeOficial </th>
+            <th> nomeAlternativo </th>
+            <th> tipoEndereco </th>
+            <th> enderecoTitulo </th>
+            <th> logradouro </th>
+            <th> numero </th>
+            <th> complemento </th>
+            <th> cep </th>
+            <th> municipio </th>
+            <th> anoProjeto </th>
+            <th> anoConstrucao </th>
+            <th> construtora </th>
+            <th> condephaat </th>
+            <th> conpresp</th>
+            <th> iphan </th>
+            <th> usoOriginal </th>
+            <th> codigoOriginal </th>
+            <th> usoAtual </th>
+            <th> codigoAtual </th>
+            <th> dataUsoAtual </th>
+            <th> status </th>
+            <th> anoDemolicao </th>
+            <th> anoRestauro </th>
+            <th> anoReforma </th>
+            <th> arquitetoReforma </th>
+            <th> latitude </th>
+            <th> longitude </th>
+            <th> referencias </th>
+            <th> validadoProfessora </th>
+            <th> validadoDPH </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obra of this.obras">
+                <td> {{obra.id}} </td>
+                <td> {{obra.autoria}} </td>
+                <td> {{obra.escritorio}} </td>
+                <td> {{obra.nomeOficial}} </td>
+                <td> {{obra.nomeAlternativo}} </td>
+                <td> {{obra.tipoEndereco}} </td>
+                <td> {{obra.enderecoTitulo}} </td>
+                <td> {{obra.logradouro}} </td>
+                <td> {{obra.numero}} </td>
+                <td> {{obra.complemento}} </td>
+                <td> {{obra.cep}} </td>
+                <td> {{obra.municipio}} </td>
+                <td> {{obra.anoProjeto}} </td>
+                <td> {{obra.anoConstrucao}} </td>
+                <td> {{obra.construtora}} </td>
+                <td> {{obra.condephaat}} </td>
+                <td> {{obra.conpresp}} </td>
+                <td> {{obra.iphan}} </td>
+                <td> {{obra.usoOriginal}} </td>
+                <td> {{obra.codigoOriginal}} </td>
+                <td> {{obra.usoAtual}} </td>
+                <td> {{obra.codigoAtual}} </td>
+                <td> {{obra.dataUsoAtual}} </td>
+                <td> {{obra.status}} </td>
+                <td> {{obra.anoDemolicao}} </td>
+                <td> {{obra.anoRestauro}} </td>
+                <td> {{obra.anoReforma}} </td>
+                <td> {{obra.arquitetoReforma}} </td>
+                <td> {{obra.latitude}} </td>
+                <td> {{obra.longitude}} </td>
+                <td> {{obra.referencias}} </td>
+                <td> {{obra.validadoProfessora}} </td>
+                <td> {{obra.validadoDPH}} </td>
+                <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
+                <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

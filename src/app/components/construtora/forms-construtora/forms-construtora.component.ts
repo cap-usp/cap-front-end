@@ -22,10 +22,7 @@ export class FormsConstrutoraComponent implements OnInit {
 
     this.construtoraService.selectedForEditionConstrutora$.subscribe(construtora => {
         if(construtora){
-          this.construtoraForm.setValue({
-            id: construtora.id,
-            nome: construtora.nome
-          });
+          this.construtoraForm.setValue(construtora);
         }
       }
     );
