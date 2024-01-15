@@ -1,4 +1,3 @@
-
 <div id="FormsContainer">
     <div id="HeaderForms">
         <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE OBRA</h2>
@@ -7,222 +6,148 @@
     <form [formGroup]="obraForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="Autoria">Autoria</label>
-            <select 
-                formControlName="autoria"
-                required>
+            <select formControlName="autoria" required>
                 <option *ngFor="let option of autoriaOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="Escritorio">Escritório</label>
-            <select 
-                formControlName="escritorio"
-                required>
+            <select formControlName="escritorio" required>
                 <option *ngFor="let option of escritorioOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="NomeOficial">Nome Oficial</label>
-            <input type="text" 
-                    placeholder="Digite o nome oficial" 
-                    formControlName="nomeOficial"
-                    required />
+            <input type="text" placeholder="Digite o nome oficial" formControlName="nomeOficial" required />
         </div>
         <div class="form-group">
             <label for="NomeAlternativo">Nome Alternativo</label>
-            <input type="text" 
-                    placeholder="Digite o nome alternativo" 
-                    formControlName="nomeAlternativo"/>
+            <input type="text" placeholder="Digite o nome alternativo" formControlName="nomeAlternativo" />
         </div>
         <div class="form-group">
             <label for="TipoEndereco">Endereço Tipo</label>
-            <input type="text" 
-                    placeholder="Selecione o endereço tipo" 
-                    formControlName="tipoEndereco"
-                    required />
+            <input type="text" placeholder="Selecione o endereço tipo" formControlName="tipoEndereco" required />
         </div>
         <div class="form-group">
             <label for="EnderecoTitulo">Endereço Títuto</label>
-            <input type="text" 
-                    placeholder="Digite o endereço título" 
-                    formControlName="enderecoTitulo"
-                    required />
+            <input type="text" placeholder="Digite o endereço título" formControlName="enderecoTitulo" required />
         </div>
         <div class="form-group">
             <label for="Logradouro">Logradouro</label>
-            <input type="text" 
-                    placeholder="Digite o logradouro" 
-                    formControlName="logradouro"
-                    required />
+            <input type="text" placeholder="Digite o logradouro" formControlName="logradouro" required />
         </div>
         <div class="form-group">
             <label for="Número">Número</label>
-            <input type="text" 
-                    placeholder="Digite o número" 
-                    formControlName="numero"
-                    required />
+            <input type="text" placeholder="Digite o número" formControlName="numero" required />
         </div>
         <div class="form-group">
             <label for="Complemento">Complemento</label>
-            <input type="text" 
-                    placeholder="Digite o complemento" 
-                    formControlName="complemento"/>
+            <input type="text" placeholder="Digite o complemento" formControlName="complemento" />
         </div>
         <div class="form-group">
             <label for="CEP">CEP</label>
-            <input type="text" 
-                    placeholder="Digite o CEP" 
-                    formControlName="cep"
-                    required />
+            <input type="text" placeholder="Digite o CEP" formControlName="cep" required />
         </div>
         <div class="form-group">
             <label for="Municipio">Município</label>
-            <input type="text" 
-                    placeholder="Digite o município" 
-                    formControlName="municipio"
-                    required />
+            <input type="text" placeholder="Digite o município" formControlName="municipio" required />
         </div>
         <div class="form-group">
             <label for="AnoProjeto">Ano do Projeto</label>
-            <input type="text" 
-                    placeholder="Digite o ano do projeto" 
-                    formControlName="anoProjeto"/>
+            <input type="text" placeholder="Digite o ano do projeto" formControlName="anoProjeto" />
         </div>
         <div class="form-group">
             <label for="AnoConstrução">Ano Construção</label>
-            <input type="text" 
-                    placeholder="Digite o ano construção" 
-                    formControlName="anoConstrucao"/>
+            <input type="text" placeholder="Digite o ano construção" formControlName="anoConstrucao" />
         </div>
         <div class="form-group">
             <label for="Construtora">Construtora</label>
-            <select 
-                formControlName="construtora"
-                required>
+            <select formControlName="construtora" required>
                 <option *ngFor="let option of construtoraOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="CONDEPHAAT">CONDEPHAAT</label>
-            <input type="text" 
-                    placeholder="Digite o CONDEPHAAT" 
-                    formControlName="condephaat"/>
+            <input type="text" placeholder="Digite o CONDEPHAAT" formControlName="condephaat" />
         </div>
         <div class="form-group">
             <label for="CONPRESP">CONPRESP</label>
-            <input type="text" 
-                    placeholder="Digite o CONPRESP" 
-                    formControlName="conpresp"/>
+            <input type="text" placeholder="Digite o CONPRESP" formControlName="conpresp" />
         </div>
         <div class="form-group">
             <label for="IPHAN">IPHAN</label>
-            <input type="text" 
-                    placeholder="Digite o IPHAN" 
-                    formControlName="iphan"/>
+            <input type="text" placeholder="Digite o IPHAN" formControlName="iphan" />
         </div>
         <div class="form-group">
             <label for="UsoOriginal">Uso Original</label>
-            <input type="text" 
-                    placeholder="Digite o uso original" 
-                    formControlName="usoOriginal"/>
+            <input type="text" placeholder="Digite o uso original" formControlName="usoOriginal" />
         </div>
         <div class="form-group">
             <label for="CodigoOriginal">Código Original</label>
-            <input type="text" 
-                    placeholder="Digite o Código Original" 
-                    formControlName="codigoOriginal"/>
+            <input type="text" placeholder="Digite o Código Original" formControlName="codigoOriginal" />
         </div>
         <div class="form-group">
             <label for="UsoAtual">Uso Atual</label>
-            <input type="text" 
-                    placeholder="Digite o uso atual" 
-                    formControlName="usoAtual"/>
+            <input type="text" placeholder="Digite o uso atual" formControlName="usoAtual" />
         </div>
         <div class="form-group">
             <label for="CodigoAtual">Código Atual</label>
-            <input type="text" 
-                    placeholder="Digite o código atual" 
-                    formControlName="codigoAtual"/>
+            <input type="text" placeholder="Digite o código atual" formControlName="codigoAtual" />
         </div>
         <div class="form-group">
             <label for="DataUsoAtual">Data Uso Atual</label>
-            <input type="text" 
-                    placeholder="Digite a data do uso atual" 
-                    formControlName="dataUsoAtual"/>
+            <input type="text" placeholder="Digite a data do uso atual" formControlName="dataUsoAtual" />
         </div>
         <div class="form-group">
             <label for="Status">Status</label>
-            <input type="text" 
-                    placeholder="Digite o status" 
-                    formControlName="status"/>
+            <input type="text" placeholder="Digite o status" formControlName="status" />
         </div>
         <div class="form-group">
             <label for="Status">Status</label>
-            <select 
-                formControlName="status">
+            <select formControlName="status">
                 <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="AnoDemolicao">Ano Demolição</label>
-            <input type="text" 
-                    placeholder="Digite o ano da demolição" 
-                    formControlName="anoDemolicao"/>
+            <input type="text" placeholder="Digite o ano da demolição" formControlName="anoDemolicao" />
         </div>
         <div class="form-group">
             <label for="AnoRestauro">Ano Restauro</label>
-            <input type="text" 
-                    placeholder="Digite o ano do restauro" 
-                    formControlName="anoRestauro"/>
+            <input type="text" placeholder="Digite o ano do restauro" formControlName="anoRestauro" />
         </div>
         <div class="form-group">
             <label for="AnoReforma">Ano Reforma</label>
-            <input type="text" 
-                    placeholder="Digite o ano da reforma" 
-                    formControlName="anoReforma"/>
+            <input type="text" placeholder="Digite o ano da reforma" formControlName="anoReforma" />
         </div>
         <div class="form-group">
             <label for="ArquitetoReforma">Arquiteto Reforma</label>
-            <input type="text" 
-                    placeholder="Digite o arquiteto da reforma" 
-                    formControlName="arquitetoReforma"/>
+            <input type="text" placeholder="Digite o arquiteto da reforma" formControlName="arquitetoReforma" />
         </div>
         <div class="form-group">
             <label for="Latitude">Latitude</label>
-            <input type="text" 
-                    placeholder="Digite a latitude" 
-                    formControlName="latitude"
-                    required />
+            <input type="text" placeholder="Digite a latitude" formControlName="latitude" required />
         </div>
         <div class="form-group">
             <label for="Longitude">Longitude</label>
-            <input type="text" 
-                    placeholder="Digite a longitude" 
-                    formControlName="longitude"
-                    required />
+            <input type="text" placeholder="Digite a longitude" formControlName="longitude" required />
         </div>
         <div class="form-group">
             <label for="Referencias">Referências</label>
-            <input type="text" 
-                    placeholder="Digite as referências" 
-                    formControlName="referencias"/>
+            <input type="text" placeholder="Digite as referências" formControlName="referencias" />
         </div>
         <div class="form-group">
             <label for="ValidadoProfessora">Validado Pela Professora</label>
-            <select 
-                formControlName="validadoProfessora"
-                required>
+            <select formControlName="validadoProfessora" required>
                 <option *ngFor="let option of validadoOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
         <div class="form-group">
             <label for="ValidadoDPH">Validado Pelo DPH</label>
-            <select 
-                formControlName="validadoDPH"
-                required>
+            <select formControlName="validadoDPH" required>
                 <option *ngFor="let option of validadoOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit">Enviar</button>
     </form>
 </div>
