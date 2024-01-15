@@ -1,0 +1,22 @@
+<div id="list-container">
+    <table>
+        <thead>
+            <th> id </th>
+            <th> nome </th>
+            <th> senha </th>
+            <th> NUSP </th>
+            <th> Email </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of this.usuarios">
+                <td> {{usuario.id}} </td>
+                <td> {{usuario.nome}} </td>
+                <td> {{usuario.senha}} </td>
+                <td> {{usuario.nusp}} </td>
+                <td> {{usuario.email}} </td>
+                <td> <button (click)="editUsuario(usuario.id!)"> Editar </button> </td>
+                <td> <button (click)="deleteUsuario(usuario.id!)"> Deletar </button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

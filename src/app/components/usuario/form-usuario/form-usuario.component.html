@@ -1,15 +1,15 @@
 
 <div id="FormsContainer">
     <div id="HeaderForms">
-        <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE ARQUITETO</h2>
+        <h2 id="TitleForms">FORMULÁRIO DE CADASTRO DE USUÁRIO</h2>
         <div id="TitleFormsLine"></div>
     </div>
     <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-            <label for="Login">Login</label>
+            <label for="Nome">Nome</label>
             <input type="text" 
-                    placeholder="Digite o login" 
-                    formControlName="login"
+                    placeholder="Digite o nome" 
+                    formControlName="nome"
                     required />
         </div>
         <div class="form-group">
@@ -20,10 +20,17 @@
                     required />
         </div>
         <div class="form-group">
-            <label for="NumeroUSP">Número USP</label>
+            <label for="NUSP">Número USP</label>
             <input type="text" 
                     placeholder="Digite o número usp" 
-                    formControlName="numeroUSP"
+                    formControlName="nusp"
+                    required />
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" 
+                    placeholder="Digite o email" 
+                    formControlName="email"
                     required />
         </div>
         <button type="submit">Submit</button>
