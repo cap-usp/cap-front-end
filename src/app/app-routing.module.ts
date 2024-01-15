@@ -11,8 +11,7 @@ import { FormListArquitetoComponent } from './components/arquiteto/form-list-arq
 import { FormListObraComponent } from './components/obra/form-list-obra/form-list-obra.component';
 import { FormListUsuarioComponent } from './components/usuario/form-list-usuario/form-list-usuario.component';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
-
-
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: PaginaInicialComponent, pathMatch: 'full'},
@@ -20,7 +19,8 @@ const routes: Routes = [
   { path: 'form-list-construtora', component: FormListConstrutoraComponent},
   { path: 'form-list-arquiteto', component: FormListArquitetoComponent},
   { path: 'form-list-obra', component: FormListObraComponent},
-  { path: 'form-list-usuario', component: FormListUsuarioComponent}
+  { path: 'form-list-usuario', component: FormListUsuarioComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

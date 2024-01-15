@@ -26,6 +26,7 @@ import { FormUsuarioComponent } from './components/usuario/form-usuario/form-usu
 import { ListUsuarioComponent } from './components/usuario/list-usuario/list-usuario.component';
 import { FormListUsuarioComponent } from './components/usuario/form-list-usuario/form-list-usuario.component';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inici
     ListUsuarioComponent,
     FormListUsuarioComponent,
     PaginaInicialComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
