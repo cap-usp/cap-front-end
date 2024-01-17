@@ -68,8 +68,16 @@
                 <td> {{obra.latitude}} </td>
                 <td> {{obra.longitude}} </td>
                 <td> {{obra.referencias}} </td>
-                <td> {{obra.validadoProfessora}} </td>
-                <td> {{obra.validadoDPH}} </td>
+                <td class="validateTD">
+                    {{obra.validadoProfessora}}
+                    <button *ngIf="!obra.validadoProfessora" (click)="validateProfessora(obra)"> Validar </button>
+                    <ng-template #elseBlock> <button (click)="desvalidateProfessora(obra)"> Desvalidar </button></ng-template> 
+                </td>
+                <td class="validateTD"> 
+                    {{obra.validadoDPH}}
+                    <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
+                    <ng-template #elseBlock> <button (click)="desvalidateDPH(obra)"> Desvalidar </button></ng-template>
+                </td>
                 <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
                 <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
             </tr>

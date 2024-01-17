@@ -52,6 +52,70 @@ export class ListObraComponent implements OnInit, OnDestroy {
     );
   }
 
+  validateProfessora(obra : Obra){
+    obra.validadoProfessora = true;
+    this.obraService.editObra(obra).subscribe(
+      {
+        next : (response) => {
+          if(response){
+            this.obraService.setTrueObrasListWasUpdated();
+          }
+        },
+        error : (error) => {
+          console.log("An error was found:", error);
+        }
+      }
+    );
+  }
+
+  desvalidateProfessora(obra : Obra){
+    obra.validadoProfessora = false;
+    this.obraService.editObra(obra).subscribe(
+      {
+        next : (response) => {
+          if(response){
+            this.obraService.setTrueObrasListWasUpdated();
+          }
+        },
+        error : (error) => {
+          console.log("An error was found:", error);
+        }
+      }
+    );
+  }
+
+  validateDPH(obra : Obra){
+    obra.validadoDPH = true;
+    this.obraService.editObra(obra).subscribe(
+      {
+        next : (response) => {
+          if(response){
+            this.obraService.setTrueObrasListWasUpdated();
+          }
+        },
+        error : (error) => {
+          console.log("An error was found:", error);
+        }
+      }
+    );
+  }
+
+  desvalidateDPH(obra : Obra){
+    obra.validadoDPH = false;
+    this.obraService.editObra(obra).subscribe(
+      {
+        next : (response) => {
+          if(response){
+            this.obraService.setTrueObrasListWasUpdated();
+          }
+        },
+        error : (error) => {
+          console.log("An error was found:", error);
+        }
+      }
+    );
+  }
+
   editObra(id: number) {
     this.obraService.getObraById(id).subscribe(
       {
