@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, FormArray} from '@angular/forms';
 import { ObraService } from 'src/app/services/obra-service/obra-service.service';
 import { ArquitetoService } from 'src/app/services/arquiteto-service/arquiteto.service';
 import { ConstrutoraService } from 'src/app/services/construtora-service/construtora.service';
@@ -68,18 +68,23 @@ export class FormsObraComponent implements OnInit {
         arquitetoReforma: new FormControl(null),
         latitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
         longitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        referencias: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+        referencias: new FormArray([new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator])]),
         validadoProfessora: new FormControl(false),
         validadoDPH: new FormControl(false),     
     });
 
+
     this.obraService.selectedForEditionObra$.subscribe(
       obra => {
         if(obra) {
+          for(let i = 1; i < obra.referencias.length; i++){
+            console.log(i);
+            this.addReferenciaInFormArray();
+          }
           this.obraForm.setValue(obra);
         }
       }
-    );
+  );
 
   }
 
@@ -87,6 +92,27 @@ export class FormsObraComponent implements OnInit {
     const value = control.value;
     return value !== null ? null : { 'isNull': true };
   }
+
+  get referenciaFormArray() : FormArray {
+    return this.obraForm.get('referencias') as FormArray;
+  }
+
+  get referenciasIndexArray() : Array<number> {
+    return Array.from({ length: this.referenciaFormArray.controls.length }, (_, i) => i);
+  }
+
+  getReferenciaFormControlByIndex(index : number) : FormControl{
+    return this.referenciaFormArray.controls[index] as FormControl;
+  }
+
+  addReferenciaInFormArray(){
+    (this.obraForm.get('referencias') as FormArray).push(new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]));
+  }
+
+  deletReferenciaFormInFormArray(index : number){
+    (this.obraForm.get('referencias') as FormArray).removeAt(index);
+  }
+
 
   createAutoriaOptions(){
     this.arquitetoService.getAllArquitetos().subscribe(
