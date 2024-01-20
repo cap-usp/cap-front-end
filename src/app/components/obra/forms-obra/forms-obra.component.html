@@ -148,9 +148,11 @@
             <label for="Referencias">Referências</label>
             <div *ngFor="let i of referenciasIndexArray;" class="referencia-item">
                 <input type="text" [formControl]="getReferenciaFormControlByIndex(i)">
-                <button type="button" (click)="deletReferenciaFormInFormArray(i)">Remover</button>
+                <div id="obra-side-buttons">
+                    <button *ngIf="referenciasIndexArray.length > 1" class="side-button" type="button" (click)="deletReferenciaFormInFormArray(i)"> - </button>
+                    <button class="side-button" *ngIf="i === referenciasIndexArray.length-1" type="button" (click)="addReferenciaInFormArray()"> + </button>
+                </div>
             </div>
-            <button type="button" (click)="addReferenciaInFormArray()">Adicionar Referência</button>
         </div>
         <button type="submit">Enviar</button>
     </form>

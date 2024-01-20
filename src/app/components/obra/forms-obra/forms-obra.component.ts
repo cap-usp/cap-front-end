@@ -37,48 +37,13 @@ export class FormsObraComponent implements OnInit {
   }
 
   ngOnInit() {
-      this.obraForm = new FormGroup({
-        id: new FormControl(null),
-        autoria: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        escritorio: new FormControl(null),
-        nomeOficial: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        nomeAlternativo: new FormControl(null),
-        tipoEndereco: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        enderecoTitulo: new FormControl(null),
-        logradouro: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        numero: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        complemento: new FormControl(null),
-        cep: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        municipio: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        anoProjeto: new FormControl(null),
-        anoConstrucao: new FormControl(null),
-        construtora: new FormControl(null),
-        condephaat: new FormControl(null),
-        conpresp: new FormControl(null),
-        iphan: new FormControl(null),
-        usoOriginal: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        codigoOriginal: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        usoAtual: new FormControl(null),
-        codigoAtual: new FormControl(null),
-        dataUsoAtual: new FormControl(null),
-        status: new FormControl(null),
-        anoDemolicao: new FormControl(null),
-        anoRestauro: new FormControl(null),
-        anoReforma: new FormControl(null),
-        arquitetoReforma: new FormControl(null),
-        latitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        longitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        referencias: new FormArray([new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator])]),
-        validadoProfessora: new FormControl(false),
-        validadoDPH: new FormControl(false),     
-    });
-
+    this.obraForm = this.createObraFormInstance();
 
     this.obraService.selectedForEditionObra$.subscribe(
       obra => {
         if(obra) {
+          this.obraForm = this.createObraFormInstance();
           for(let i = 1; i < obra.referencias.length; i++){
-            console.log(i);
             this.addReferenciaInFormArray();
           }
           this.obraForm.setValue(obra);
@@ -91,6 +56,44 @@ export class FormsObraComponent implements OnInit {
   notNullValidator(control: AbstractControl): ValidationErrors | null {
     const value = control.value;
     return value !== null ? null : { 'isNull': true };
+  }
+
+  createObraFormInstance() : FormGroup {
+    return new FormGroup({
+      id: new FormControl(null),
+      autoria: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      escritorio: new FormControl(null),
+      nomeOficial: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      nomeAlternativo: new FormControl(null),
+      tipoEndereco: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      enderecoTitulo: new FormControl(null),
+      logradouro: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      numero: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      complemento: new FormControl(null),
+      cep: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      municipio: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      anoProjeto: new FormControl(null),
+      anoConstrucao: new FormControl(null),
+      construtora: new FormControl(null),
+      condephaat: new FormControl(null),
+      conpresp: new FormControl(null),
+      iphan: new FormControl(null),
+      usoOriginal: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      codigoOriginal: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      usoAtual: new FormControl(null),
+      codigoAtual: new FormControl(null),
+      dataUsoAtual: new FormControl(null),
+      status: new FormControl(null),
+      anoDemolicao: new FormControl(null),
+      anoRestauro: new FormControl(null),
+      anoReforma: new FormControl(null),
+      arquitetoReforma: new FormControl(null),
+      latitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      longitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      referencias: new FormArray([new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator])]),
+      validadoProfessora: new FormControl(false),
+      validadoDPH: new FormControl(false),     
+    });
   }
 
   get referenciaFormArray() : FormArray {
@@ -112,6 +115,7 @@ export class FormsObraComponent implements OnInit {
   deletReferenciaFormInFormArray(index : number){
     (this.obraForm.get('referencias') as FormArray).removeAt(index);
   }
+
 
 
   createAutoriaOptions(){
@@ -148,7 +152,7 @@ export class FormsObraComponent implements OnInit {
             next: (response) => {
               this.obraService.setTrueObrasListWasUpdated();
               this.obraService.clearSelectedObraForEdition();
-              this.obraForm.reset();
+              this.obraForm = this.createObraFormInstance();
             },
             error: (error) => {
               console.log("An error occured:", error);
@@ -160,7 +164,7 @@ export class FormsObraComponent implements OnInit {
           {
             next: (response) => {
               this.obraService.setTrueObrasListWasUpdated();
-              this.obraForm.reset();
+              this.obraForm = this.createObraFormInstance();
               console.log("The register was successful");
             },
             error: (error) => {
