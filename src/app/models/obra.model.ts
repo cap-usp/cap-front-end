@@ -1,3 +1,5 @@
+import { FormArray, FormControl } from "@angular/forms";
+
 export interface Obra {
     id?: number,
     autoria: number,
@@ -29,7 +31,7 @@ export interface Obra {
     arquitetoReforma: number,
     latitude: number,
     longitude: number,
-    referencias: string,
+    referencias: string[],
     validadoProfessora: boolean,
     validadoDPH: boolean  
 }
