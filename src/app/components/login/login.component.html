@@ -1,0 +1,19 @@
+<div id="form">
+    <div id="FormsContainer">
+        <div id="HeaderForms">
+            <h2 id="TitleForms">ACESSAR O SISTEMA</h2>
+            <div id="TitleFormsLine"></div>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="Nome">Email</label>
+                <input type="text" placeholder="Digite o seu email" formControlName="email" />
+            </div>
+            <div class="form-group">
+                <label for="Senha">Senha</label>
+                <input type="text" placeholder="Digite a senha" formControlName="senha" />
+            </div>
+            <button type="submit" [disabled]="loginForm ? false : true">Enviar</button>
+        </form>
+    </div>
+</div>

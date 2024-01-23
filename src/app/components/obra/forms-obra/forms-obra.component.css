@@ -1,1 +1,20 @@
+.referencia-item {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+#obra-side-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.referencia-item input {
+    width: 100%;
+}
 

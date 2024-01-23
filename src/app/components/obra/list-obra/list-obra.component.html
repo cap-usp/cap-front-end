@@ -1,1 +1,34 @@
-<p>list-obra works!</p>
+<div id="list-container">
+    <table>
+        <thead>
+            <th> Autoria </th>
+            <th> Nome Oficial </th>
+            <th> Logradouro </th>
+            <th> Numero </th>
+            <th> Ano Projeto </th>
+            <th> Validado Professora </th>
+            <th> Validado DPH </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obra of this.obras">
+                <td> {{obra.autoria}} </td>
+                <td> {{obra.nomeOficial}} </td>
+                <td> {{obra.logradouro}} </td>
+                <td> {{obra.numero}} </td>
+                <td> {{obra.anoProjeto}} </td>
+                <td class="validateTD">
+                    {{obra.validadoProfessora}}
+                    <button *ngIf="!obra.validadoProfessora" (click)="validateProfessora(obra)"> Validar </button>
+                    <ng-template #elseBlock> <button (click)="desvalidateProfessora(obra)"> Desvalidar </button></ng-template> 
+                </td>
+                <td class="validateTD"> 
+                    {{obra.validadoDPH}}
+                    <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
+                    <ng-template #elseBlock> <button (click)="desvalidateDPH(obra)"> Desvalidar </button></ng-template>
+                </td>
+                <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
+                <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

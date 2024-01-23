@@ -24,12 +24,7 @@ export class FormsArquitetoComponent implements OnInit {
     this.arquitetoService.selectedForEditionArquiteto$.subscribe(
       arquiteto => {
         if(arquiteto){
-          this.arquitetoForm.setValue({
-            id: arquiteto.id,
-            nome: arquiteto.nome,
-            nomeMeio: arquiteto.nomeMeio,
-            sobrenome: arquiteto.sobrenome
-          });
+          this.arquitetoForm.setValue(arquiteto);
         }
       }
     );

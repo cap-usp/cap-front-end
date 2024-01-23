@@ -37,7 +37,6 @@
     padding-bottom: 5px;
     text-align: left;
     width: 100%;
-
 }
 
 #FormsContainer input {
@@ -61,4 +60,8 @@
 #FormsContainer button:hover {
     background-color: #555555; /* Green */
     color: white;
-  }
+}
+
+#FormsContainer .side-button{
+    padding: 5px 20px;
+}
