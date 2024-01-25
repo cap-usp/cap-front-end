@@ -1,15 +1,13 @@
 <div id="list-container">
     <table>
         <thead>
-            <th> id </th>
-            <th> nome </th>
-            <th> senha </th>
+            <th> Nome </th>
+            <th> Senha </th>
             <th> NUSP </th>
             <th> Email </th>
         </thead>
         <tbody>
             <tr *ngFor="let usuario of this.usuarios">
-                <td> {{usuario.id}} </td>
                 <td> {{usuario.nome}} </td>
                 <td> {{usuario.senha}} </td>
                 <td> {{usuario.nusp}} </td>

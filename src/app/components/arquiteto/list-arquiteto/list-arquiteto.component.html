@@ -1,14 +1,12 @@
 <div id="list-container">
     <table>
         <thead>
-            <th> id </th>
-            <th> nome </th>
-            <th> nomeMeio </th>
-            <th> sobrenome </th>
+            <th> Nome </th>
+            <th> Nome do meio </th>
+            <th> Sobrenome </th>
         </thead>
         <tbody>
             <tr *ngFor="let arquiteto of this.arquitetos">
-                <td> {{arquiteto.id}} </td>
                 <td> {{arquiteto.nome}} </td>
                 <td> {{arquiteto.nomeMeio}} </td>
                 <td> {{arquiteto.sobrenome}} </td>
