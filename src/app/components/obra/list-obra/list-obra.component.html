@@ -17,14 +17,16 @@
                 <td> {{obra.numero}} </td>
                 <td> {{obra.anoProjeto}} </td>
                 <td class="validateTD">
-                    {{obra.validadoProfessora}}
+                    <span *ngIf="obra.validadoProfessora"> Sim </span>
+                    <span *ngIf="!obra.validadoProfessora"> Não </span>
                     <button *ngIf="!obra.validadoProfessora" (click)="validateProfessora(obra)"> Validar </button>
                     <button *ngIf="obra.validadoProfessora" (click)="desvalidateProfessora(obra)"> Desvalidar </button>
                 </td>
-                <td class="validateTD"> 
-                    {{obra.validadoDPH}}
+                <td class="validateTD">
+                    <span *ngIf="obra.validadoDPH"> Sim </span>
+                    <span *ngIf="!obra.validadoDPH"> Não </span> 
                     <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
-                    <ng-template #elseBlock> <button (click)="desvalidateDPH(obra)"> Desvalidar </button></ng-template>
+                    <button *ngIf="obra.validadoDPH" (click)="desvalidateDPH(obra)"> Desvalidar </button>
                 </td>
                 <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
                 <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
