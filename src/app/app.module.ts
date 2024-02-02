@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PaginaPesquisadorComponent } from './components/pagina-pesquisador/pagina-pesquisador.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FooterComponent } from './components/footer/footer.component';
@@ -35,7 +34,6 @@ import { LoginComponent } from './components/login/login.component';
     FormsArquitetoComponent,
     FormsConstrutoraComponent,
     FormUsuarioComponent,
-    PaginaPesquisadorComponent,
     FooterComponent,
     ConstrutoraListComponent,
     HeaderComponent,
