@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ArquitetoService {
-  private url = environment.api;
+  private url = `${environment.api}/arquitetos`;
 
   // Observable responsible to report changes in the content of the api
   private arquitetosListWasUpdatedSubject = new BehaviorSubject<Boolean>(false);
@@ -28,23 +28,23 @@ export class ArquitetoService {
   }
 
   getAllArquitetos() {
-    return this.httpClient.get<Arquiteto[]>(`${this.url}/arquiteto`);
+    return this.httpClient.get<Arquiteto[]>(this.url);
   }
 
   getArquitetoById(id: number) {
-    return this.httpClient.get<Arquiteto>(`${this.url}/arquiteto/${id}`);
+    return this.httpClient.get<Arquiteto>(`${this.url}/${id}`);
   }
 
   registerArquiteto(arquiteto: Arquiteto) {
-    return this.httpClient.post<Arquiteto>(this.url + '/arquiteto', arquiteto);
+    return this.httpClient.post<Arquiteto>(this.url, arquiteto);
   }
 
   deleteArquiteto(id: number) {
-    return this.httpClient.delete<void>(`${this.url}/arquiteto/${id}`);
+    return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
 
   editArquiteto(arquiteto: Arquiteto) {
-    return this.httpClient.put<Arquiteto>(`${this.url}/arquiteto/${arquiteto.id}`, arquiteto);
+    return this.httpClient.put<Arquiteto>(`${this.url}/${arquiteto.id}`, arquiteto);
   }
 
   selectArquitetoForEdition(arquiteto: Arquiteto){

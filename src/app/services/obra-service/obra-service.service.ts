@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ObraService {
-  private url = environment.api;
+  private url = `${environment.api}/obras`;
 
   // Observable responsible to report changes in the content of the api
   private obrasListWasUpdatedSubject = new BehaviorSubject<Boolean>(false);
@@ -28,23 +28,23 @@ export class ObraService {
   }
 
   getAllObras() {
-    return this.httpClient.get<Obra[]>(`${this.url}/obra`);
+    return this.httpClient.get<Obra[]>(`${this.url}`);
   }
 
   getObraById(id: number) {
-    return this.httpClient.get<Obra>(`${this.url}/obra/${id}`);
+    return this.httpClient.get<Obra>(`${this.url}/${id}`);
   }
 
   registerObra(obra: Obra) {
-    return this.httpClient.post<Obra>(this.url + '/obra', obra);
+    return this.httpClient.post<Obra>(this.url, obra);
   }
 
   deleteObra(id: number) {
-    return this.httpClient.delete<void>(`${this.url}/obra/${id}`);
+    return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
 
   editObra(obra: Obra) {
-    return this.httpClient.put<Obra>(`${this.url}/obra/${obra.id}`, obra);
+    return this.httpClient.put<Obra>(`${this.url}/${obra.id}`, obra);
   }
 
   selectObraForEdition(obra: Obra){

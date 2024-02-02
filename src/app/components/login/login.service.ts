@@ -13,7 +13,7 @@ export class LoginService {
 
   public roles: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 
-  private readonly urlLogin: string = `${environment.api}/api/auth/login`;
+  private readonly urlLogin: string = `${environment.api}/auth/login`;
 
   constructor(private readonly http: HttpClient, private readonly router: Router) { }
 

@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private url = environment.api;
+  private url = `${environment.api}/usuarios`;
 
   // Observable responsible to report changes in the content of the api
   private usuariosListWasUpdatedSubject = new BehaviorSubject<Boolean>(false);
@@ -28,23 +28,23 @@ export class UsuarioService {
   }
 
   getAllUsuarios() {
-    return this.httpClient.get<Usuario[]>(`${this.url}/usuario`);
+    return this.httpClient.get<Usuario[]>(`${this.url}`);
   }
 
   getUsuarioById(id: number) {
-    return this.httpClient.get<Usuario>(`${this.url}/usuario/${id}`);
+    return this.httpClient.get<Usuario>(`${this.url}/${id}`);
   }
 
   registerUsuario(usuario: Usuario) {
-    return this.httpClient.post<Usuario>(this.url + '/usuario', usuario);
+    return this.httpClient.post<Usuario>(this.url, usuario);
   }
 
   deleteUsuario(id: number) {
-    return this.httpClient.delete<void>(`${this.url}/usuario/${id}`);
+    return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
 
   editUsuario(usuario: Usuario) {
-    return this.httpClient.put<Usuario>(`${this.url}/usuario/${usuario.id}`, usuario);
+    return this.httpClient.put<Usuario>(`${this.url}/${usuario.id}`, usuario);
   }
 
   selectUsuarioForEdition(usuario: Usuario){
