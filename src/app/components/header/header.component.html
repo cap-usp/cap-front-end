@@ -1,14 +1,26 @@
 <header>
-    <div id="logo-projeto">
-        <a routerLink=""><img src="/assets/images/logo-fau-horizontal-full.svg" id="logo-fau"></a>
-    </div>
-    <div id="links-forms">
-        <ul>
-            <li> <a routerLink="/form-list-obra"> OBRA </a> </li>
-            <li> <a routerLink="/form-list-arquiteto"> ARQUITETO </a> </li>
-            <li> <a routerLink="/form-list-construtora"> CONSTRUTORA </a> </li>
-            <li *ngIf="isAdmin()"> <a routerLink="/form-list-usuario"> USUARIO </a> </li>
-            <li *ngIf="this.roles.length === 0"> <a routerLink="/login"> ENTRAR </a> </li>
-        </ul>
+    <div class="header-wrapper">
+        <div id="logo-projeto">
+            <a routerLink=""><img src="/assets/images/logo_colorida.svg" id="logo-fau"></a>
+        </div>
+        <div id="links-forms">
+            <ul>
+                <a routerLink="/form-list-obra">
+                    <li>OBRA</li>
+                </a>
+                <a routerLink="/form-list-arquiteto">
+                    <li>ARQUITETO</li>
+                </a>
+                <a routerLink="/form-list-construtora">
+                    <li>CONSTRUTORA</li>
+                </a>
+                <a routerLink="/form-list-usuario">
+                    <li *ngIf="isAdmin()">USUARIO</li>
+                </a>
+                <a routerLink="/login">
+                    <li *ngIf="this.roles.length === 0">ENTRAR</li>
+                </a>
+            </ul>
+        </div>
     </div>
 </header>
