@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginResponseInterface } from './login-response.model';
+import { LoginResponseInterface } from '../components/login/login-response.model';
 import { environment } from 'src/environments/environment';
-import { LoginInterface } from './login.model';
+import { LoginInterface } from '../components/login/login.model';
 import { BehaviorSubject } from 'rxjs';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
 
   public roles: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
 

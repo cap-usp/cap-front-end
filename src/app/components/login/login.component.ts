@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginInterface } from './login.model';
-import { LoginService } from './login.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit{
   
   loginForm: FormGroup = new FormGroup({});
 
-  constructor(private readonly loginService: LoginService){}
+  constructor(private readonly authService: AuthService){}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit{
       login: this.loginForm.value.login,
       senha: this.loginForm.value.senha
     }
-    console.log(loginData);
-    this.loginService.login(loginData);
+    this.authService.login(loginData);
   }
 
 }

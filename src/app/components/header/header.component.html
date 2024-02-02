@@ -7,8 +7,8 @@
             <li> <a routerLink="/form-list-obra"> OBRA </a> </li>
             <li> <a routerLink="/form-list-arquiteto"> ARQUITETO </a> </li>
             <li> <a routerLink="/form-list-construtora"> CONSTRUTORA </a> </li>
-            <li> <a routerLink="/form-list-usuario"> USUARIO </a> </li>
-            <li> <a routerLink="/login"> ENTRAR </a> </li>
+            <li *ngIf="isAdmin()"> <a routerLink="/form-list-usuario"> USUARIO </a> </li>
+            <li *ngIf="this.roles.length === 0"> <a routerLink="/login"> ENTRAR </a> </li>
         </ul>
     </div>
 </header>
