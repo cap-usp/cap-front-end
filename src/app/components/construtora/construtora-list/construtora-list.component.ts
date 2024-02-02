@@ -43,7 +43,7 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
     this.construtoraService.getAllConstrutoras().subscribe(
       {
         next: (response) => {
-          this.construtoras = response;
+          this.construtoras = response.content;
         },
         error: (error) => {
           console.log("An error was found:", error);

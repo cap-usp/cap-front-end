@@ -43,7 +43,7 @@ export class ListArquitetoComponent implements OnInit, OnDestroy {
     this.arquitetoService.getAllArquitetos().subscribe(
       {
         next: (response) => {
-          this.arquitetos = response;
+          this.arquitetos = response.content;
         },
         error: (error) => {
           console.log("An error was found:", error);

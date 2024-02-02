@@ -28,7 +28,7 @@ export class ArquitetoService {
   }
 
   getAllArquitetos() {
-    return this.httpClient.get<Arquiteto[]>(this.url);
+    return this.httpClient.get<{'content': Arquiteto[]}>(this.url);
   }
 
   getArquitetoById(id: number) {

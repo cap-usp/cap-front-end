@@ -28,7 +28,7 @@ export class ObraService {
   }
 
   getAllObras() {
-    return this.httpClient.get<Obra[]>(`${this.url}`);
+    return this.httpClient.get<{'content': Obra[]}>(`${this.url}`);
   }
 
   getObraById(id: number) {

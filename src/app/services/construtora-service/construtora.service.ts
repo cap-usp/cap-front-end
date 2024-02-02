@@ -28,7 +28,7 @@ export class ConstrutoraService {
   }
 
   getAllConstrutoras() {
-    return this.httpClient.get<Construtora[]>(`${this.url}`);
+    return this.httpClient.get<{'content': Construtora[]}>(`${this.url}`);
   }
 
   getConstrutoraById(id: number) {

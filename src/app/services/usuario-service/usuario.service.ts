@@ -28,7 +28,7 @@ export class UsuarioService {
   }
 
   getAllUsuarios() {
-    return this.httpClient.get<Usuario[]>(`${this.url}`);
+    return this.httpClient.get<{'content': Usuario[]}>(`${this.url}`);
   }
 
   getUsuarioById(id: number) {

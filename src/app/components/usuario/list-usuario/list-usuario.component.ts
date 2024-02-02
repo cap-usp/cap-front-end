@@ -44,7 +44,7 @@ export class ListUsuarioComponent implements OnInit, OnDestroy {
     this.usuarioService.getAllUsuarios().subscribe(
       {
         next: (response) => {
-          this.usuarios = response;
+          this.usuarios = response.content;
         },
         error: (error) => {
           console.log("An error was found:", error);
