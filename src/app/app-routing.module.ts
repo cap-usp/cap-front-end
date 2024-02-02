@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { PaginaPesquisadorComponent } from './components/pagina-pesquisador/pagina-pesquisador.component';
 import { FormListConstrutoraComponent } from './components/construtora/form-list-construtora/form-list-construtora.component';
 import { FormListArquitetoComponent } from './components/arquiteto/form-list-arquiteto/form-list-arquiteto.component';
 import { FormListObraComponent } from './components/obra/form-list-obra/form-list-obra.component';
@@ -13,7 +12,6 @@ import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: PaginaInicialComponent, pathMatch: 'full'},
-  { path: 'pagina-pesquisador', component: PaginaPesquisadorComponent},
   { path: 'form-list-construtora', component: FormListConstrutoraComponent},
   { path: 'form-list-arquiteto', component: FormListArquitetoComponent},
   { path: 'form-list-obra', component: FormListObraComponent},

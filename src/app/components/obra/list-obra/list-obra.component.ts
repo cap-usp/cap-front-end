@@ -43,7 +43,7 @@ export class ListObraComponent implements OnInit, OnDestroy {
     this.obraService.getAllObras().subscribe(
       {
         next: (response) => {
-          this.obras = response;
+          this.obras = response.content;
         },
         error: (error) => {
           console.log("An error was found:", error);
