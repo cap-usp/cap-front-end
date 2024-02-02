@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ConstrutoraService {
-  private url = environment.api;
+  private url = `${environment.api}/construtoras`;
 
   // Observable responsible to report changes in the content of the api
   private construtorasListWasUpdatedSubject = new BehaviorSubject<Boolean>(false);
@@ -28,23 +28,23 @@ export class ConstrutoraService {
   }
 
   getAllConstrutoras() {
-    return this.httpClient.get<Construtora[]>(`${this.url}/construtora`);
+    return this.httpClient.get<{'content': Construtora[]}>(`${this.url}`);
   }
 
   getConstrutoraById(id: number) {
-    return this.httpClient.get<Construtora>(`${this.url}/construtora/${id}`);
+    return this.httpClient.get<Construtora>(`${this.url}/${id}`);
   }
 
   registerConstrutora(construtora: Construtora) {
-    return this.httpClient.post<Construtora>(this.url + '/construtora', construtora);
+    return this.httpClient.post<Construtora>(this.url, construtora);
   }
 
   deleteConstrutora(id: number) {
-    return this.httpClient.delete<void>(`${this.url}/construtora/${id}`);
+    return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
 
   editConstrutora(construtora: Construtora) {
-    return this.httpClient.put<Construtora>(`${this.url}/construtora/${construtora.id}`, construtora);
+    return this.httpClient.put<Construtora>(`${this.url}/${construtora.id}`, construtora);
   }
 
   selectConstrutoraForEdition(construtora: Construtora){

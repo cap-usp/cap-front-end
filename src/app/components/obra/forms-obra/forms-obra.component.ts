@@ -122,7 +122,7 @@ export class FormsObraComponent implements OnInit {
     this.arquitetoService.getAllArquitetos().subscribe(
       {
         next: (response) => {
-          this.autoriaOptions = response;
+          this.autoriaOptions = response.content;
         },
         error: (error) => {
           console.log("An error occured:", error);
@@ -135,7 +135,7 @@ export class FormsObraComponent implements OnInit {
     this.construtoraService.getAllConstrutoras().subscribe(
       {
         next: (response) => {
-          this.construtoraOptions = response;
+          this.construtoraOptions = response.content;
         },
         error: (error) => {
           console.log("An error occured:", error);

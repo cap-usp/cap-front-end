@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PaginaPesquisadorComponent } from './components/pagina-pesquisador/pagina-pesquisador.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -27,6 +26,7 @@ import { ListUsuarioComponent } from './components/usuario/list-usuario/list-usu
 import { FormListUsuarioComponent } from './components/usuario/form-list-usuario/form-list-usuario.component';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './services/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,6 @@ import { LoginComponent } from './components/login/login.component';
     FormsArquitetoComponent,
     FormsConstrutoraComponent,
     FormUsuarioComponent,
-    PaginaPesquisadorComponent,
     FooterComponent,
     ConstrutoraListComponent,
     HeaderComponent,
@@ -55,7 +54,9 @@ import { LoginComponent } from './components/login/login.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
