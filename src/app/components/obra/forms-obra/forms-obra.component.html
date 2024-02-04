@@ -133,6 +133,7 @@
             <label for="Status">Status</label>
             <select 
                 formControlName="status">
+                <option [value]="null"> Deixar vazio </option>
                 <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
@@ -176,6 +177,9 @@
                 <span *ngIf="getReferenciaFormControlByIndex(i)?.hasError('required')">Campo obrigatório</span>
             </div>
         </div>
-        <button type="submit">Enviar</button>
+        <div id="form-final-buttons">
+            <button type="submit">Enviar</button>
+            <button (click)="clear()">Limpar</button>
+        </div>
     </form>
 </div>

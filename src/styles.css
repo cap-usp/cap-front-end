@@ -56,9 +56,20 @@ select {
     width: 100%;
 }
 
+#FormsContainer .form-group span{
+    color: red;
+}
+
 #FormsContainer input {
     height: 25px;
     border-radius: 10px;
+}
+
+#FormsContainer #form-final-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
 }
 
 #FormsContainer button {

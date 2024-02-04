@@ -184,4 +184,8 @@ export class FormsObraComponent implements OnInit {
   onSubmit() {
     this.regiterObra();
   }
+
+  clear() {
+    this.obraForm = this.createObraFormInstance();
+  }
 }
