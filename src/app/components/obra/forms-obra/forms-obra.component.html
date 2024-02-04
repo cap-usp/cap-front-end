@@ -6,18 +6,14 @@
     <form [formGroup]="obraForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="Autoria">Autoria</label>
-            <select 
-                formControlName="autoria"
-                required>
-                <option *ngFor="let autoria of autoriaOptions" [value]="autoria.id">{{autoria.nome}} {{autoria.nomeMeio}} {{autoria.sobrenome}} </option>
+            <select formControlName="autoria" required>
+                <option *ngFor="let autoria of autoriaOptions" [value]="autoria.id">{{autoria.nome}}
+                    {{autoria.nomeMeio}} {{autoria.sobrenome}} </option>
             </select>
         </div>
         <div class="form-group">
             <label for="Escritorio">Escritório</label>
-            <input type="text" 
-                    placeholder="Digite o escritório" 
-                    formControlName="escritorio"
-                     />
+            <input type="text" placeholder="Digite o escritório" formControlName="escritorio" />
         </div>
         <div class="form-group">
             <label for="NomeOficial">Nome Oficial</label>
@@ -33,10 +29,7 @@
         </div>
         <div class="form-group">
             <label for="EnderecoTitulo">Endereço Títuto</label>
-            <input type="text" 
-                    placeholder="Digite o endereço título" 
-                    formControlName="enderecoTitulo"
-                    />
+            <input type="text" placeholder="Digite o endereço título" formControlName="enderecoTitulo" />
         </div>
         <div class="form-group">
             <label for="Logradouro">Logradouro</label>
@@ -68,11 +61,10 @@
         </div>
         <div class="form-group">
             <label for="Construtora">Construtora</label>
-            <select 
-                formControlName="construtora"
-                >
+            <select formControlName="construtora">
                 <option [value]="null"> Deixar vazio </option>
-                <option *ngFor="let construtora of construtoraOptions" [value]="construtora.id">{{ construtora.nome }}</option>
+                <option *ngFor="let construtora of construtoraOptions" [value]="construtora.id">{{ construtora.nome }}
+                </option>
             </select>
         </div>
         <div class="form-group">
@@ -89,17 +81,11 @@
         </div>
         <div class="form-group">
             <label for="UsoOriginal">Uso Original</label>
-            <input type="text" 
-                    placeholder="Digite o uso original" 
-                    formControlName="usoOriginal"
-                    required />
+            <input type="text" placeholder="Digite o uso original" formControlName="usoOriginal" required />
         </div>
         <div class="form-group">
             <label for="CodigoOriginal">Código Original</label>
-            <input type="text" 
-                    placeholder="Digite o Código Original" 
-                    formControlName="codigoOriginal"
-                    required />
+            <input type="text" placeholder="Digite o Código Original" formControlName="codigoOriginal" required />
         </div>
         <div class="form-group">
             <label for="UsoAtual">Uso Atual</label>
@@ -115,8 +101,7 @@
         </div>
         <div class="form-group">
             <label for="Status">Status</label>
-            <select 
-                formControlName="status">
+            <select formControlName="status">
                 <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
             </select>
         </div>
@@ -149,11 +134,13 @@
             <div *ngFor="let i of referenciasIndexArray;" class="referencia-item">
                 <input type="text" [formControl]="getReferenciaFormControlByIndex(i)">
                 <div id="obra-side-buttons">
-                    <button *ngIf="referenciasIndexArray.length > 1" class="side-button" type="button" (click)="deletReferenciaFormInFormArray(i)"> - </button>
-                    <button class="side-button" *ngIf="i === referenciasIndexArray.length-1" type="button" (click)="addReferenciaInFormArray()"> + </button>
+                    <button *ngIf="referenciasIndexArray.length > 1" class="side-button" type="button"
+                        (click)="deletReferenciaFormInFormArray(i)"> - </button>
+                    <button class="side-button" *ngIf="i === referenciasIndexArray.length-1" type="button"
+                        (click)="addReferenciaInFormArray()"> + </button>
                 </div>
             </div>
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" [disabled]="!this.obraForm.valid">Enviar</button>
     </form>
 </div>
