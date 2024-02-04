@@ -1,5 +1,5 @@
 <div id="list-container">
-    <table>
+    <table *ngIf="this.obras.length > 0">
         <thead>
             <th> Autoria </th>
             <th> Nome Oficial </th>
@@ -24,7 +24,7 @@
                 </td>
                 <td class="validateTD">
                     <span *ngIf="obra.validadoDPH"> Sim </span>
-                    <span *ngIf="!obra.validadoDPH"> Não </span> 
+                    <span *ngIf="!obra.validadoDPH"> Não </span>
                     <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
                     <button *ngIf="obra.validadoDPH" (click)="desvalidateDPH(obra)"> Desvalidar </button>
                 </td>
@@ -34,4 +34,5 @@
             </tr>
         </tbody>
     </table>
+    <app-listagem-indisponivel [nomeComponente]="'Obras'" *ngIf="this.obras.length === 0"></app-listagem-indisponivel>
 </div>

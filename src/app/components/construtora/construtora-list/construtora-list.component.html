@@ -1,5 +1,5 @@
 <div id="list-container">
-    <table>
+    <table *ngIf="this.construtoras.length > 0">
         <thead>
             <th> Nome </th>
         </thead>
@@ -11,4 +11,6 @@
             </tr>
         </tbody>
     </table>
+    <app-listagem-indisponivel [nomeComponente]="'Construtoras'"
+        *ngIf="this.construtoras.length === 0"></app-listagem-indisponivel>
 </div>
