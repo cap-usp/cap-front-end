@@ -27,6 +27,7 @@ import { FormListUsuarioComponent } from './components/usuario/form-list-usuario
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { ObraIndividualComponent } from './components/obra/obra-individual/obra-individual.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AuthInterceptor } from './services/auth.interceptor';
     FormListUsuarioComponent,
     PaginaInicialComponent,
     LoginComponent,
+    ObraIndividualComponent,
   ],
   imports: [
     BrowserModule,

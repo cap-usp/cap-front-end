@@ -30,6 +30,7 @@
                 </td>
                 <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
                 <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
+                <td> <button routerLink="/obra/{{obra.id!}}"> Visualizar </button> </td>
             </tr>
         </tbody>
     </table>

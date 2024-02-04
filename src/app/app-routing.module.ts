@@ -9,15 +9,16 @@ import { FormListUsuarioComponent } from './components/usuario/form-list-usuario
 import { ListObraComponent } from './components/obra/list-obra/list-obra.component';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 import { LoginComponent } from './components/login/login.component';
+import { ObraIndividualComponent } from './components/obra/obra-individual/obra-individual.component';
 
 const routes: Routes = [
   { path: '', component: PaginaInicialComponent, pathMatch: 'full'},
-  { path: 'form-list-construtora', component: FormListConstrutoraComponent},
-  { path: 'form-list-arquiteto', component: FormListArquitetoComponent},
-  { path: 'form-list-obra', component: FormListObraComponent},
-  { path: 'form-list-usuario', component: FormListUsuarioComponent},
-  { path: 'list-obra', component: ListObraComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'construtora', component: FormListConstrutoraComponent},
+  { path: 'arquiteto', component: FormListArquitetoComponent},
+  { path: 'obra', component: FormListObraComponent},
+  { path: 'obra/:id', component: ObraIndividualComponent},
+  { path: 'usuario', component: FormListUsuarioComponent},
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

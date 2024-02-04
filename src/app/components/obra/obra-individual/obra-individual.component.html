@@ -1,0 +1,175 @@
+<div id="page-container">
+    <div id="obra-individual-container">
+        <header>
+            <h1>{{ obraSelected?.nomeOficial }}</h1>
+        </header>
+        <div class="obra-details">
+            <ul id="obra-list">
+                <li>
+                    <strong>Autoria:</strong> 
+                    <span>{{ arquitetoSelected }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Escritório:</strong>
+                    <span>{{ obraSelected?.escritorio }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Nome Oficial:</strong>
+                    <span>{{ obraSelected?.nomeOficial }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Nome Alternativo:</strong> 
+                    <span>{{ obraSelected?.nomeAlternativo }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Tipo Endereço:</strong>
+                    <span>{{ obraSelected?.tipoEndereco }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Endereço Título:</strong>
+                    <span>{{ obraSelected?.enderecoTitulo }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Logradouro:</strong> 
+                    <span>{{ obraSelected?.logradouro }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Número:</strong>
+                    <span>{{ obraSelected?.numero }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Complemento:</strong>
+                    <span>{{ obraSelected?.complemento }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>CEP:</strong>
+                    <span>{{ obraSelected?.cep }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Município:</strong>
+                    <span>{{ obraSelected?.municipio }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Ano Projeto:</strong>
+                    <span>{{ obraSelected?.anoProjeto }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Ano Construção:</strong>
+                    <span>{{ obraSelected?.anoConstrucao }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Construtora:</strong>
+                    <span>{{ obraSelected?.construtora }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>CONDEPHAAT:</strong>
+                    <span>{{ obraSelected?.condephaat }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>CONPRESP:</strong>
+                    <span>{{ obraSelected?.conpresp }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>IPHAN:</strong>
+                    <span>{{ obraSelected?.iphan }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Uso Original:</strong>
+                    <span>{{ obraSelected?.usoOriginal }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Código Original:</strong>
+                    <span>{{ obraSelected?.codigoOriginal }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Uso Atual:</strong>
+                    <span>{{ obraSelected?.usoAtual }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Código Atual:</strong>
+                    <span>{{ obraSelected?.codigoAtual }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Data Uso Atual:</strong>
+                    <span>{{ obraSelected?.dataUsoAtual }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Status:</strong>
+                    <span>{{ obraSelected?.status }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Ano Demolição:</strong>
+                    <span>{{ obraSelected?.anoDemolicao }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Ano Restauro:</strong>
+                    <span>{{ obraSelected?.anoRestauro }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Ano Reforma:</strong>
+                    <span>{{ obraSelected?.anoReforma }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Arquiteto Reforma:</strong>
+                    <span>{{ obraSelected?.arquitetoReforma }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Latitude:</strong>
+                    <span>{{ obraSelected?.latitude }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Longitude:</strong>
+                    <span>{{ obraSelected?.longitude }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Referência: </strong>
+                    <ul id="referencia-list">
+                        <li *ngFor="let referencia of obraSelected?.referencias">
+                            <span>{{ referencia }}</span>
+                            <hr/>
+                        </li>
+                    </ul>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Validado Professora:</strong>
+                    <span>{{ obraSelected?.validadoProfessora }}</span>
+                </li>
+                <hr/>
+                <li>
+                    <strong>Validado DPH:</strong>
+                    <span>{{ obraSelected?.validadoDPH }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
