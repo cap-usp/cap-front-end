@@ -34,3 +34,8 @@ header h1 {
     margin-bottom: 10px;
     gap: 10px;
 }
+
+hr {
+    border-top: 0px;
+    width: 100%;
+}
