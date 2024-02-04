@@ -100,3 +100,13 @@ select {
     background-color: #555555; /* Green */
     color: white;
 }
+
+form span {
+    font-size: 10px;
+    color: red;
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
