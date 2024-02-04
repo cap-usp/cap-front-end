@@ -24,7 +24,6 @@ import { ListArquitetoComponent } from './components/arquiteto/list-arquiteto/li
 import { FormUsuarioComponent } from './components/usuario/form-usuario/form-usuario.component';
 import { ListUsuarioComponent } from './components/usuario/list-usuario/list-usuario.component';
 import { FormListUsuarioComponent } from './components/usuario/form-list-usuario/form-list-usuario.component';
-import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './services/auth.interceptor';
 
@@ -45,7 +44,6 @@ import { AuthInterceptor } from './services/auth.interceptor';
     ListArquitetoComponent,
     ListUsuarioComponent,
     FormListUsuarioComponent,
-    PaginaInicialComponent,
     LoginComponent,
   ],
   imports: [
