@@ -11,7 +11,7 @@ import { ObraService } from 'src/app/services/obra-service/obra-service.service'
 })
 export class ObraIndividualComponent implements OnInit{
 
-  idObra : number | null = null;
+  idObra : number = 1;
   obraSelected : Obra | null = null;
   arquitetoSelected: string | null = null; 
 
@@ -28,25 +28,24 @@ export class ObraIndividualComponent implements OnInit{
       {
         next : (response) => {
           this.obraSelected = response;
+          this.arquitetoService.getArquitetoById(this.obraSelected?.id as number).subscribe(
+            {
+              next : (response) => {
+                this.arquitetoSelected = `${response.nome} ${response.nomeMeio} ${response.sobrenome}`;
+              },
+              error : (error) => {
+                console.log("An error was found:", error);
+              }
+            }
+          );
         },
         error: (error) => {
           console.log("An error was found:", error);
         } 
       }
     );
-    
-    this.arquitetoService.getArquitetoById(this.obraSelected?.id as number).subscribe(
-      {
-        next : (response) => {
-          this.arquitetoSelected = `${response.nome} ${response.nomeMeio} ${response.sobrenome}`;
-        },
-        error : (error) => {
-          console.log("An error was found:", error);
-        }
-      }
-    );
 
-    
+
 
   }
 
