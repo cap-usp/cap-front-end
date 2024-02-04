@@ -14,9 +14,6 @@ import { Construtora } from 'src/app/models/construtora.model';
 export class FormsObraComponent implements OnInit {
   
   obraForm: FormGroup = new FormGroup({ });
-  
-  //The ideia is to append the array in a function that
-  //is able to fetch the authors from the API
   autoriaOptions : Arquiteto[] = [];
 
   construtoraOptions : Construtora[] = [];
