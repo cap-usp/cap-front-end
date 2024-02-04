@@ -41,7 +41,11 @@ select {
     height: 1px;
     background-color: black;
 }
-
+#FormsContainer #form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 #FormsContainer form {
     width: 100%;
     text-align: center;

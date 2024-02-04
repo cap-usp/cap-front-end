@@ -75,4 +75,7 @@ export class FormUsuarioComponent implements OnInit {
     this.registerUsuario();
   }
 
+  clear() {
+    this.usuarioForm.reset();
+  }
 }

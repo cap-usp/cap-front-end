@@ -74,5 +74,9 @@ export class FormsArquitetoComponent implements OnInit {
     this.registerArquiteto();
   }
 
+  clear() {
+    this.arquitetoForm.reset();
+  }
+
 }
 

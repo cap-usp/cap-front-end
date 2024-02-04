@@ -34,64 +34,46 @@ export class FormsConstrutoraComponent implements OnInit {
     return value !== null ? null : { 'isNull': true };
   }
 
-  registerConstrutora() {
-    // Check if the form is valid
-    if (this.construtoraForm.valid) {
-      const nomeControl = this.construtoraForm.get("nome");
-  
-      // Check if the 'nome' control exists and its value is not null or undefined
-      if (nomeControl && nomeControl.value !== null && nomeControl.value !== undefined) {
-        const nomeValue = nomeControl.value;
-  
-        const idControl = this.construtoraForm.get("id");
-  
-        // Check if 'id' control exists
-        if (idControl && idControl.value !== null && idControl.value !== undefined) {
-          const idValue = idControl.value;
-  
-          // If 'id' control exists, it's an edit operation
-          this.construtoraService.editConstrutora({
-            id: idValue,
-            nome: nomeValue
-          }).subscribe(
-            {
-              next: (response) => {
-                this.construtoraService.setTrueConstrutorasListWasUpdated();
-                this.construtoraService.clearSelectedConstrutoraForEdition();
-                this.construtoraForm.reset();
-              },
-              error: (error) => {
-                console.log("An error occured:", error);
-              }
+  regiterConstrutora(){
+    if(this.construtoraForm.valid) {
+      if(this.construtoraForm.value['id'] !== null){
+        this.construtoraService.editConstrutora(this.construtoraForm.value).subscribe(
+          {
+            next: (response) => {
+              this.construtoraService.setTrueConstrutorasListWasUpdated();
+              this.construtoraService.clearSelectedConstrutoraForEdition();
+              this.construtoraForm.reset();
+            },
+            error: (error) => {
+              console.log("An error occured:", error);
             }
-          );
-        } else {
-          // If 'id' control does not exist, it's a new registration
-          this.construtoraService.registerConstrutora({ nome: nomeValue })
-          .subscribe(
-            {
-              next: (response) => {
-                this.construtoraService.setTrueConstrutorasListWasUpdated();
-                this.construtoraForm.reset();
-                console.log("The register was successful");
-              },
-              error: (error) => {
-                console.log("An error was found", error);
-              }
-            }
-          );
-        }
-  
+          }
+        );
       } else {
-        console.log("Cannot add Construtora with empty name");
+        this.construtoraService.registerConstrutora(this.construtoraForm.value).subscribe(
+          {
+            next: (response) => {
+              this.construtoraService.setTrueConstrutorasListWasUpdated();
+              this.construtoraForm.reset();
+              console.log("The register was successful");
+            },
+            error: (error) => {
+              console.log("An error was found:", error);
+            }
+          }
+        );
       }
     } else {
-      console.log("Form is not valid");
+      console.log("Form is invalid");
     }
   }
   
   onSubmit() {
-    this.registerConstrutora();
+    this.regiterConstrutora();
 
+  }
+
+  clear() {
+    this.construtoraForm.reset();
   }
 }
