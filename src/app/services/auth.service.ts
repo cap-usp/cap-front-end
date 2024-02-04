@@ -26,4 +26,10 @@ export class AuthService {
       })
   }
 
+  public logout(): void{
+    localStorage.clear();
+    this.roles.next([]);
+    this.router.navigate(['/']);
+  }
+
 }

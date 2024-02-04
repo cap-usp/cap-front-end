@@ -21,5 +21,9 @@ export class HeaderComponent implements OnInit{
     return this.roles.includes("ROLE_ADMIN");
   }
 
+  public sairDoSistema(): void {
+    console.log("tá aqui")
+    this.authService.logout();
+  }
   
 }

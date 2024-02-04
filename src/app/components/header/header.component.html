@@ -20,6 +20,9 @@
                 <a routerLink="/login">
                     <li *ngIf="this.roles.length === 0">ENTRAR</li>
                 </a>
+                <button (click)="sairDoSistema()">
+                    <li *ngIf="this.roles.length > 0">SAIR</li>
+                </button>
             </ul>
         </div>
     </div>
