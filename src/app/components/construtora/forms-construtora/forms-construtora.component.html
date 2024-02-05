@@ -4,14 +4,21 @@
         <div id="TitleFormsLine"></div>
     </div>
     <form [formGroup]="construtoraForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="Nome">Nome</label>
-            <input type="text" placeholder="Digite o nome da construtora" formControlName="nome" required />
-            <span
-                *ngIf="this.construtoraForm.get('nome')?.touched && this.construtoraForm.get('nome')?.hasError('required')">
-                Campo obrigatório
-            </span>
+        <div id="form-body">
+            <div id="form-labels">
+                <div class="form-group">
+                    <label for="Nome">Nome</label>
+                    <input type="text" placeholder="Digite o nome da construtora" formControlName="nome" required />
+                    <span
+                        *ngIf="this.construtoraForm.get('nome')?.touched && this.construtoraForm.get('nome')?.hasError('required')">
+                        Campo obrigatório
+                    </span>
+                </div>
+            </div>
+            <div id="form-final-buttons">
+                <button type="submit" [disabled]="!this.construtoraForm.valid">Enviar</button>
+                <button (click)="clear()">Limpar</button>
+            </div>
         </div>
-        <button type="submit" [disabled]="!this.construtoraForm.valid">Enviar</button>
     </form>
 </div>
