@@ -12,7 +12,9 @@
                         <option *ngFor="let autoria of autoriaOptions" [value]="autoria.id">{{autoria.nome}}
                             {{autoria.nomeMeio}} {{autoria.sobrenome}} </option>
                     </select>
-                    <span *ngIf="obraForm.get('autoria')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('autoria')?.hasError('required') && obraForm.get('autoria')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="Escritorio">Escritório</label>
@@ -21,7 +23,9 @@
                 <div class="form-group">
                     <label for="NomeOficial">Nome Oficial</label>
                     <input type="text" placeholder="Digite o nome oficial" formControlName="nomeOficial" required />
-                    <span *ngIf="obraForm.get('nomeOficial')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('nomeOficial')?.hasError('required') && obraForm.get('nomeOficial')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="NomeAlternativo">Nome Alternativo</label>
@@ -31,7 +35,9 @@
                     <label for="TipoEndereco">Endereço Tipo</label>
                     <input type="text" placeholder="Selecione o endereço tipo" formControlName="tipoEndereco"
                         required />
-                    <span *ngIf="obraForm.get('tipoEndereco')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('tipoEndereco')?.hasError('required') && obraForm.get('tipoEndereco')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="EnderecoTitulo">Endereço Títuto</label>
@@ -40,12 +46,15 @@
                 <div class="form-group">
                     <label for="Logradouro">Logradouro</label>
                     <input type="text" placeholder="Digite o logradouro" formControlName="logradouro" required />
-                    <span *ngIf="obraForm.get('tipoEndereco')?.hasError('logradouro')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('tipoEndereco')?.hasError('logradouro') && obraForm.get('logradouro')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="Número">Número</label>
                     <input type="text" placeholder="Digite o número" formControlName="numero" required />
-                    <span *ngIf="obraForm.get('numero')?.hasError('required')">Campo obrigatório</span>
+                    <span *ngIf="obraForm.get('numero')?.hasError('required') && obraForm.get('numero')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="Complemento">Complemento</label>
@@ -54,23 +63,31 @@
                 <div class="form-group">
                     <label for="CEP">CEP</label>
                     <input type="text" placeholder="Digite o CEP" formControlName="cep" required />
-                    <span *ngIf="obraForm.get('cep')?.hasError('required')">Campo obrigatório</span>
-                    <span *ngIf="obraForm.get('cep')?.hasError('pattern')">Deve ter formato 00000-000</span>
+                    <span *ngIf="obraForm.get('cep')?.hasError('required') && obraForm.get('cep')?.touched">Campo
+                        obrigatório</span>
+                    <span *ngIf="obraForm.get('cep')?.hasError('pattern') && obraForm.get('cep')?.touched">Deve ter
+                        formato 00000-000</span>
                 </div>
                 <div class="form-group">
                     <label for="Municipio">Município</label>
                     <input type="text" placeholder="Digite o município" formControlName="municipio" required />
-                    <span *ngIf="obraForm.get('municipio')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('municipio')?.hasError('required') && obraForm.get('municipio')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="AnoProjeto">Ano do Projeto</label>
                     <input type="text" placeholder="Digite o ano do projeto" formControlName="anoProjeto" />
-                    <span *ngIf="obraForm.get('anoProjeto')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('anoProjeto')?.hasError('pattern') && obraForm.get('anoProjeto')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="AnoConstrução">Ano Construção</label>
                     <input type="text" placeholder="Digite o ano construção" formControlName="anoConstrucao" />
-                    <span *ngIf="obraForm.get('anoConstrucao')?.hasError('pattern')">Campo nulo ou no formato
+                    <span
+                        *ngIf="obraForm.get('anoConstrucao')?.hasError('pattern') && obraForm.get('anoConstrucao')?.touched">Campo
+                        nulo ou no formato
                         0000</span>
                 </div>
                 <div class="form-group">
@@ -84,28 +101,37 @@
                 <div class="form-group">
                     <label for="CONDEPHAAT">CONDEPHAAT</label>
                     <input type="text" placeholder="Digite o CONDEPHAAT" formControlName="condephaat" />
-                    <span *ngIf="obraForm.get('condephaat')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('condephaat')?.hasError('pattern') && obraForm.get('condephaat')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="CONPRESP">CONPRESP</label>
                     <input type="text" placeholder="Digite o CONPRESP" formControlName="conpresp" />
-                    <span *ngIf="obraForm.get('conpresp')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('conpresp')?.hasError('pattern') && obraForm.get('conpresp')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="IPHAN">IPHAN</label>
                     <input type="text" placeholder="Digite o IPHAN" formControlName="iphan" />
-                    <span *ngIf="obraForm.get('iphan')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span *ngIf="obraForm.get('iphan')?.hasError('pattern') && obraForm.get('iphan')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="UsoOriginal">Uso Original</label>
                     <input type="text" placeholder="Digite o uso original" formControlName="usoOriginal" required />
-                    <span *ngIf="obraForm.get('usoOriginal')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('usoOriginal')?.hasError('required')  && obraForm.get('usoOriginal')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="CodigoOriginal">Código Original</label>
                     <input type="text" placeholder="Digite o Código Original" formControlName="codigoOriginal"
                         required />
-                    <span *ngIf="obraForm.get('codigoOriginal')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('codigoOriginal')?.hasError('required') && obraForm.get('codigoOriginal')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="UsoAtual">Uso Atual</label>
@@ -118,7 +144,9 @@
                 <div class="form-group">
                     <label for="DataUsoAtual">Data Uso Atual</label>
                     <input type="text" placeholder="Digite a data do uso atual" formControlName="dataUsoAtual" />
-                    <span *ngIf="obraForm.get('dataUsoAtual')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('dataUsoAtual')?.hasError('pattern')  && obraForm.get('dataUsoAtual')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="Status">Status</label>
@@ -130,17 +158,23 @@
                 <div class="form-group">
                     <label for="AnoDemolicao">Ano Demolição</label>
                     <input type="text" placeholder="Digite o ano da demolição" formControlName="anoDemolicao" />
-                    <span *ngIf="obraForm.get('anoDemolicao')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('anoDemolicao')?.hasError('pattern') && obraForm.get('anoDemolicao')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="AnoRestauro">Ano Restauro</label>
                     <input type="text" placeholder="Digite o ano do restauro" formControlName="anoRestauro" />
-                    <span *ngIf="obraForm.get('anoRestauro')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('anoRestauro')?.hasError('pattern') && obraForm.get('anoRestauro')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="AnoReforma">Ano Reforma</label>
                     <input type="text" placeholder="Digite o ano da reforma" formControlName="anoReforma" />
-                    <span *ngIf="obraForm.get('anoReforma')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span
+                        *ngIf="obraForm.get('anoReforma')?.hasError('pattern') && obraForm.get('anoReforma')?.touched">Campo
+                        nulo ou no formato 0000</span>
                 </div>
                 <div class="form-group">
                     <label for="ArquitetoReforma">Arquiteto Reforma</label>
@@ -149,12 +183,16 @@
                 <div class="form-group">
                     <label for="Latitude">Latitude</label>
                     <input type="text" placeholder="Digite a latitude" formControlName="latitude" required />
-                    <span *ngIf="obraForm.get('latitude')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('latitude')?.hasError('required') && obraForm.get('latitude')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="Longitude">Longitude</label>
                     <input type="text" placeholder="Digite a longitude" formControlName="longitude" required />
-                    <span *ngIf="obraForm.get('longitude')?.hasError('required')">Campo obrigatório</span>
+                    <span
+                        *ngIf="obraForm.get('longitude')?.hasError('required') && obraForm.get('longitude')?.touched">Campo
+                        obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="Referencias">Referências</label>

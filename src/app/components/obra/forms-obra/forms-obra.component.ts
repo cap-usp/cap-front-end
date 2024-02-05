@@ -119,8 +119,6 @@ export class FormsObraComponent implements OnInit {
     (this.obraForm.get('referencias') as FormArray).removeAt(index);
   }
 
-
-
   createAutoriaOptions(){
     this.arquitetoService.getAllArquitetos().subscribe(
       {
