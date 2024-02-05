@@ -1,4 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    outline: none;
+    color: #333;
+    font-weight: 300;
+}
+
+input {
+    border-width: 0.75px;
+    padding: 10px 15px; 
+}
+
+select {
+    border-radius: 10px;
+    padding: 2.5px 15px;
+}
+
 #FormsContainer {
     display: flex;
     flex-direction: column;
@@ -24,7 +41,11 @@
     height: 1px;
     background-color: black;
 }
-
+#FormsContainer #form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 #FormsContainer form {
     width: 100%;
     text-align: center;
@@ -39,9 +60,20 @@
     width: 100%;
 }
 
+#FormsContainer .form-group span{
+    color: red;
+}
+
 #FormsContainer input {
     height: 25px;
     border-radius: 10px;
+}
+
+#FormsContainer #form-final-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
 }
 
 #FormsContainer button {
@@ -82,4 +114,54 @@
 #list-container button:hover {
     background-color: #555555; /* Green */
     color: white;
+}
+
+#form-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    gap: 20px;
+}
+
+#form-list #form {
+    width: 33%;
+    
+}
+
+#list-container table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#list-container td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+#list-container tr:nth-child(even){background-color: #f2f2f2;}
+
+#list-container tr:hover {background-color: #ddd;}
+
+#list-container th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: left;
+    background-color: #ACACAC;
+    color: black;
+}
+
+form span {
+    font-size: 10px;
+    color: red;
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
 }

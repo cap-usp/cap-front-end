@@ -1,0 +1,73 @@
+/* Modern Reset CSS - 2022 */
+/* Apply a basic reset to improve cross-browser consistency */
+
+/* Box-sizing border-box reset */
+*, *::before, *::after {
+	box-sizing: border-box;
+  }
+  
+  /* Remove default margin and padding */
+  body, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, address, cite, code, em, img, small, strong, sub, sup, tt,
+  ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption,
+  tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+  }
+  
+  /* Set base font size and line height */
+  html {
+	font-size: 16px;
+	line-height: 1.5;
+  }
+  
+  /* Remove list styles */
+  ul, ol {
+	list-style: none;
+  }
+  
+  /* Remove anchor text decoration */
+  a {
+	text-decoration: none;
+  }
+  
+  /* Remove outline from focused elements */
+  :focus {
+	outline: none;
+  }
+  
+  /* Remove user-agent styles for inputs and buttons */
+  button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+  }
+  
+  /* Normalize heading margins */
+  h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-size: inherit;
+	font-weight: inherit;
+  }
+  
+  /* Remove default border and border-radius for images */
+  img {
+	border: 0;
+	border-radius: 0;
+  }
+  
+  /* Ensure full-width for block-level elements */
+  html, body {
+	width: 100%;
+  }
+  
+  /* Responsive images */
+  img {
+	max-width: 100%;
+	height: auto;
+  }

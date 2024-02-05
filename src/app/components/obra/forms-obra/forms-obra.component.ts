@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors, FormArray} from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, FormArray} from '@angular/forms';
 import { ObraService } from 'src/app/services/obra-service/obra-service.service';
 import { ArquitetoService } from 'src/app/services/arquiteto-service/arquiteto.service';
 import { ConstrutoraService } from 'src/app/services/construtora-service/construtora.service';
@@ -14,9 +14,6 @@ import { Construtora } from 'src/app/models/construtora.model';
 export class FormsObraComponent implements OnInit {
   
   obraForm: FormGroup = new FormGroup({ });
-  
-  //The ideia is to append the array in a function that
-  //is able to fetch the authors from the API
   autoriaOptions : Arquiteto[] = [];
 
   construtoraOptions : Construtora[] = [];
@@ -53,44 +50,50 @@ export class FormsObraComponent implements OnInit {
 
   }
 
-  notNullValidator(control: AbstractControl): ValidationErrors | null {
-    const value = control.value;
-    return value !== null ? null : { 'isNull': true };
+  nullOrPattern(pattern: RegExp): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (control.value === null || control.value === '') {
+        return null; // Valid if null or empty
+      }
+  
+      const valid = pattern.test(control.value);
+      return valid ? null : { pattern: { value: control.value } };
+    };
   }
 
   createObraFormInstance() : FormGroup {
     return new FormGroup({
       id: new FormControl(null),
-      autoria: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      autoria: new FormControl(null, [Validators.required]),
       escritorio: new FormControl(null),
-      nomeOficial: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      nomeOficial: new FormControl(null, [Validators.required]),
       nomeAlternativo: new FormControl(null),
-      tipoEndereco: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      tipoEndereco: new FormControl(null, [Validators.required]),
       enderecoTitulo: new FormControl(null),
-      logradouro: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-      numero: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      logradouro: new FormControl(null, [Validators.required]),
+      numero: new FormControl(null, [Validators.required]),
       complemento: new FormControl(null),
-      cep: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-      municipio: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-      anoProjeto: new FormControl(null),
-      anoConstrucao: new FormControl(null),
+      cep: new FormControl(null, [Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)]),
+      municipio: new FormControl(null, [Validators.required]),
+      anoProjeto: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+      anoConstrucao: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
       construtora: new FormControl(null),
-      condephaat: new FormControl(null),
-      conpresp: new FormControl(null),
-      iphan: new FormControl(null),
-      usoOriginal: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-      codigoOriginal: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
+      condephaat: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+      conpresp: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+      iphan: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+      usoOriginal: new FormControl(null, [Validators.required]),
+      codigoOriginal: new FormControl(null, [Validators.required]),
       usoAtual: new FormControl(null),
       codigoAtual: new FormControl(null),
-      dataUsoAtual: new FormControl(null),
+      dataUsoAtual: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
       status: new FormControl(null),
-      anoDemolicao: new FormControl(null),
-      anoRestauro: new FormControl(null),
-      anoReforma: new FormControl(null),
+      anoDemolicao: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+      anoRestauro: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+      anoReforma: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
       arquitetoReforma: new FormControl(null),
-      latitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-      longitude: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-      referencias: new FormArray([new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator])]),
+      latitude: new FormControl(null, [Validators.required]),
+      longitude: new FormControl(null, [Validators.required]),
+      referencias: new FormArray([new FormControl(null, [Validators.required])]),
       validadoProfessora: new FormControl(false),
       validadoDPH: new FormControl(false),     
     });
@@ -109,14 +112,12 @@ export class FormsObraComponent implements OnInit {
   }
 
   addReferenciaInFormArray(){
-    (this.obraForm.get('referencias') as FormArray).push(new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]));
+    (this.obraForm.get('referencias') as FormArray).push(new FormControl(null, [Validators.required]));
   }
 
   deletReferenciaFormInFormArray(index : number){
     (this.obraForm.get('referencias') as FormArray).removeAt(index);
   }
-
-
 
   createAutoriaOptions(){
     this.arquitetoService.getAllArquitetos().subscribe(
@@ -180,5 +181,9 @@ export class FormsObraComponent implements OnInit {
 
   onSubmit() {
     this.regiterObra();
+  }
+
+  clear() {
+    this.obraForm = this.createObraFormInstance();
   }
 }

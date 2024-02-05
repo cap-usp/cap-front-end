@@ -22,8 +22,14 @@ export class AuthService {
       .subscribe(response => {
           this.roles.next(response.role);
           localStorage.setItem('Authorization', response.token);
-          this.router.navigate(['/form-list-obra']);
+          this.router.navigate(['/']);
       })
+  }
+
+  public logout(): void{
+    localStorage.clear();
+    this.roles.next([]);
+    this.router.navigate(['/']);
   }
 
 }

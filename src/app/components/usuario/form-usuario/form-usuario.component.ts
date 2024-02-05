@@ -17,10 +17,10 @@ export class FormUsuarioComponent implements OnInit {
   ngOnInit() {
       this.usuarioForm = new FormGroup({
         id: new FormControl(null),
-        nome: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        senha: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        nusp: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator]),
-        email: new FormControl(null, [Validators.required, Validators.minLength(1), this.notNullValidator])
+        nome: new FormControl(null, [Validators.required]),
+        senha: new FormControl(null, [Validators.required]),
+        nusp: new FormControl(null, [Validators.required]),
+        email: new FormControl(null, [Validators.required])
     });
 
     this.usuarioService.selectedForEditionUsuario$.subscribe(
@@ -30,11 +30,6 @@ export class FormUsuarioComponent implements OnInit {
         }
       }
     );
-  }
-
-  notNullValidator(control: AbstractControl): ValidationErrors | null {
-    const value = control.value;
-    return value !== null ? null : { 'isNull': true };
   }
 
   registerUsuario(){
@@ -75,4 +70,7 @@ export class FormUsuarioComponent implements OnInit {
     this.registerUsuario();
   }
 
+  clear() {
+    this.usuarioForm.reset();
+  }
 }
