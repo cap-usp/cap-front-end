@@ -1,5 +1,5 @@
 <div id="list-container">
-    <table>
+    <table *ngIf="this.arquitetos.length > 0">
         <thead>
             <th> Nome </th>
             <th> Nome do meio </th>
@@ -15,4 +15,6 @@
             </tr>
         </tbody>
     </table>
+    <app-listagem-indisponivel [nomeComponente]="'Arquitetos'"
+        *ngIf="this.arquitetos.length === 0"></app-listagem-indisponivel>
 </div>

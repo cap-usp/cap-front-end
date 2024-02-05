@@ -154,4 +154,13 @@ padding-right: 8px;
 text-align: left;
 background-color: #ACACAC;
 color: black;
+
+form span {
+    font-size: 10px;
+    color: red;
+}
+
+button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
 }

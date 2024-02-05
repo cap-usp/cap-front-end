@@ -181,7 +181,7 @@
                 </div>        
             </div>
             <div id="form-final-buttons">
-                <button type="submit">Enviar</button>
+                <button type="submit" [disabled]="!this.obraForm.valid">Enviar</button>
                 <button (click)="clear()">Limpar</button>
             </div>
         </div>

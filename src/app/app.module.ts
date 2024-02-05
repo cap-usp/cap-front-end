@@ -27,6 +27,7 @@ import { FormListUsuarioComponent } from './components/usuario/form-list-usuario
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { ObraIndividualComponent } from './components/obra/obra-individual/obra-individual.component';
+import { ListagemIndisponivelComponent } from './components/listagem-indisponivel/listagem-indisponivel.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ObraIndividualComponent } from './components/obra/obra-individual/obra-
     FormListUsuarioComponent,
     LoginComponent,
     ObraIndividualComponent,
+    ListagemIndisponivelComponent,
   ],
   imports: [
     BrowserModule,
