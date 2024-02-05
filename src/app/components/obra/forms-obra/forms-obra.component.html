@@ -8,19 +8,15 @@
             <div id="form-labels">
                 <div class="form-group">
                     <label for="Autoria">Autoria</label>
-                    <select 
-                        formControlName="autoria"
-                        required>
-                        <option *ngFor="let autoria of autoriaOptions" [value]="autoria.id">{{autoria.nome}} {{autoria.nomeMeio}} {{autoria.sobrenome}} </option>
+                    <select formControlName="autoria" required>
+                        <option *ngFor="let autoria of autoriaOptions" [value]="autoria.id">{{autoria.nome}}
+                            {{autoria.nomeMeio}} {{autoria.sobrenome}} </option>
                     </select>
                     <span *ngIf="obraForm.get('autoria')?.hasError('required')">Campo obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="Escritorio">Escritório</label>
-                    <input type="text" 
-                            placeholder="Digite o escritório" 
-                            formControlName="escritorio"
-                            />
+                    <input type="text" placeholder="Digite o escritório" formControlName="escritorio" />
                 </div>
                 <div class="form-group">
                     <label for="NomeOficial">Nome Oficial</label>
@@ -33,15 +29,13 @@
                 </div>
                 <div class="form-group">
                     <label for="TipoEndereco">Endereço Tipo</label>
-                    <input type="text" placeholder="Selecione o endereço tipo" formControlName="tipoEndereco" required />
+                    <input type="text" placeholder="Selecione o endereço tipo" formControlName="tipoEndereco"
+                        required />
                     <span *ngIf="obraForm.get('tipoEndereco')?.hasError('required')">Campo obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="EnderecoTitulo">Endereço Títuto</label>
-                    <input type="text" 
-                            placeholder="Digite o endereço título" 
-                            formControlName="enderecoTitulo"
-                            />
+                    <input type="text" placeholder="Digite o endereço título" formControlName="enderecoTitulo" />
                 </div>
                 <div class="form-group">
                     <label for="Logradouro">Logradouro</label>
@@ -76,15 +70,15 @@
                 <div class="form-group">
                     <label for="AnoConstrução">Ano Construção</label>
                     <input type="text" placeholder="Digite o ano construção" formControlName="anoConstrucao" />
-                    <span *ngIf="obraForm.get('anoConstrucao')?.hasError('pattern')">Campo nulo ou no formato 0000</span>
+                    <span *ngIf="obraForm.get('anoConstrucao')?.hasError('pattern')">Campo nulo ou no formato
+                        0000</span>
                 </div>
                 <div class="form-group">
                     <label for="Construtora">Construtora</label>
-                    <select 
-                        formControlName="construtora"
-                        >
+                    <select formControlName="construtora">
                         <option [value]="null"> Deixar vazio </option>
-                        <option *ngFor="let construtora of construtoraOptions" [value]="construtora.id">{{ construtora.nome }}</option>
+                        <option *ngFor="let construtora of construtoraOptions" [value]="construtora.id">{{
+                            construtora.nome }}</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -104,19 +98,14 @@
                 </div>
                 <div class="form-group">
                     <label for="UsoOriginal">Uso Original</label>
-                    <input type="text" 
-                            placeholder="Digite o uso original" 
-                            formControlName="usoOriginal"
-                            required />
-                            <span *ngIf="obraForm.get('usoOriginal')?.hasError('required')">Campo obrigatório</span>
+                    <input type="text" placeholder="Digite o uso original" formControlName="usoOriginal" required />
+                    <span *ngIf="obraForm.get('usoOriginal')?.hasError('required')">Campo obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="CodigoOriginal">Código Original</label>
-                    <input type="text" 
-                            placeholder="Digite o Código Original" 
-                            formControlName="codigoOriginal"
-                            required />
-                            <span *ngIf="obraForm.get('codigoOriginal')?.hasError('required')">Campo obrigatório</span>
+                    <input type="text" placeholder="Digite o Código Original" formControlName="codigoOriginal"
+                        required />
+                    <span *ngIf="obraForm.get('codigoOriginal')?.hasError('required')">Campo obrigatório</span>
                 </div>
                 <div class="form-group">
                     <label for="UsoAtual">Uso Atual</label>
@@ -133,9 +122,8 @@
                 </div>
                 <div class="form-group">
                     <label for="Status">Status</label>
-                    <select 
-                        formControlName="status">
-                        <option [value]="null"> Deixar vazio </option>
+                    <select formControlName="status">
+                        <option [value]="null"> Não especificar </option>
                         <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
                     </select>
                 </div>
@@ -173,16 +161,18 @@
                     <div *ngFor="let i of referenciasIndexArray;" class="referencia-item">
                         <input type="text" [formControl]="getReferenciaFormControlByIndex(i)">
                         <div id="obra-side-buttons">
-                            <button *ngIf="referenciasIndexArray.length > 1" class="side-button" type="button" (click)="deletReferenciaFormInFormArray(i)"> - </button>
-                            <button class="side-button" *ngIf="i === referenciasIndexArray.length-1" type="button" (click)="addReferenciaInFormArray()"> + </button>
+                            <button *ngIf="referenciasIndexArray.length > 1" class="side-button" type="button"
+                                (click)="deletReferenciaFormInFormArray(i)"> - </button>
+                            <button class="side-button" *ngIf="i === referenciasIndexArray.length-1" type="button"
+                                (click)="addReferenciaInFormArray()"> + </button>
                         </div>
                         <span *ngIf="getReferenciaFormControlByIndex(i)?.hasError('required')">Campo obrigatório</span>
                     </div>
-                </div>        
+                </div>
             </div>
             <div id="form-final-buttons">
                 <button type="submit" [disabled]="!this.obraForm.valid">Enviar</button>
-                <button (click)="clear()">Limpar</button>
+                <button (click)="clear()" [disabled]="!this.obraForm.dirty">Limpar</button>
             </div>
         </div>
     </form>

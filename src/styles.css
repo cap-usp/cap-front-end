@@ -147,13 +147,14 @@ select {
 #list-container tr:hover {background-color: #ddd;}
 
 #list-container th {
-padding-top: 12px;
-padding-bottom: 12px;
-padding-left: 8px;
-padding-right: 8px;
-text-align: left;
-background-color: #ACACAC;
-color: black;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-align: left;
+    background-color: #ACACAC;
+    color: black;
+}
 
 form span {
     font-size: 10px;

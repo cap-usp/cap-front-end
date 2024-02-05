@@ -17,7 +17,7 @@
             </div>
             <div id="form-final-buttons">
                 <button type="submit" [disabled]="!this.construtoraForm.valid">Enviar</button>
-                <button (click)="clear()">Limpar</button>
+                <button (click)="clear()" [disabled]="!this.construtoraForm.dirty">Limpar</button>
             </div>
         </div>
     </form>
