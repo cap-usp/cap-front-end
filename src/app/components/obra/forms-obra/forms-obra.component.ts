@@ -24,6 +24,13 @@ export class FormsObraComponent implements OnInit {
     {value: "reformado", label:"Reformado"},
     {value: "restaurado", label:"Restaurado"},
   ];
+
+  obraStatusOptions : string[] = [];
+
+  enderecoTipoOptions : string[] = [];
+
+  enderecoTituloOptions : string[] = [];
+
   validadoOptions = [
     {value: true, label: "Sim"},
     {value: false, label: "Não"},
@@ -31,6 +38,9 @@ export class FormsObraComponent implements OnInit {
   constructor(private obraService: ObraService, private arquitetoService: ArquitetoService, private construtoraService: ConstrutoraService){
     this.createAutoriaOptions();
     this.createConstrutoraOptions();
+    this.createObraStatusOptions();
+    this.createEnderecoTipoOptions();
+    this.createEnderecoTituloOptions();
   }
 
   ngOnInit() {
@@ -123,6 +133,45 @@ export class FormsObraComponent implements OnInit {
 
   deletReferenciaFormInFormArray(index : number){
     (this.obraForm.get('referencias') as FormArray).removeAt(index);
+  }
+
+  createObraStatusOptions() {
+    this.obraService.getObraStatusEnum().subscribe(
+      {
+        next : (response) => {
+          this.obraStatusOptions = response;
+        },
+        error : (error) => {
+          console.log("An error occured:", error);
+        }
+      }
+    );
+  }
+
+  createEnderecoTipoOptions() {
+    this.obraService.getEnderecoTipoEnum().subscribe(
+      {
+        next : (response) => {
+          this.enderecoTipoOptions = response;
+        },
+        error : (error) => {
+          console.log("An error occured:", error);
+        }
+      }
+    );
+  }
+
+  createEnderecoTituloOptions() {
+    this.obraService.getEnderecoTituloEnum().subscribe(
+      {
+        next : (response) => {
+          this.enderecoTituloOptions = response;
+        },
+        error : (error) => {
+          console.log("An error occured:", error);
+        }
+      }
+    );
   }
 
   createAutoriaOptions(){

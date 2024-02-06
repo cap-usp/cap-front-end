@@ -34,27 +34,31 @@
                 <div formGroupName="endereco">
                     <div class="form-group">
                         <label for="TipoEndereco">Endereço Tipo</label>
-                        <input type="text" placeholder="Selecione o endereço tipo" formControlName="tipoEndereco"
-                            required />
+                        <select formControlName="tipoEndereco">
+                            <option *ngFor="let option of enderecoTipoOptions" [value]="option">{{ option }}</option>
+                        </select>
                         <span
-                            *ngIf="obraForm.get('tipoEndereco')?.hasError('required') && obraForm.get('tipoEndereco')?.touched">Campo
+                            *ngIf="obraForm.get('endereco')?.get('tipoEndereco')?.hasError('required') && obraForm.get('endereco')?.get('tipoEndereco')?.touched">Campo
                             obrigatório</span>
                     </div>
                     <div class="form-group">
                         <label for="EnderecoTitulo">Endereço Títuto</label>
-                        <input type="text" placeholder="Digite o endereço título" formControlName="enderecoTitulo" />
+                        <select formControlName="enderecoTitulo">
+                            <option [value]="null"> Não especificar </option>
+                            <option *ngFor="let option of enderecoTituloOptions" [value]="option">{{ option }}</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Logradouro">Logradouro</label>
                         <input type="text" placeholder="Digite o logradouro" formControlName="logradouro" required />
                         <span
-                            *ngIf="obraForm.get('tipoEndereco')?.hasError('logradouro') && obraForm.get('logradouro')?.touched">Campo
+                            *ngIf="obraForm.get('endereco')?.get('tipoEndereco')?.hasError('required') && obraForm.get('endereco')?.get('logradouro')?.touched">Campo
                             obrigatório</span>
                     </div>
                     <div class="form-group">
                         <label for="Número">Número</label>
                         <input type="text" placeholder="Digite o número" formControlName="numero" required />
-                        <span *ngIf="obraForm.get('numero')?.hasError('required') && obraForm.get('numero')?.touched">Campo
+                        <span *ngIf="obraForm.get('endereco')?.get('numero')?.hasError('required') && obraForm.get('endereco')?.get('numero')?.touched">Campo
                             obrigatório</span>
                     </div>
                     <div class="form-group">
@@ -64,16 +68,16 @@
                     <div class="form-group">
                         <label for="CEP">CEP</label>
                         <input type="text" placeholder="Digite o CEP" formControlName="cep" required />
-                        <span *ngIf="obraForm.get('cep')?.hasError('required') && obraForm.get('cep')?.touched">Campo
+                        <span *ngIf="obraForm.get('endereco')?.get('cep')?.hasError('required') && obraForm.get('endereco')?.get('cep')?.touched">Campo
                             obrigatório</span>
-                        <span *ngIf="obraForm.get('cep')?.hasError('pattern') && obraForm.get('cep')?.touched">Deve ter
+                        <span *ngIf="obraForm.get('endereco')?.get('cep')?.hasError('pattern') && obraForm.get('endereco')?.get('cep')?.touched">Deve ter
                             formato 00000-000</span>
                     </div>
                     <div class="form-group">
                         <label for="Municipio">Município</label>
                         <input type="text" placeholder="Digite o município" formControlName="municipio" required />
                         <span
-                            *ngIf="obraForm.get('municipio')?.hasError('required') && obraForm.get('municipio')?.touched">Campo
+                            *ngIf="obraForm.get('endereco')?.get('municipio')?.hasError('required') && obraForm.get('endereco')?.get('municipio')?.touched">Campo
                             obrigatório</span>
                     </div>
                 </div>
@@ -154,7 +158,7 @@
                     <label for="Status">Status</label>
                     <select formControlName="status">
                         <option [value]="null"> Não especificar </option>
-                        <option *ngFor="let option of statusOptions" [value]="option.value">{{ option.label }}</option>
+                        <option *ngFor="let option of obraStatusOptions" [value]="option">{{ option }}</option>
                     </select>
                 </div>
                 <div class="form-group">
