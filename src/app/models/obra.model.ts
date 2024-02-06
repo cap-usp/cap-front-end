@@ -1,11 +1,6 @@
 import { FormArray, FormControl } from "@angular/forms";
 
-export interface Obra {
-    id?: number,
-    autoria: number,
-    escritorio: string,
-    nomeOficial: string,
-    nomeAlternativo: string,
+export interface Endereco {
     tipoEndereco: string,
     enderecoTitulo: string,
     logradouro: string,
@@ -13,6 +8,15 @@ export interface Obra {
     complemento: string,
     cep: string,
     municipio: string,
+}
+
+export interface Obra {
+    id?: number,
+    autoria: number,
+    escritorio: string,
+    nomeOficial: string,
+    nomeAlternativo: string,
+    endereco : Endereco,
     anoProjeto: number,
     anoConstrucao: number,
     construtora: number,

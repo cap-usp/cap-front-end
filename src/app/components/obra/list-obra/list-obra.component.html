@@ -13,8 +13,8 @@
             <tr *ngFor="let obra of this.obras">
                 <td> {{obra.autoria}} </td>
                 <td> {{obra.nomeOficial}} </td>
-                <td> {{obra.logradouro}} </td>
-                <td> {{obra.numero}} </td>
+                <td> {{obra.endereco.logradouro}} </td>
+                <td> {{obra.endereco.numero}} </td>
                 <td> {{obra.anoProjeto}} </td>
                 <td class="validateTD">
                     <span *ngIf="obra.validadoProfessora"> Sim </span>
