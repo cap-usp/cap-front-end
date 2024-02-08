@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Construtora } from 'src/app/models/construtora.model';
 import { ConstrutoraService } from 'src/app/services/construtora-service/construtora.service';
@@ -8,12 +8,13 @@ import { ConstrutoraService } from 'src/app/services/construtora-service/constru
   templateUrl: './construtora-list.component.html',
   styleUrls: ['./construtora-list.component.css']
 })
-export class ConstrutoraListComponent implements OnInit, OnDestroy {
+export class ConstrutoraListComponent implements OnInit {
 
   construtorasListWasUpdated$!: Observable<Boolean>;
-  private construtorasListWasUpdatedSubscription!: Subscription;
 
   construtoras : Construtora[] = [];
+
+  @Input() public isAdmin?: Boolean;
 
   constructor(private construtoraService: ConstrutoraService) { 
     this.getAllConstrutoras();
@@ -31,13 +32,6 @@ export class ConstrutoraListComponent implements OnInit, OnDestroy {
     );
 
   }
-
-  ngOnDestroy() {
-    // Unsubscribe to avoid memory leaks
-
-  }
-
-  // Other methods if needed
 
   getAllConstrutoras() {
     this.construtoraService.getAllConstrutoras().subscribe(

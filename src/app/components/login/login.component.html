@@ -6,7 +6,7 @@
         </div>
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-                <label for="Nome">Email</label>
+                <label for="Nome">Login</label>
                 <input type="text" placeholder="Digite o seu usuário" formControlName="login" />
                 <span *ngIf="this.loginForm.get('login')?.touched && this.loginForm.get('login')?.hasError('required')">
                     Campo obrigatório

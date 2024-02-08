@@ -6,8 +6,10 @@
         <tbody>
             <tr *ngFor="let construtora of this.construtoras">
                 <td> {{construtora.nome}} </td>
-                <td> <button (click)="editConstrutora(construtora.id!)"> Editar </button> </td>
-                <td> <button (click)="deleteConstrutora(construtora.id!)"> Deletar </button> </td>
+                <div *ngIf="isAdmin">
+                    <td> <button (click)="editConstrutora(construtora.id!)"> Editar </button> </td>
+                    <td> <button (click)="deleteConstrutora(construtora.id!)"> Deletar </button> </td>
+                </div>
             </tr>
         </tbody>
     </table>

@@ -24,6 +24,10 @@ export class FormListObraComponent implements OnInit, OnDestroy {
     return !!this.usuarioLogado;
   }
 
+  public isAdmin(): boolean {
+    return this.usuarioLogado?.role === '[ROLE_ADMIN]';
+  }
+
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }

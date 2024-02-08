@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   public isAdmin(): boolean {
-    return this.usuarioLogado?.role === "ROLE_ADMIN";
+    return this.usuarioLogado?.role === "[ROLE_ADMIN]";
   }
 
   public sairDoSistema(): void {

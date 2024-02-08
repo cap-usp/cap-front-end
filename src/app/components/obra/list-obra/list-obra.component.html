@@ -6,8 +6,8 @@
             <th> Logradouro </th>
             <th> Numero </th>
             <th> Ano Projeto </th>
-            <th> Validado Professora </th>
-            <th> Validado DPH </th>
+            <th *ngIf="isLoggedIn"> Validado Professora </th>
+            <th *ngIf="isLoggedIn"> Validado DPH </th>
         </thead>
         <tbody>
             <tr *ngFor="let obra of this.obras">
@@ -16,21 +16,26 @@
                 <td> {{obra.endereco.logradouro}} </td>
                 <td> {{obra.endereco.numero}} </td>
                 <td> {{obra.anoProjeto}} </td>
-                <td class="validateTD">
-                    <span *ngIf="obra.validadoProfessora"> Sim </span>
-                    <span *ngIf="!obra.validadoProfessora"> Não </span>
-                    <button *ngIf="!obra.validadoProfessora" (click)="validateProfessora(obra)"> Validar </button>
-                    <button *ngIf="obra.validadoProfessora" (click)="desvalidateProfessora(obra)"> Desvalidar </button>
+                <td *ngIf="isLoggedIn" class="validateTD">
+                    <span> {{obra.validadoProfessora ? 'Sim' : 'Não'}} </span>
+                    <div *ngIf="isAdmin">
+                        <button *ngIf="!obra.validadoProfessora" (click)="validateProfessora(obra)"> Validar </button>
+                        <button *ngIf="obra.validadoProfessora" (click)="desvalidateProfessora(obra)"> Desvalidar
+                        </button>
+                    </div>
                 </td>
-                <td class="validateTD">
-                    <span *ngIf="obra.validadoDPH"> Sim </span>
-                    <span *ngIf="!obra.validadoDPH"> Não </span>
-                    <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
-                    <button *ngIf="obra.validadoDPH" (click)="desvalidateDPH(obra)"> Desvalidar </button>
+                <td *ngIf="isLoggedIn" class="validateTD">
+                    <span> {{obra.validadoDPH ? 'Sim' : 'Não'}} </span>
+                    <div *ngIf="isAdmin">
+                        <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
+                        <button *ngIf="obra.validadoDPH" (click)="desvalidateDPH(obra)"> Desvalidar </button>
+                    </div>
                 </td>
-                <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
-                <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
-                <td> <button routerLink="/obra/{{obra.id!}}"> Visualizar </button> </td>
+                <div *ngIf="isAdmin">
+                    <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
+                    <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
+                </div>
+                <td> <button routerLink="obra/{{obra.id!}}"> Visualizar </button> </td>
             </tr>
         </tbody>
     </table>

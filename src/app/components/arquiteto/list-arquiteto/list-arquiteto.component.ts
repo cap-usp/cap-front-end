@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Arquiteto } from 'src/app/models/arquiteto.model';
 import { ArquitetoService } from 'src/app/services/arquiteto-service/arquiteto.service';
@@ -8,10 +8,11 @@ import { ArquitetoService } from 'src/app/services/arquiteto-service/arquiteto.s
   templateUrl: './list-arquiteto.component.html',
   styleUrls: ['./list-arquiteto.component.css']
 })
-export class ListArquitetoComponent implements OnInit, OnDestroy {
+export class ListArquitetoComponent implements OnInit {
+
+  @Input() public isAdmin?: Boolean;
 
   arquitetosListWasUpdated$!: Observable<Boolean>;
-  private arquitetosListWasUpdatedSubscription!: Subscription;
 
   arquitetos : Arquiteto[] = [];
 
@@ -20,7 +21,6 @@ export class ListArquitetoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
     this.arquitetoService.arquitetosListWasUpdated$.subscribe(
       response => {
         if (response) {
@@ -29,15 +29,7 @@ export class ListArquitetoComponent implements OnInit, OnDestroy {
         }
       }
     );
-
   }
-
-  ngOnDestroy() {
-    // Unsubscribe to avoid memory leaks
-
-  }
-
-  // Other methods if needed
 
   getAllArquitetos() {
     this.arquitetoService.getAllArquitetos().subscribe(
