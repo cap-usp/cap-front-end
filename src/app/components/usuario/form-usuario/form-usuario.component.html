@@ -7,26 +7,26 @@
         <div id="form-body">
             <div id="form-labels">
                 <div class="form-group">
-                    <label for="Nome">Nome</label>
-                    <input type="text" placeholder="Digite o nome" formControlName="nome" required />
+                    <label for="login">Login</label>
+                    <input type="text" placeholder="Digite o Login" formControlName="login" required />
                     <span
-                        *ngIf="this.usuarioForm.get('nome')?.touched && this.usuarioForm.get('nome')?.hasError('required')">
+                        *ngIf="this.usuarioForm.get('login')?.touched && this.usuarioForm.get('login')?.hasError('required')">
                         Campo obrigatório
                     </span>
                 </div>
                 <div class="form-group">
-                    <label for="Senha">Senha</label>
-                    <input type="text" placeholder="Digite a senha" formControlName="senha" required />
+                    <label for="senha">Senha</label>
+                    <input type="password" placeholder="Digite a senha" formControlName="senha" required />
                     <span
                         *ngIf="this.usuarioForm.get('senha')?.touched && this.usuarioForm.get('senha')?.hasError('required')">
                         Campo obrigatório
                     </span>
                 </div>
                 <div class="form-group">
-                    <label for="NUSP">Número USP</label>
-                    <input type="text" placeholder="Digite o número usp" formControlName="nusp" required />
+                    <label for="numeroUsp">Número USP</label>
+                    <input type="text" placeholder="Digite o número usp" formControlName="numeroUsp" required />
                     <span
-                        *ngIf="this.usuarioForm.get('nusp')?.touched && this.usuarioForm.get('nusp')?.hasError('required')">
+                        *ngIf="this.usuarioForm.get('numeroUsp')?.touched && this.usuarioForm.get('numeroUsp')?.hasError('required')">
                         Campo obrigatório
                     </span>
                 </div>
@@ -35,6 +35,17 @@
                     <input type="text" placeholder="Digite o email" formControlName="email" required />
                     <span
                         *ngIf="this.usuarioForm.get('email')?.touched && this.usuarioForm.get('email')?.hasError('required')">
+                        Campo obrigatório
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="autorizacao">Autorização</label>
+                    <select formControlName="autorizacao">
+                        <option value="admin">Administrador</option>
+                        <option value="user">Usuário Comum</option>
+                    </select>
+                    <span
+                        *ngIf="this.usuarioForm.get('autorizacao')?.touched && this.usuarioForm.get('autorizacao')?.hasError('required')">
                         Campo obrigatório
                     </span>
                 </div>

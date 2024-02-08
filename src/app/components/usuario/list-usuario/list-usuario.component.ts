@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Usuario } from 'src/app/models/usuario.model';
+import { Usuario } from 'src/app/models/usuario-leitura.model';
 import { UsuarioService } from 'src/app/services/usuario-service/usuario.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario-service/usuario.service
   styleUrls: ['./list-usuario.component.css']
 })
 
-export class ListUsuarioComponent implements OnInit, OnDestroy {
+export class ListUsuarioComponent implements OnInit {
 
   usuariosListWasUpdated$!: Observable<Boolean>;
   private usuariosListWasUpdatedSubscription!: Subscription;
@@ -33,17 +33,11 @@ export class ListUsuarioComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy() {
-    // Unsubscribe to avoid memory leaks
-
-  }
-
-  // Other methods if needed
-
   getAllUsuarios() {
     this.usuarioService.getAllUsuarios().subscribe(
       {
         next: (response) => {
+          console.log(response);
           this.usuarios = response.content;
         },
         error: (error) => {
@@ -58,7 +52,6 @@ export class ListUsuarioComponent implements OnInit, OnDestroy {
       {
         next : (response) => {
           this.usuarioService.selectUsuarioForEdition(response);
-          console.log(`The usuario with id: ${id} was selected for edition`);
         },
         error: (error) => {
           console.log("An error was found:", error);
@@ -68,7 +61,6 @@ export class ListUsuarioComponent implements OnInit, OnDestroy {
   }
 
   deleteUsuario(id: number){
-    console.log(`The usuario with id: ${id} was selected for deletion`);
     this.usuarioService.deleteUsuario(id).subscribe(
       {
         next: (response) => {

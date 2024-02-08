@@ -17,10 +17,11 @@ export class FormUsuarioComponent implements OnInit {
   ngOnInit() {
       this.usuarioForm = new FormGroup({
         id: new FormControl(null),
-        nome: new FormControl(null, [Validators.required]),
+        login: new FormControl(null, [Validators.required]),
         senha: new FormControl(null, [Validators.required]),
-        nusp: new FormControl(null, [Validators.required]),
-        email: new FormControl(null, [Validators.required])
+        numeroUsp: new FormControl(null, [Validators.required]),
+        email: new FormControl(null, [Validators.required, Validators.email]),
+        autorizacao: new FormControl(null, [Validators.required]),
     });
 
     this.usuarioService.selectedForEditionUsuario$.subscribe(
