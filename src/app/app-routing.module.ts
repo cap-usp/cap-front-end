@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'obra/:id', component: ObraIndividualComponent},
   { path: 'usuario', component: FormListUsuarioComponent},
   { path: 'login', component: LoginComponent},
+  { path: '**', component: FormListObraComponent},
 ];
 
 @NgModule({
