@@ -1,13 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Usuario } from 'src/app/models/usuario.model';
+import { UsuarioCadastro } from 'src/app/models/usuario-cadastro';
+import { Usuario } from 'src/app/models/usuario-leitura.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
+
+  private urlCadastro = `${environment.api}/auth/cadastro`
+
   private url = `${environment.api}/usuarios`;
 
   // Observable responsible to report changes in the content of the api
@@ -35,8 +39,8 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.url}/${id}`);
   }
 
-  registerUsuario(usuario: Usuario) {
-    return this.httpClient.post<Usuario>(this.url, usuario);
+  registerUsuario(usuario: UsuarioCadastro) {
+    return this.httpClient.post(this.urlCadastro, usuario);
   }
 
   deleteUsuario(id: number) {
