@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit{
   }
 
   public sairDoSistema(): void {
-    console.log("tá aqui")
     this.authService.logout();
   }
   
