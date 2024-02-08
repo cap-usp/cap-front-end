@@ -1,4 +1,6 @@
 export interface LoginResponseInterface {
-    role: string[],
-    token: string
+    id: number,
+    login: string,
+    token: string,
+    role: string
 }
