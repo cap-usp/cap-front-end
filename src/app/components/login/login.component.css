@@ -12,3 +12,7 @@
 #FormsContainer {
     width: 33%;
 }
+
+.form-group:last-of-type {
+    margin-bottom: 16px;
+}
