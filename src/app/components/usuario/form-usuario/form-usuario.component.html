@@ -37,6 +37,10 @@
                         *ngIf="this.usuarioForm.get('email')?.touched && this.usuarioForm.get('email')?.hasError('required')">
                         Campo obrigatório
                     </span>
+                    <span
+                        *ngIf="this.usuarioForm.get('email')?.touched && this.usuarioForm.get('email')?.hasError('email')">
+                        Formato de email inválido
+                    </span>
                 </div>
                 <div class="form-group">
                     <label for="autorizacao">Autorização</label>
