@@ -8,10 +8,12 @@
         <tbody>
             <tr *ngFor="let arquiteto of this.arquitetos">
                 <td> {{arquiteto.nome}} </td>
-                <td> {{arquiteto.nomeMeio}} </td>
+                <td> {{arquiteto.nomeMeio || '-----------------------'}} </td>
                 <td> {{arquiteto.sobrenome}} </td>
-                <td> <button (click)="editArquiteto(arquiteto.id!)"> Editar </button> </td>
-                <td> <button (click)="deleteArquiteto(arquiteto.id!)"> Deletar </button> </td>
+                <div *ngIf="isAdmin">
+                    <td> <button (click)="editArquiteto(arquiteto.id!)"> Editar </button> </td>
+                    <td> <button (click)="deleteArquiteto(arquiteto.id!)"> Deletar </button> </td>
+                </div>
             </tr>
         </tbody>
     </table>

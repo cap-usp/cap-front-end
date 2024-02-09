@@ -2,15 +2,13 @@
     <table *ngIf="this.usuarios.length > 0">
         <thead>
             <th> Nome </th>
-            <th> Senha </th>
             <th> NUSP </th>
             <th> Email </th>
         </thead>
         <tbody>
             <tr *ngFor="let usuario of this.usuarios">
-                <td> {{usuario.nome}} </td>
-                <td> {{usuario.senha}} </td>
-                <td> {{usuario.nusp}} </td>
+                <td> {{usuario.login}} </td>
+                <td> {{usuario.numeroUsp}} </td>
                 <td> {{usuario.email}} </td>
                 <td> <button (click)="editUsuario(usuario.id!)"> Editar </button> </td>
                 <td> <button (click)="deleteUsuario(usuario.id!)"> Deletar </button> </td>

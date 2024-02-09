@@ -1,7 +1,7 @@
 <header>
     <div class="header-wrapper">
         <div id="logo-projeto">
-            <a routerLink=""><img src="/assets/images/logo_colorida.svg" id="logo-fau"></a>
+            <a routerLink=""><img src="/assets/images/minusculo_colorido.svg" id="logo-fau"></a>
         </div>
         <div id="links-forms">
             <ul>
@@ -18,10 +18,10 @@
                     <li *ngIf="isAdmin()">USUARIO</li>
                 </a>
                 <a routerLink="/login">
-                    <li *ngIf="this.roles.length === 0">ENTRAR</li>
+                    <li *ngIf="!this.isLoggedIn()">ENTRAR</li>
                 </a>
                 <button (click)="sairDoSistema()">
-                    <li *ngIf="this.roles.length > 0">SAIR</li>
+                    <li *ngIf="this.isLoggedIn()">SAIR</li>
                 </button>
             </ul>
         </div>

@@ -27,6 +27,18 @@ export class ObraService {
     this.obrasListWasUpdatedSubject.next(false);
   }
 
+  getObraStatusEnum() {
+    return this.httpClient.get<string[]>(`${this.url}/enums/obraStatus`);
+  }
+
+  getEnderecoTipoEnum() {
+    return this.httpClient.get<string[]>(`${this.url}/enums/enderecoTipo`);
+  }
+
+  getEnderecoTituloEnum() {
+    return this.httpClient.get<string[]>(`${this.url}/enums/enderecoTitulo`);
+  }
+
   getAllObras() {
     return this.httpClient.get<{'content': Obra[]}>(`${this.url}`);
   }

@@ -24,6 +24,13 @@ export class FormsObraComponent implements OnInit {
     {value: "reformado", label:"Reformado"},
     {value: "restaurado", label:"Restaurado"},
   ];
+
+  obraStatusOptions : string[] = [];
+
+  enderecoTipoOptions : string[] = [];
+
+  enderecoTituloOptions : string[] = [];
+
   validadoOptions = [
     {value: true, label: "Sim"},
     {value: false, label: "Não"},
@@ -31,6 +38,9 @@ export class FormsObraComponent implements OnInit {
   constructor(private obraService: ObraService, private arquitetoService: ArquitetoService, private construtoraService: ConstrutoraService){
     this.createAutoriaOptions();
     this.createConstrutoraOptions();
+    this.createObraStatusOptions();
+    this.createEnderecoTipoOptions();
+    this.createEnderecoTituloOptions();
   }
 
   ngOnInit() {
@@ -62,41 +72,47 @@ export class FormsObraComponent implements OnInit {
   }
 
   createObraFormInstance() : FormGroup {
-    return new FormGroup({
-      id: new FormControl(null),
-      autoria: new FormControl(null, [Validators.required]),
-      escritorio: new FormControl(null),
-      nomeOficial: new FormControl(null, [Validators.required]),
-      nomeAlternativo: new FormControl(null),
-      tipoEndereco: new FormControl(null, [Validators.required]),
-      enderecoTitulo: new FormControl(null),
-      logradouro: new FormControl(null, [Validators.required]),
-      numero: new FormControl(null, [Validators.required]),
-      complemento: new FormControl(null),
-      cep: new FormControl(null, [Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)]),
-      municipio: new FormControl(null, [Validators.required]),
-      anoProjeto: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      anoConstrucao: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      construtora: new FormControl(null),
-      condephaat: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      conpresp: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      iphan: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      usoOriginal: new FormControl(null, [Validators.required]),
-      codigoOriginal: new FormControl(null, [Validators.required]),
-      usoAtual: new FormControl(null),
-      codigoAtual: new FormControl(null),
-      dataUsoAtual: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      status: new FormControl(null),
-      anoDemolicao: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      anoRestauro: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      anoReforma: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
-      arquitetoReforma: new FormControl(null),
-      latitude: new FormControl(null, [Validators.required]),
-      longitude: new FormControl(null, [Validators.required]),
-      referencias: new FormArray([new FormControl(null, [Validators.required])]),
-      validadoProfessora: new FormControl(false),
-      validadoDPH: new FormControl(false),     
-    });
+    return new FormGroup(
+        {
+        id: new FormControl(null),
+        autoria: new FormControl(null, [Validators.required]),
+        escritorio: new FormControl(null),
+        nomeOficial: new FormControl(null, [Validators.required]),
+        nomeAlternativo: new FormControl(null),
+        endereco : new FormGroup(
+          {
+            tipoEndereco: new FormControl(null, [Validators.required]),
+            enderecoTitulo: new FormControl(null),
+            logradouro: new FormControl(null, [Validators.required]),
+            numero: new FormControl(null, [Validators.required]),
+            complemento: new FormControl(null),
+            cep: new FormControl(null, [Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)]),
+            municipio: new FormControl(null, [Validators.required]),
+          }
+        ),
+        anoProjeto: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        anoConstrucao: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        construtora: new FormControl(null),
+        condephaat: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        conpresp: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        iphan: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        usoOriginal: new FormControl(null, [Validators.required]),
+        codigoOriginal: new FormControl(null, [Validators.required]),
+        usoAtual: new FormControl(null),
+        codigoAtual: new FormControl(null),
+        dataUsoAtual: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        status: new FormControl(null),
+        anoDemolicao: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        anoRestauro: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        anoReforma: new FormControl(null, [this.nullOrPattern(/^[0-9]{4}$/)]),
+        arquitetoReforma: new FormControl(null),
+        latitude: new FormControl(null, [Validators.required]),
+        longitude: new FormControl(null, [Validators.required]),
+        referencias: new FormArray([new FormControl(null, [Validators.required])]),
+        validadoProfessora: new FormControl(false),
+        validadoDPH: new FormControl(false),     
+      }
+    );
   }
 
   get referenciaFormArray() : FormArray {
@@ -117,6 +133,45 @@ export class FormsObraComponent implements OnInit {
 
   deletReferenciaFormInFormArray(index : number){
     (this.obraForm.get('referencias') as FormArray).removeAt(index);
+  }
+
+  createObraStatusOptions() {
+    this.obraService.getObraStatusEnum().subscribe(
+      {
+        next : (response) => {
+          this.obraStatusOptions = response;
+        },
+        error : (error) => {
+          console.log("An error occured:", error);
+        }
+      }
+    );
+  }
+
+  createEnderecoTipoOptions() {
+    this.obraService.getEnderecoTipoEnum().subscribe(
+      {
+        next : (response) => {
+          this.enderecoTipoOptions = response;
+        },
+        error : (error) => {
+          console.log("An error occured:", error);
+        }
+      }
+    );
+  }
+
+  createEnderecoTituloOptions() {
+    this.obraService.getEnderecoTituloEnum().subscribe(
+      {
+        next : (response) => {
+          this.enderecoTituloOptions = response;
+        },
+        error : (error) => {
+          console.log("An error occured:", error);
+        }
+      }
+    );
   }
 
   createAutoriaOptions(){

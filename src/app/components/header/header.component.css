@@ -54,6 +54,7 @@ header {
 }
 
 .header-wrapper {
-    width: 85%;
+    width: 80%;
     margin: auto;
+    padding-top: 30px;
 }

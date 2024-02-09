@@ -25,7 +25,7 @@ import { FormUsuarioComponent } from './components/usuario/form-usuario/form-usu
 import { ListUsuarioComponent } from './components/usuario/list-usuario/list-usuario.component';
 import { FormListUsuarioComponent } from './components/usuario/form-list-usuario/form-list-usuario.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthInterceptor } from './services/auth.interceptor';
+import { AuthInterceptor } from './services/auth-service/auth.interceptor';
 import { ObraIndividualComponent } from './components/obra/obra-individual/obra-individual.component';
 import { ListagemIndisponivelComponent } from './components/listagem-indisponivel/listagem-indisponivel.component';
 

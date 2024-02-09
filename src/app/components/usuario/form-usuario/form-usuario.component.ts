@@ -17,16 +17,22 @@ export class FormUsuarioComponent implements OnInit {
   ngOnInit() {
       this.usuarioForm = new FormGroup({
         id: new FormControl(null),
-        nome: new FormControl(null, [Validators.required]),
+        login: new FormControl(null, [Validators.required]),
         senha: new FormControl(null, [Validators.required]),
-        nusp: new FormControl(null, [Validators.required]),
-        email: new FormControl(null, [Validators.required])
+        numeroUsp: new FormControl(null, [Validators.required]),
+        email: new FormControl(null, [Validators.required, Validators.email]),
+        autorizacao: new FormControl(null, [Validators.required]),
     });
 
     this.usuarioService.selectedForEditionUsuario$.subscribe(
       usuario => {
         if(usuario){
-          this.usuarioForm.setValue(usuario);
+          this.usuarioForm.patchValue({
+            id: usuario.id,
+            login: usuario.login,
+            numeroUsp: usuario.numeroUsp,
+            email: usuario.email
+          });
         }
       }
     );
@@ -35,7 +41,7 @@ export class FormUsuarioComponent implements OnInit {
   registerUsuario(){
     if (this.usuarioForm.valid) {
       if(this.usuarioForm.value['id'] !== null){
-        this.usuarioService.editUsuario(this.usuarioForm.value).subscribe(
+        this.usuarioService.editUsuario({...this.usuarioForm.value, autorizacao: this.usuarioForm.get('autorizacao')?.value}).subscribe(
           {
             next: (response) => {
               this.usuarioService.setTrueUsuariosListWasUpdated();

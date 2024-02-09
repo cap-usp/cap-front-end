@@ -1,6 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Obra } from 'src/app/models/obra.model';
+import { UsuarioLogado } from 'src/app/models/usuario-logado';
+import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { ObraService } from 'src/app/services/obra-service/obra-service.service';
 
 @Component({
@@ -8,18 +10,23 @@ import { ObraService } from 'src/app/services/obra-service/obra-service.service'
   templateUrl: './list-obra.component.html',
   styleUrls: ['./list-obra.component.css']
 })
-export class ListObraComponent implements OnInit, OnDestroy {
+export class ListObraComponent implements OnInit {
 
   obrasListWasUpdated$!: Observable<Boolean>;
-  private obrasListWasUpdatedSubscription!: Subscription;
-
+  
   obras : Obra[] = [];
 
-  constructor(private obraService: ObraService) { 
+  @Input() public isAdmin?: Boolean; 
+
+  public isLoggedIn?: Boolean;
+
+  constructor(private obraService: ObraService, private auth: AuthService) { 
     this.getAllObras();
   }
 
   ngOnInit() {
+
+    this.auth.usuarioLogado.subscribe(usuarioLogado => this.isLoggedIn = !!usuarioLogado);
 
     this.obraService.obrasListWasUpdated$.subscribe(
       response => {

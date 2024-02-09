@@ -17,7 +17,7 @@ export class FormsArquitetoComponent implements OnInit {
     this.arquitetoForm = new FormGroup({
       id: new FormControl(null),
       nome: new FormControl(null, [Validators.required]),
-      nomeMeio: new FormControl(null, [Validators.required]),
+      nomeMeio: new FormControl(null),
       sobrenome: new FormControl(null, [Validators.required]),
     });
 
