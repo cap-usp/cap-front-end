@@ -27,7 +27,12 @@ export class FormUsuarioComponent implements OnInit {
     this.usuarioService.selectedForEditionUsuario$.subscribe(
       usuario => {
         if(usuario){
-          this.usuarioForm.setValue(usuario);
+          this.usuarioForm.patchValue({
+            id: usuario.id,
+            login: usuario.login,
+            numeroUsp: usuario.numeroUsp,
+            email: usuario.email
+          });
         }
       }
     );
@@ -36,7 +41,7 @@ export class FormUsuarioComponent implements OnInit {
   registerUsuario(){
     if (this.usuarioForm.valid) {
       if(this.usuarioForm.value['id'] !== null){
-        this.usuarioService.editUsuario(this.usuarioForm.value).subscribe(
+        this.usuarioService.editUsuario({...this.usuarioForm.value, autorizacao: this.usuarioForm.get('autorizacao')?.value}).subscribe(
           {
             next: (response) => {
               this.usuarioService.setTrueUsuariosListWasUpdated();

@@ -37,7 +37,6 @@ export class ListUsuarioComponent implements OnInit {
     this.usuarioService.getAllUsuarios().subscribe(
       {
         next: (response) => {
-          console.log(response);
           this.usuarios = response.content;
         },
         error: (error) => {

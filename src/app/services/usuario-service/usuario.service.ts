@@ -47,7 +47,7 @@ export class UsuarioService {
     return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
 
-  editUsuario(usuario: Usuario) {
+  editUsuario(usuario: any) {
     return this.httpClient.put<Usuario>(`${this.url}/${usuario.id}`, usuario);
   }
 
