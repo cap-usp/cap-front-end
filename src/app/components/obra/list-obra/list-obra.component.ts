@@ -1,7 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Obra } from 'src/app/models/obra.model';
-import { UsuarioLogado } from 'src/app/models/usuario-logado';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ObraLista } from 'src/app/models/obra.model';
 import { AuthService } from 'src/app/services/auth-service/auth.service';
 import { ObraService } from 'src/app/services/obra-service/obra-service.service';
 
@@ -14,7 +13,7 @@ export class ListObraComponent implements OnInit {
 
   obrasListWasUpdated$!: Observable<Boolean>;
   
-  obras : Obra[] = [];
+  obras : ObraLista[] = [];
 
   @Input() public isAdmin?: Boolean; 
 
@@ -25,7 +24,6 @@ export class ListObraComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.auth.usuarioLogado.subscribe(usuarioLogado => this.isLoggedIn = !!usuarioLogado);
 
     this.obraService.obrasListWasUpdated$.subscribe(
@@ -36,15 +34,7 @@ export class ListObraComponent implements OnInit {
         }
       }
     );
-
   }
-
-  ngOnDestroy() {
-    // Unsubscribe to avoid memory leaks
-
-  }
-
-  // Other methods if needed
 
   getAllObras() {
     this.obraService.getAllObras().subscribe(
@@ -59,68 +49,12 @@ export class ListObraComponent implements OnInit {
     );
   }
 
-  validateProfessora(obra : Obra){
-    obra.validadoProfessora = true;
-    this.obraService.editObra(obra).subscribe(
-      {
-        next : (response) => {
-          if(response){
-            this.obraService.setTrueObrasListWasUpdated();
-          }
-        },
-        error : (error) => {
-          console.log("An error was found:", error);
-        }
-      }
-    );
+  toggleValidateProfessora(id: number){
+    this.obraService.toggleValidateProfessora(id).subscribe();
   }
 
-  desvalidateProfessora(obra : Obra){
-    obra.validadoProfessora = false;
-    this.obraService.editObra(obra).subscribe(
-      {
-        next : (response) => {
-          if(response){
-            this.obraService.setTrueObrasListWasUpdated();
-          }
-        },
-        error : (error) => {
-          console.log("An error was found:", error);
-        }
-      }
-    );
-  }
-
-  validateDPH(obra : Obra){
-    obra.validadoDPH = true;
-    this.obraService.editObra(obra).subscribe(
-      {
-        next : (response) => {
-          if(response){
-            this.obraService.setTrueObrasListWasUpdated();
-          }
-        },
-        error : (error) => {
-          console.log("An error was found:", error);
-        }
-      }
-    );
-  }
-
-  desvalidateDPH(obra : Obra){
-    obra.validadoDPH = false;
-    this.obraService.editObra(obra).subscribe(
-      {
-        next : (response) => {
-          if(response){
-            this.obraService.setTrueObrasListWasUpdated();
-          }
-        },
-        error : (error) => {
-          console.log("An error was found:", error);
-        }
-      }
-    );
+  toggleDph(id: number){
+    this.obraService.toggleValidateDph(id).subscribe();
   }
 
   editObra(id: number) {

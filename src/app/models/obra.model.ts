@@ -1,7 +1,5 @@
-import { FormArray, FormControl } from "@angular/forms";
-
 export interface Endereco {
-    tipoEndereco: string,
+    enderecoTipo: string,
     enderecoTitulo: string,
     logradouro: string,
     numero: number,
@@ -10,16 +8,24 @@ export interface Endereco {
     municipio: string,
 }
 
-export interface Obra {
-    id?: number,
-    autoria: number,
-    escritorio: string,
+export interface ObraLista {
+    id: number,
     nomeOficial: string,
-    nomeAlternativo: string,
-    endereco : Endereco,
+    arquitetosNomes: string[],
+    usoOriginal: string,
+    municipio: string,
+    validadoProfessora: boolean,
+    validadoDph: boolean
+}
+
+export interface ObraIndividual {
+    id: number,
+    latitude: string,
+    longitude: string,
+    nomeOficial: string,
+    arquitetosNomes: string[],
     anoProjeto: number,
     anoConstrucao: number,
-    construtora: number,
     condephaat: number,
     conpresp: number,
     iphan: number,
@@ -27,15 +33,16 @@ export interface Obra {
     codigoOriginal: string,
     usoAtual: string,
     codigoAtual: string,
+    statusObra: string,
+    escritorio: string,
+    nomeAlternativo: string,
+    construtoraObra: string,
     dataUsoAtual: number,
-    status: string,
     anoDemolicao: number,
     anoRestauro: number,
-    anoReforma: number,
-    arquitetoReforma: number,
-    latitude: number,
-    longitude: number,
-    referencias: string[],
+    arquitetoReformaNome: string[],
+    referenciasObra: string[],
+    enderecoObra: Endereco,
     validadoProfessora: boolean,
-    validadoDPH: boolean  
+    validadoDph: boolean
 }

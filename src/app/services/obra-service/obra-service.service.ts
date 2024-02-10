@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { Obra } from 'src/app/models/obra.model';
+import { BehaviorSubject } from 'rxjs';
+import { ObraLista, ObraIndividual } from 'src/app/models/obra.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ObraService {
   obrasListWasUpdated$  = this.obrasListWasUpdatedSubject.asObservable();
 
   // Observable responsible to report the edition of a construtora
-  private selectedForEditionObraSubject = new BehaviorSubject<Obra | null>(null);
+  private selectedForEditionObraSubject = new BehaviorSubject<ObraIndividual | null>(null);
   selectedForEditionObra$ = this.selectedForEditionObraSubject.asObservable();
 
   constructor(private httpClient: HttpClient) { }
@@ -40,30 +40,38 @@ export class ObraService {
   }
 
   getAllObras() {
-    return this.httpClient.get<{'content': Obra[]}>(`${this.url}`);
+    return this.httpClient.get<{'content': ObraLista[]}>(`${this.url}`);
   }
 
   getObraById(id: number) {
-    return this.httpClient.get<Obra>(`${this.url}/${id}`);
+    return this.httpClient.get<ObraIndividual>(`${this.url}/${id}`);
   }
 
-  registerObra(obra: Obra) {
-    return this.httpClient.post<Obra>(this.url, obra);
+  registerObra(obra: ObraIndividual) {
+    return this.httpClient.post<ObraIndividual>(this.url, obra);
   }
 
   deleteObra(id: number) {
     return this.httpClient.delete<void>(`${this.url}/${id}`);
   }
 
-  editObra(obra: Obra) {
-    return this.httpClient.put<Obra>(`${this.url}/${obra.id}`, obra);
+  editObra(obra: ObraIndividual) {
+    return this.httpClient.put<ObraIndividual>(`${this.url}/${obra.id}`, obra);
   }
 
-  selectObraForEdition(obra: Obra){
+  selectObraForEdition(obra: ObraIndividual){
     this.selectedForEditionObraSubject.next(obra);
   }
 
   clearSelectedObraForEdition() {
     this.selectedForEditionObraSubject.next(null);
+  }
+
+  toggleValidateProfessora(id: number) {
+    return this.httpClient.put(`${this.url}/validateProfessora/${id}`, null);
+  }
+
+  toggleValidateDph(id: number) {
+    return this.httpClient.put(`${this.url}/validateDPH/${id}`, null);
   }
 }

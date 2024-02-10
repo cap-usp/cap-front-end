@@ -1,34 +1,31 @@
 <div id="list-container">
     <table *ngIf="this.obras.length > 0">
         <thead>
-            <th> Autoria </th>
             <th> Nome Oficial </th>
-            <th> Logradouro </th>
-            <th> Numero </th>
-            <th> Ano Projeto </th>
+            <th> Arquitetos </th>
+            <th> Uso Original </th>
+            <th> Municipio </th>
             <th *ngIf="isLoggedIn"> Validado Professora </th>
             <th *ngIf="isLoggedIn"> Validado DPH </th>
         </thead>
         <tbody>
             <tr *ngFor="let obra of this.obras">
-                <td> {{obra.autoria}} </td>
                 <td> {{obra.nomeOficial}} </td>
-                <td> {{obra.endereco.logradouro}} </td>
-                <td> {{obra.endereco.numero}} </td>
-                <td> {{obra.anoProjeto}} </td>
+                <td> {{obra.arquitetosNomes.join(', ')}} </td>
+                <td> {{obra.usoOriginal}} </td>
+                <td> {{obra.municipio}} </td>
                 <td *ngIf="isLoggedIn" class="validateTD">
                     <span> {{obra.validadoProfessora ? 'Sim' : 'Não'}} </span>
                     <div *ngIf="isAdmin">
-                        <button *ngIf="!obra.validadoProfessora" (click)="validateProfessora(obra)"> Validar </button>
-                        <button *ngIf="obra.validadoProfessora" (click)="desvalidateProfessora(obra)"> Desvalidar
+                        <button (click)="toggleDph(obra.id)"> {{obra.validadoProfessora
+                            ? 'Validar' : 'Desvalidar'}}
                         </button>
                     </div>
                 </td>
                 <td *ngIf="isLoggedIn" class="validateTD">
-                    <span> {{obra.validadoDPH ? 'Sim' : 'Não'}} </span>
+                    <span> {{obra.validadoDph ? 'Sim' : 'Não'}} </span>
                     <div *ngIf="isAdmin">
-                        <button *ngIf="!obra.validadoDPH" (click)="validateDPH(obra)"> Validar </button>
-                        <button *ngIf="obra.validadoDPH" (click)="desvalidateDPH(obra)"> Desvalidar </button>
+                        <button (click)="toggleDph(obra.id)"> {{obra.validadoDph ? 'Validar' : 'Desvalidar'}} </button>
                     </div>
                 </td>
                 <div *ngIf="isAdmin">

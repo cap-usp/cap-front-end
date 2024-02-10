@@ -50,7 +50,7 @@ export class FormsObraComponent implements OnInit {
       obra => {
         if(obra) {
           this.obraForm = this.createObraFormInstance();
-          for(let i = 1; i < obra.referencias.length; i++){
+          for(let i = 1; i < obra.referenciasObra.length; i++){
             this.addReferenciaInFormArray();
           }
           this.obraForm.setValue(obra);

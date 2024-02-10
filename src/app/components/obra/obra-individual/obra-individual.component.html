@@ -6,168 +6,168 @@
         <div class="obra-details">
             <ul id="obra-list">
                 <li>
-                    <strong>Autoria:</strong> 
+                    <strong>Autoria:</strong>
                     <span>{{ arquitetoSelected }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Escritório:</strong>
                     <span>{{ obraSelected?.escritorio }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Nome Oficial:</strong>
                     <span>{{ obraSelected?.nomeOficial }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
-                    <strong>Nome Alternativo:</strong> 
+                    <strong>Nome Alternativo:</strong>
                     <span>{{ obraSelected?.nomeAlternativo }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Tipo Endereço:</strong>
-                    <span>{{ obraSelected?.endereco?.tipoEndereco }}</span>
+                    <span>{{ obraSelected?.enderecoObra?.enderecoTipo }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Endereço Título:</strong>
-                    <span>{{ obraSelected?.endereco?.enderecoTitulo }}</span>
+                    <span>{{ obraSelected?.enderecoObra?.enderecoTitulo }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
-                    <strong>Logradouro:</strong> 
-                    <span>{{ obraSelected?.endereco?.logradouro }}</span>
+                    <strong>Logradouro:</strong>
+                    <span>{{ obraSelected?.enderecoObra?.logradouro }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Número:</strong>
-                    <span>{{ obraSelected?.endereco?.numero }}</span>
+                    <span>{{ obraSelected?.enderecoObra?.numero }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Complemento:</strong>
-                    <span>{{ obraSelected?.endereco?.complemento }}</span>
+                    <span>{{ obraSelected?.enderecoObra?.complemento }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>CEP:</strong>
-                    <span>{{ obraSelected?.endereco?.cep }}</span>
+                    <span>{{ obraSelected?.enderecoObra?.cep }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Município:</strong>
-                    <span>{{ obraSelected?.endereco?.municipio }}</span>
+                    <span>{{ obraSelected?.enderecoObra?.municipio }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Ano Projeto:</strong>
                     <span>{{ obraSelected?.anoProjeto }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Ano Construção:</strong>
                     <span>{{ obraSelected?.anoConstrucao }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Construtora:</strong>
-                    <span>{{ obraSelected?.construtora }}</span>
+                    <span>{{ obraSelected?.construtoraObra }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>CONDEPHAAT:</strong>
                     <span>{{ obraSelected?.condephaat }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>CONPRESP:</strong>
                     <span>{{ obraSelected?.conpresp }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>IPHAN:</strong>
                     <span>{{ obraSelected?.iphan }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Uso Original:</strong>
                     <span>{{ obraSelected?.usoOriginal }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Código Original:</strong>
                     <span>{{ obraSelected?.codigoOriginal }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Uso Atual:</strong>
                     <span>{{ obraSelected?.usoAtual }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Código Atual:</strong>
                     <span>{{ obraSelected?.codigoAtual }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Data Uso Atual:</strong>
                     <span>{{ obraSelected?.dataUsoAtual }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Status:</strong>
-                    <span>{{ obraSelected?.status }}</span>
+                    <span>{{ obraSelected?.statusObra }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Ano Demolição:</strong>
                     <span>{{ obraSelected?.anoDemolicao }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Ano Restauro:</strong>
                     <span>{{ obraSelected?.anoRestauro }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Ano Reforma:</strong>
-                    <span>{{ obraSelected?.anoReforma }}</span>
+                    <span>{{ obraSelected?.anoRestauro }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Arquiteto Reforma:</strong>
-                    <span>{{ obraSelected?.arquitetoReforma }}</span>
+                    <span>{{ obraSelected?.arquitetoReformaNome }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Latitude:</strong>
                     <span>{{ obraSelected?.latitude }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Longitude:</strong>
                     <span>{{ obraSelected?.longitude }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Referência: </strong>
                     <ul id="referencia-list">
-                        <li *ngFor="let referencia of obraSelected?.referencias">
+                        <li *ngFor="let referencia of obraSelected?.referenciasObra">
                             <span>{{ referencia }}</span>
-                            <hr/>
+                            <hr />
                         </li>
                     </ul>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Validado Professora:</strong>
                     <span>{{ obraSelected?.validadoProfessora }}</span>
                 </li>
-                <hr/>
+                <hr />
                 <li>
                     <strong>Validado DPH:</strong>
-                    <span>{{ obraSelected?.validadoDPH }}</span>
+                    <span>{{ obraSelected?.validadoDph }}</span>
                 </li>
             </ul>
         </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Obra } from 'src/app/models/obra.model';
+import { ObraIndividual } from 'src/app/models/obra.model';
 import { ArquitetoService } from 'src/app/services/arquiteto-service/arquiteto.service';
 import { ObraService } from 'src/app/services/obra-service/obra-service.service';
 
@@ -12,7 +12,7 @@ import { ObraService } from 'src/app/services/obra-service/obra-service.service'
 export class ObraIndividualComponent implements OnInit{
 
   idObra : number = 1;
-  obraSelected : Obra | null = null;
+  obraSelected : ObraIndividual | null = null;
   arquitetoSelected: string | null = null; 
 
   constructor(private _activatedRoute : ActivatedRoute, private obraService : ObraService, private arquitetoService : ArquitetoService){
