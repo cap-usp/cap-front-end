@@ -49,12 +49,12 @@ export class ListObraComponent implements OnInit {
     );
   }
 
-  toggleValidateProfessora(id: number){
-    this.obraService.toggleValidateProfessora(id).subscribe();
+  toggleValidateProfessora(obra: ObraLista){
+    this.obraService.toggleValidateProfessora(obra.id, obra.validadoProfessora).subscribe();
   }
 
-  toggleDph(id: number){
-    this.obraService.toggleValidateDph(id).subscribe();
+  toggleValidateDph(obra: ObraLista){
+    this.obraService.toggleValidateDph(obra.id, obra.validadoDph).subscribe();
   }
 
   editObra(id: number) {

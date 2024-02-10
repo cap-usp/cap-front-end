@@ -17,15 +17,16 @@
                 <td *ngIf="isLoggedIn" class="validateTD">
                     <span> {{obra.validadoProfessora ? 'Sim' : 'Não'}} </span>
                     <div *ngIf="isAdmin">
-                        <button (click)="toggleDph(obra.id)"> {{obra.validadoProfessora
-                            ? 'Validar' : 'Desvalidar'}}
+                        <button (click)="toggleValidateProfessora(obra)"> {{obra.validadoProfessora
+                            ? 'Desvalidar' : 'Validar'}}
                         </button>
                     </div>
                 </td>
                 <td *ngIf="isLoggedIn" class="validateTD">
                     <span> {{obra.validadoDph ? 'Sim' : 'Não'}} </span>
                     <div *ngIf="isAdmin">
-                        <button (click)="toggleDph(obra.id)"> {{obra.validadoDph ? 'Validar' : 'Desvalidar'}} </button>
+                        <button (click)="toggleValidateDph(obra)"> {{obra.validadoDph ? 'Desvalidar' : 'validar'}}
+                        </button>
                     </div>
                 </td>
                 <div *ngIf="isAdmin">

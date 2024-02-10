@@ -67,11 +67,11 @@ export class ObraService {
     this.selectedForEditionObraSubject.next(null);
   }
 
-  toggleValidateProfessora(id: number) {
-    return this.httpClient.put(`${this.url}/validateProfessora/${id}`, null);
+  toggleValidateProfessora(id: number, validadoProfessora: boolean) {
+    return this.httpClient.put(`${this.url}/${id}`, {validadoProfessora: !validadoProfessora});
   }
 
-  toggleValidateDph(id: number) {
-    return this.httpClient.put(`${this.url}/validateDPH/${id}`, null);
+  toggleValidateDph(id: number, validadoDph: boolean) {
+    return this.httpClient.put(`${this.url}/${id}`, {validadoDph: !validadoDph});
   }
 }
