@@ -16,23 +16,18 @@
                 <td> {{obra.municipio}} </td>
                 <td *ngIf="isLoggedIn" class="validateTD">
                     <span> {{obra.validadoProfessora ? 'Sim' : 'Não'}} </span>
-                    <div *ngIf="isAdmin">
-                        <button (click)="toggleValidateProfessora(obra)"> {{obra.validadoProfessora
-                            ? 'Desvalidar' : 'Validar'}}
-                        </button>
-                    </div>
+                    <button *ngIf="isAdmin" (click)="toggleValidateProfessora(obra)"> {{obra.validadoProfessora
+                        ? 'Desvalidar' : 'Validar'}}
+                    </button>
                 </td>
                 <td *ngIf="isLoggedIn" class="validateTD">
                     <span> {{obra.validadoDph ? 'Sim' : 'Não'}} </span>
-                    <div *ngIf="isAdmin">
-                        <button (click)="toggleValidateDph(obra)"> {{obra.validadoDph ? 'Desvalidar' : 'validar'}}
-                        </button>
-                    </div>
+                    <button *ngIf="isAdmin" (click)="toggleValidateDph(obra)"> {{obra.validadoDph ? 'Desvalidar' :
+                        'Validar'}}
+                    </button>
                 </td>
-                <div *ngIf="isAdmin">
-                    <td> <button (click)="editObra(obra.id!)"> Editar </button> </td>
-                    <td> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
-                </div>
+                <td *ngIf="isAdmin"> <button (click)="editObra(obra.id!)"> Editar </button> </td>
+                <td *ngIf="isAdmin"> <button (click)="deleteObra(obra.id!)"> Deletar </button> </td>
                 <td> <button routerLink="obra/{{obra.id!}}"> Visualizar </button> </td>
             </tr>
         </tbody>
